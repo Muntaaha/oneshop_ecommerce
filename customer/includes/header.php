@@ -8,7 +8,16 @@ include("functions/functions.php");
 ?>
 
 <?php 
-
+if(!isset($_SESSION['customer_email'])){
+	$customer_email = $_SESSION['customer_email'];
+	$get_customers = "select * from customers where customer_email ='$customer_email'";
+    
+    $run_customers = mysqli_query($con,$get_customers);
+    
+    $row_customers = mysqli_fetch_array($run_customers);
+	
+	$customer_name = $row_customers['customer_name'];
+}
 if(isset($_GET['pro_id'])){
     
     $product_id = $_GET['pro_id'];
@@ -73,7 +82,7 @@ if(isset($_GET['pro_id'])){
                        
                    }else{
                        
-                       echo "Welcome: " . $_SESSION['customer_email'] . "";
+                       echo "Welcome: " . $customer_name . "";
                        
                    }
                    

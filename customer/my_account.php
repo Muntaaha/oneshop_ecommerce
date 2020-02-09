@@ -11,6 +11,19 @@ if(!isset($_SESSION['customer_email'])){
 include("includes/db.php");
 include("functions/functions.php");
 
+if(isset($_SESSION['customer_email'])){
+	
+	$customer_email = $_SESSION['customer_email'];
+	$get_customers = "select * from customers where customer_email ='$customer_email'";
+    
+    $run_customers = mysqli_query($con,$get_customers);
+    
+    $row_customers = mysqli_fetch_array($run_customers);
+	
+	$customer_name = $row_customers['customer_name'];
+}
+
+
 ?>
   
 <!DOCTYPE html>
@@ -41,7 +54,7 @@ include("functions/functions.php");
                        
                    }else{
                        
-                       echo "Welcome: " . $_SESSION['customer_email'] . "";
+                       echo "Welcome: " . $customer_name . "";
                        
                    }
                    
@@ -233,14 +246,6 @@ include("functions/functions.php");
                    
                    if (isset($_GET['my_orders'])){
                        include("my_orders.php");
-                   }
-                   
-                   ?>
-                   
-                   <?php
-                   
-                   if (isset($_GET['pay_offline'])){
-                       include("pay_offline.php");
                    }
                    
                    ?>
