@@ -48,21 +48,41 @@
                         </div><!-- col-md-6 finish -->
                     
                     </div><!-- form-group finish -->
-                    <div class="form-group"><!-- form-group begin -->
-                    
-                        <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
-                        
-                            Product Category Description 
-                        
-                        </label><!-- control-label col-md-3 finish --> 
-                        
-                        <div class="col-md-6"><!-- col-md-6 begin -->
-                        
-                            <textarea type='text' name="p_cat_desc" id="" cols="30" rows="10" class="form-control"></textarea>
-                        
-                        </div><!-- col-md-6 finish -->
-                    
-                    </div><!-- form-group finish -->
+                                       <div class="form-group"><!-- form-group Begin -->
+                       
+                      <label class="col-md-3 control-label"> Category </label> 
+                      
+                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                          
+                          <select name="cat" class="form-control"><!-- form-control Begin -->
+                              
+                              <option> Select a Category </option>
+                              
+                              <?php 
+                              
+                              $get_cat = "select * from categories";
+                              $run_cat = mysqli_query($con,$get_cat);
+                              
+                              while ($row_cat=mysqli_fetch_array($run_cat)){
+                                  
+                                  $cat_id = $row_cat['cat_id'];
+                                  $cat_title = $row_cat['cat_title'];
+                                  
+                                  echo "
+                                  
+                                  <option value='$cat_id'> $cat_title </option>
+                                  
+                                  ";
+                                  
+                              }
+                              
+                              ?>
+                              
+                          </select><!-- form-control Finish -->
+                          
+                      </div><!-- col-md-6 Finish -->
+                       
+                   </div><!-- form-group Finish -->
                     <div class="form-group"><!-- form-group begin -->
                     
                         <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 

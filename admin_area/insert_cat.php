@@ -52,21 +52,6 @@
                     
                         <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
                         
-                            Category Description 
-                        
-                        </label><!-- control-label col-md-3 finish --> 
-                        
-                        <div class="col-md-6"><!-- col-md-6 begin -->
-                        
-                            <textarea type='text' name="cat_desc" id="" cols="30" rows="10" class="form-control"></textarea>
-                        
-                        </div><!-- col-md-6 finish -->
-                    
-                    </div><!-- form-group finish -->
-                    <div class="form-group"><!-- form-group begin -->
-                    
-                        <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
-                        
                              
                         
                         </label><!-- control-label col-md-3 finish --> 
@@ -91,9 +76,7 @@
               
               $cat_title = $_POST['cat_title'];
               
-              $cat_desc = $_POST['cat_desc'];
-              
-              $insert_cat = "insert into categories (cat_title,cat_desc) values ('$cat_title','$cat_desc')";
+              $insert_cat = "insert into categories (cat_title) values ('$cat_title')";
               
               $run_cat = mysqli_query($con,$insert_cat);
               

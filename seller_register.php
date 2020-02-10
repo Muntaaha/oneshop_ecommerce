@@ -39,6 +39,12 @@
                        <center><!-- center Begin -->
                            
                            <h2> Register a new account </h2>
+						   <p>Before Registration know the rules</p>
+						   <p>* You have to provide 10% of your total income every three months to the 'oneshop authority' to increase the platform.</p>
+
+							<p>*Sharing of any spam content is strictly prohibited.</p>
+
+							<p>*Do not spread any negativity. If the oneshop authority finds you offensive in any way, we may ban you from the platfrom if necessary.</p>
                            
                        </center><!-- center Finish -->
                        
