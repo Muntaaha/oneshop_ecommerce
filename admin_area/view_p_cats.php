@@ -40,7 +40,6 @@
                                 <th> Product Category ID </th>
                                 <th> Product Category Title </th>
                                 <th> Categories </th>
-                                <th> Edit Product Category </th>
                                 <th> Delete Product Category </th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
@@ -71,11 +70,7 @@
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $p_cat_title; ?> </td>
                                 <td width="300"> <?php echo $categories; ?> </td>
-                                <td> 
-                                    <a href="index.php?edit_p_cat= <?php echo $p_cat_id; ?> ">
-                                        <i class="fa fa-pencil"></i> Edit
-                                    </a>
-                                </td>
+                               
                                 <td> 
                                     <a href="index.php?delete_p_cat= <?php echo $p_cat_id; ?> ">
                                         <i class="fa fa-trash"></i> Delete

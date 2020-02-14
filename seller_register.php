@@ -54,7 +54,7 @@
                                
                                <label>Seller Name</label>
                                
-                               <input type="text" class="form-control" name="s_name" required>
+                               <input type="text" class="form-control" name="seller_name" required>
                                
                            </div><!-- form-group Finish -->
                            
@@ -62,7 +62,7 @@
                                
                                <label>Seller Email</label>
                                
-                               <input type="text" class="form-control" name="s_email" required>
+                               <input type="text" class="form-control" name="seller_email" required>
                                
                            </div><!-- form-group Finish -->
                            
@@ -70,7 +70,7 @@
                                
                                <label>Seller Password</label>
                                
-                               <input type="password" class="form-control" name="s_pass" required>
+                               <input type="password" class="form-control" name="seller_password" required>
                                
                            </div><!-- form-group Finish -->
                            
@@ -78,7 +78,7 @@
                                
                                <label>Seller Location</label>
                                
-                               <input type="text" class="form-control" name="s_location" required>
+                               <input type="text" class="form-control" name="seller_location" required>
                                
                            </div><!-- form-group Finish -->
                            
@@ -102,7 +102,7 @@
                                
                                <label>Your Contact</label>
                                
-                               <input type="text" class="form-control" name="s_contact" required>
+                               <input type="text" class="form-control" name="seller_contact" required>
                                
                            </div><!-- form-group Finish -->
                            
@@ -153,59 +153,40 @@
 
 if(isset($_POST['register'])){
     
-    $s_name = $_POST['s_name'];
+    $seller_name = $_POST['seller_name'];
     
-    $s_email = $_POST['s_email'];
+    $seller_email = $_POST['seller_email'];
     
-    $s_pass = $_POST['s_pass'];
+    $seller_password = $_POST['seller_password'];
     
-    $s_location = $_POST['s_location'];
+    $seller_location = $_POST['seller_location'];
     
     $s_company_name = $_POST['s_company_name'];
     
     $business_type = $_POST['business_type'];
     
-    $s_contact = $_POST['s_contact'];
+    $seller_contact = $_POST['seller_contact'];
     
     $s_image = $_FILES['s_image']['name'];
     
     $s_image_tmp = $_FILES['s_image']['tmp_name'];
     
-    $c_ip = getRealIpUser();
+    $s_ip = getRealIpUser();
     
-    move_uploaded_file($c_image_tmp,"customer/customer_images/$c_image");
+    move_uploaded_file($s_image_tmp,"seller_area/seller_images/$s_image");
     
-    $insert_customer = "insert into seller (seller_name,seller_email,seller_pass,seller_country,seller_city,seller_contact,seller_address,seller_image,seller_ip) values ('$s_name','$s_email','$s_pass','$s_country','$s_city','$s_contact','$s_address','$s_image','$s_ip')";
+    $insert_customer = "insert into sellers (seller_name,seller_email,seller_password,seller_location,seller_contact,business_type,company_name,seller_ip,seller_image) values ('$seller_name','$seller_email','$seller_password','$seller_location','$seller_contact','$business_type','$s_company_name','$s_ip','$s_imag')";
     
     $run_customer = mysqli_query($con,$insert_customer);
     
-    $sel_cart = "select * from cart where ip_add='$c_ip'";
     
-    $run_cart = mysqli_query($con,$sel_cart);
-    
-    $check_cart = mysqli_num_rows($run_cart);
-    
-    if($check_cart>0){
-        
-        /// If register have items in cart ///
-        
-        $_SESSION['customer_email']=$c_email;
-        
-        echo "<script>alert('You have been Registered Sucessfully')</script>";
-        
-        echo "<script>window.open('checkout.php','_self')</script>";
-        
-    }else{
-        
-        /// If register without items in cart ///
-        
-        $_SESSION['customer_email']=$c_email;
-        
-        echo "<script>alert('You have been Registered Sucessfully')</script>";
-        
-        echo "<script>window.open('index.php','_self')</script>";
-        
-    }
+    if($run_customer){
+                  
+                  echo "<script>alert('New Seller has been registered')</script>";
+                  
+                  echo "<script>window.open('index.php','_self')</script>";
+                  
+              }
     
 }
 

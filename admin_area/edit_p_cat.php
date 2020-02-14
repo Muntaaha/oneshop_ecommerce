@@ -24,7 +24,7 @@
         
         $p_cat_title = $row_edit['p_cat_title'];
         
-        $p_cat_desc = $row_edit['p_cat_desc'];
+        $categories = $row_edit['categories'];
         
     }
 
@@ -70,21 +70,40 @@
                         </div><!-- col-md-6 finish -->
                     
                     </div><!-- form-group finish -->
-                    <div class="form-group"><!-- form-group begin -->
-                    
-                        <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
-                        
-                            Product Category Description 
-                        
-                        </label><!-- control-label col-md-3 finish --> 
-                        
-                        <div class="col-md-6"><!-- col-md-6 begin -->
-                        
-                            <textarea type='text' name="p_cat_desc" class="form-control"><?php echo $p_cat_desc; ?></textarea>
-                        
-                        </div><!-- col-md-6 finish -->
-                    
-                    </div><!-- form-group finish -->
+                    <div class="form-group"><!-- form-group Begin -->
+                       
+                      <label class="col-md-3 control-label"> Category </label> 
+                      
+                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                          
+                          <select name="categories" class="form-control"><!-- form-control Begin -->
+                              
+                              <option> Select a Category </option>
+                              
+                              <?php 
+                              
+                              $get_cat = "select * from categories";
+                              $run_cat = mysqli_query($con,$get_cat);
+                              
+                              while ($row_cat=mysqli_fetch_array($run_cat)){
+                                  
+                                  $cat_id = $row_cat['cat_id'];
+                                  $cat_title = $row_cat['cat_title'];
+                                  
+                                  echo "
+                                  
+                                  <option value='$cat_title'> $cat_title </option>
+                                  
+                                  ";
+                                  
+                              }
+                              
+                              ?>
+                              
+                          </select><!-- form-control Finish -->
+                          
+                      </div><!-- col-md-6 Finish -->
+					 </div>
                     <div class="form-group"><!-- form-group begin -->
                     
                         <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
@@ -113,9 +132,9 @@
               
               $p_cat_title = $_POST['p_cat_title'];
               
-              $p_cat_desc = $_POST['p_cat_desc'];
+              $categories = $_POST['categories'];
               
-              $update_p_cat = "update product_categories set p_cat_title='$p_cat_title',p_cat_desc='$p_cat_desc' where p_cat_id='$p_cat_id'";
+              $update_p_cat = "update product_categories set p_cat_title='$p_cat_title',categories='$categories' where p_cat_id='$p_cat_id'";
               
               $run_p_cat = mysqli_query($con,$update_p_cat);
               

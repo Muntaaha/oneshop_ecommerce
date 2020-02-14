@@ -24,8 +24,6 @@
         
         $cat_title = $row_edit['cat_title'];
         
-        $cat_desc = $row_edit['cat_desc'];
-        
     }
 
 ?>
@@ -66,21 +64,6 @@
                         <div class="col-md-6"><!-- col-md-6 begin -->
                         
                             <input value=" <?php echo $cat_title; ?> " name="cat_title" type="text" class="form-control">
-                        
-                        </div><!-- col-md-6 finish -->
-                    
-                    </div><!-- form-group finish -->
-                    <div class="form-group"><!-- form-group begin -->
-                    
-                        <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
-                        
-                            Category Description 
-                        
-                        </label><!-- control-label col-md-3 finish --> 
-                        
-                        <div class="col-md-6"><!-- col-md-6 begin -->
-                        
-                            <textarea type='text' name="cat_desc" class="form-control"><?php echo $cat_desc; ?></textarea>
                         
                         </div><!-- col-md-6 finish -->
                     

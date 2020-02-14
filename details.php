@@ -112,7 +112,7 @@
                                    </div><!-- col-md-7 Finish -->
                                </div><!-- form-group Finish -->
                                
-                               <p class="price">$ <?php echo $pro_price; ?></p>
+                               <p class="price">BDT <?php echo $pro_price; ?></p>
                                
                                <p class="text-center buttons"><button class="btn btn-primary i fa fa-shopping-cart"> Add to cart</button></p>
                                
@@ -208,7 +208,7 @@
                                 
                                     <h3> <a href='details.php?pro_id=$pro_id'> $pro_title </a> </h3>
                                     
-                                    <p class='price'> $ $pro_price </p>
+                                    <p class='price'> BDT $pro_price </p>
                                 
                                 </div>
                             

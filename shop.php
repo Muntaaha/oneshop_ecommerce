@@ -42,9 +42,6 @@
 
                        <div class='box'><!-- box Begin -->
                            <h1>Shop</h1>
-                           <p>
-                               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deleniti accusamus, consequuntur illum quasi ut. Voluptate a, ipsam repellendus ut fugiat minima? Id facilis itaque autem, officiis veritatis perferendis, quaerat!
-                           </p>
                        </div><!-- box Finish -->
 
                        ";

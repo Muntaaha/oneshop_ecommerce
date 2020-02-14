@@ -54,7 +54,7 @@
                       
                       <div class="col-md-6"><!-- col-md-6 Begin -->
                           
-                          <select name="cat" class="form-control"><!-- form-control Begin -->
+                          <select name="categories" class="form-control"><!-- form-control Begin -->
                               
                               <option> Select a Category </option>
                               
@@ -70,7 +70,7 @@
                                   
                                   echo "
                                   
-                                  <option value='$cat_id'> $cat_title </option>
+                                  <option value='$cat_title'> $cat_title </option>
                                   
                                   ";
                                   
@@ -111,9 +111,9 @@
               
               $p_cat_title = $_POST['p_cat_title'];
               
-              $p_cat_desc = $_POST['p_cat_desc'];
+              $categories = $_POST['categories'];
               
-              $insert_p_cat = "insert into product_categories (p_cat_title,p_cat_desc) values ('$p_cat_title','$p_cat_desc')";
+              $insert_p_cat = "insert into product_categories (p_cat_title,categories) values ('$p_cat_title','$categories')";
               
               $run_p_cat = mysqli_query($con,$insert_p_cat);
               

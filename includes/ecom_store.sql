@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2020 at 06:34 PM
+-- Generation Time: Feb 14, 2020 at 08:08 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.1.29
 
@@ -69,6 +69,7 @@ CREATE TABLE `cart` (
 --
 
 CREATE TABLE `categories` (
+  `seller` int(111) NOT NULL,
   `cat_id` int(10) NOT NULL,
   `cat_title` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -77,21 +78,21 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
-(2, ' Women '),
-(3, 'Kids'),
-(4, 'Other'),
-(5, ' Apparel for Men '),
-(6, ' Apparel for Women '),
-(7, ' Raw Products '),
-(8, '  Home & Gardening  '),
-(9, 'Tools'),
-(10, ' Craft Materials '),
-(11, ' Jewelry & Accessories '),
-(12, ' Nakshi Kantha '),
-(13, ' Beauty & Health '),
-(14, 'Cellphone & Telecommunication'),
-(15, ' Shoe ');
+INSERT INTO `categories` (`seller`, `cat_id`, `cat_title`) VALUES
+(0, 2, ' Women '),
+(0, 3, 'Kids'),
+(0, 4, 'Other'),
+(0, 5, ' Apparel for Men '),
+(0, 6, ' Apparel for Women '),
+(0, 7, ' Raw Products '),
+(0, 8, '  Home & Gardening  '),
+(0, 9, 'Tools'),
+(0, 10, ' Craft Materials '),
+(0, 11, ' Jewelry & Accessories '),
+(0, 12, ' Nakshi Kantha '),
+(0, 13, ' Beauty & Health '),
+(0, 14, 'Cellphone & Telecommunication'),
+(0, 15, ' Shoe ');
 
 -- --------------------------------------------------------
 
@@ -237,7 +238,8 @@ INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `seller`, `date`, `p
 (12, 5, 1, '', '2018-10-28 13:01:56', 'Man Polo Casual T-Shirt', 'Man-Polo-1.jpg', 'Man-Polo-2.jpg', 'Man-Polo-3.jpg', 45, 'Casual', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi rem nemo, autem at ad temporibus, maiores ducimus sed quam enim reprehenderit distinctio similique debitis, quis corrupti est. Sed, rem, voluptatibus!</p>'),
 (13, 5, 1, '', '2018-10-28 13:02:40', 'Boy Polos T-Shirt', 'polos-tshirt-1.jpg', 'polos-tshirt-2.jpg', '', 40, 'Casual', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi rem nemo, autem at ad temporibus, maiores ducimus sed quam enim reprehenderit distinctio similique debitis, quis corrupti est. Sed, rem, voluptatibus!</p>'),
 (14, 1, 1, '', '2018-10-28 13:03:50', 'Levi`s Trucker Jacket', 'levis-Trucker-Jacket.jpg', 'levis-Trucker-Jacket-2.jpg', 'levis-Trucker-Jacket-3.jpg', 98, 'Trucker', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi rem nemo, autem at ad temporibus, maiores ducimus sed quam enim reprehenderit distinctio similique debitis, quis corrupti est. Sed, rem, voluptatibus!</p>'),
-(15, 2, 2, '', '2019-01-17 07:52:40', 'Hijab Girl New', 'hijab-anak-1.jpg', 'hijab-anak-2.jpg', 'hijab-anak-3.jpg', 10, 'Hijab Kids', '<p>This is just description for sampe product of hijab. And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha</p>');
+(15, 2, 2, '', '2019-01-17 07:52:40', 'Hijab Girl New', 'hijab-anak-1.jpg', 'hijab-anak-2.jpg', 'hijab-anak-3.jpg', 10, 'Hijab Kids', '<p>This is just description for sampe product of hijab. And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha And Cha cha cha</p>'),
+(16, 1, 2, '1', '2020-02-14 18:51:43', 'Muntaaha', '1512672_10152992345961840_3640509850607296070_n.jpg', '1512672_10152992345961840_3640509850607296070_n.jpg', '1512672_10152992345961840_3640509850607296070_n.jpg', 10000000, 'fghf', '<p>tfbhh</p>');
 
 -- --------------------------------------------------------
 
@@ -248,30 +250,31 @@ INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `seller`, `date`, `p
 CREATE TABLE `product_categories` (
   `p_cat_id` int(10) NOT NULL,
   `p_cat_title` text NOT NULL,
-  `categories` varchar(200) NOT NULL
+  `categories` varchar(200) NOT NULL,
+  `seller` int(111) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product_categories`
 --
 
-INSERT INTO `product_categories` (`p_cat_id`, `p_cat_title`, `categories`) VALUES
-(1, ' Jackets Kulit', ''),
-(2, 'Accessories', ''),
-(3, 'Shoes', ''),
-(4, 'Rain Coats ', ''),
-(5, 'T-Shirt', ''),
-(6, '     Panjabi     ', ''),
-(7, '  Lungi', ''),
-(8, 'Fatua', ''),
-(9, 'Shirt', ''),
-(10, 'T - Shirt', ''),
-(11, 'Pant', ''),
-(12, 'Sharee', ''),
-(13, 'Salwar Kamiz', ''),
-(14, 'Kurti', ''),
-(15, 'Top', ''),
-(16, 'Skirt', '');
+INSERT INTO `product_categories` (`p_cat_id`, `p_cat_title`, `categories`, `seller`) VALUES
+(1, ' Jackets Kulit', '', 1),
+(2, 'Accessories', '', 0),
+(3, 'Shoes', '', 0),
+(4, 'Rain Coats ', '', 0),
+(5, 'T-Shirt', '', 0),
+(6, '     Panjabi     ', '', 0),
+(7, '  Lungi', '', 0),
+(8, 'Fatua', '', 0),
+(9, 'Shirt', '', 0),
+(10, 'T - Shirt', '', 0),
+(11, 'Pant', '', 0),
+(12, 'Sharee', '', 0),
+(13, 'Salwar Kamiz', '', 0),
+(14, 'Kurti', '', 0),
+(15, 'Top', '', 0),
+(16, 'Skirt', '', 0);
 
 -- --------------------------------------------------------
 
@@ -288,8 +291,16 @@ CREATE TABLE `sellers` (
   `seller_contact` varchar(200) NOT NULL,
   `seller_location` text NOT NULL,
   `company_name` varchar(200) NOT NULL,
-  `business_type` date NOT NULL
+  `business_type` varchar(200) NOT NULL,
+  `seller_ip` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sellers`
+--
+
+INSERT INTO `sellers` (`seller_id`, `seller_name`, `seller_email`, `seller_image`, `seller_password`, `seller_contact`, `seller_location`, `company_name`, `business_type`, `seller_ip`) VALUES
+(1, 'Jahin Sunnah', 'jahinsunnah@gmail.com', '', '1234', '01845773311', 'Mirpur 7', 'Palash ', '0000-00-00', '::1');
 
 -- --------------------------------------------------------
 
@@ -298,6 +309,7 @@ CREATE TABLE `sellers` (
 --
 
 CREATE TABLE `slider` (
+  `seller` int(11) NOT NULL,
   `slide_id` int(10) NOT NULL,
   `slide_name` varchar(255) NOT NULL,
   `slide_image` text NOT NULL
@@ -307,10 +319,10 @@ CREATE TABLE `slider` (
 -- Dumping data for table `slider`
 --
 
-INSERT INTO `slider` (`slide_id`, `slide_name`, `slide_image`) VALUES
-(8, 'Slide Number 6', 'slide-6.jpg'),
-(9, 'Slide Number 7', 'slide-7.jpg'),
-(10, 'Editing Slide Number 8', 'slide-5.jpg');
+INSERT INTO `slider` (`seller`, `slide_id`, `slide_name`, `slide_image`) VALUES
+(0, 8, 'Slide Number 6', 'slide-6.jpg'),
+(0, 9, 'Slide Number 7', 'slide-7.jpg'),
+(0, 10, 'Editing Slide Number 8', 'slide-5.jpg');
 
 --
 -- Indexes for dumped tables
@@ -426,7 +438,7 @@ ALTER TABLE `pending_orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
@@ -438,7 +450,7 @@ ALTER TABLE `product_categories`
 -- AUTO_INCREMENT for table `sellers`
 --
 ALTER TABLE `sellers`
-  MODIFY `seller_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `seller_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `slider`

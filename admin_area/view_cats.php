@@ -39,7 +39,6 @@
                             <tr><!-- tr begin -->
                                 <th> Category ID </th>
                                 <th> Category Title </th>
-                                <th> Edit Category </th>
                                 <th> Delete Category </th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
@@ -67,11 +66,7 @@
                             <tr><!-- tr begin -->
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $cat_title; ?> </td>
-                                <td> 
-                                    <a href="index.php?edit_cat= <?php echo $cat_id; ?> ">
-                                        <i class="fa fa-pencil"></i> Edit
-                                    </a>
-                                </td>
+                                
                                 <td> 
                                     <a href="index.php?delete_cat= <?php echo $cat_id; ?> ">
                                         <i class="fa fa-trash"></i> Delete

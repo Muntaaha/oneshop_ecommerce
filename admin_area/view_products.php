@@ -45,7 +45,6 @@
                                 <th> Product Keywords: </th>
                                 <th> Product Date: </th>
                                 <th> Product Delete: </th>
-                                <th> Product Edit: </th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
                         
@@ -104,15 +103,6 @@
                                     
                                      </a> 
                                      
-                                </td>
-                                <td> 
-                                     
-                                     <a href="index.php?edit_product=<?php echo $pro_id; ?>">
-                                     
-                                        <i class="fa fa-pencil"></i> Edit
-                                    
-                                     </a> 
-                                    
                                 </td>
                             </tr><!-- tr finish -->
                             

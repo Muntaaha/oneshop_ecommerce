@@ -111,9 +111,6 @@
                 
                 <ul id="products" class="collapse"><!-- collapse begin -->
                     <li><!-- li begin -->
-                        <a href="index.php?insert_product"> Insert Product </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
                         <a href="index.php?view_products"> View Products </a>
                     </li><!-- li finish -->
                 </ul><!-- collapse finish -->
@@ -129,9 +126,6 @@
                 </a><!-- a href finish -->
                 
                 <ul id="p_cat" class="collapse"><!-- collapse begin -->
-                    <li><!-- li begin -->
-                        <a href="index.php?insert_p_cat"> Insert Product Category </a>
-                    </li><!-- li finish -->
                     <li><!-- li begin -->
                         <a href="index.php?view_p_cats"> View Products Categories </a>
                     </li><!-- li finish -->
@@ -149,32 +143,15 @@
                 
                 <ul id="cat" class="collapse"><!-- collapse begin -->
                     <li><!-- li begin -->
-                        <a href="index.php?insert_cat"> Insert Category </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
                         <a href="index.php?view_cats"> View Categories </a>
                     </li><!-- li finish -->
                 </ul><!-- collapse finish -->
                 
             </li><!-- li finish -->
-            
             <li><!-- li begin -->
-                <a href="#" data-toggle="collapse" data-target="#slides"><!-- a href begin -->
-                        
-                        <i class="fa fa-fw fa-gear"></i> Slides
-                        <i class="fa fa-fw fa-caret-down"></i>
-                        
+                <a href="index.php?view_sellers"><!-- a href begin -->
+                    <i class="fa fa-fw fa-users"></i> View Sellers
                 </a><!-- a href finish -->
-                
-                <ul id="slides" class="collapse"><!-- collapse begin -->
-                    <li><!-- li begin -->
-                        <a href="index.php?insert_slide"> Insert Slide </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
-                        <a href="index.php?view_slides"> View Slides </a>
-                    </li><!-- li finish -->
-                </ul><!-- collapse finish -->
-                
             </li><!-- li finish -->
             
             <li><!-- li begin -->

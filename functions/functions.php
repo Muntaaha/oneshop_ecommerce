@@ -107,7 +107,7 @@ function getPro(){
                     
                     <p class='price'>
                     
-                        $ $pro_price
+                        BDT $pro_price
                     
                     </p>
                     
@@ -223,8 +223,6 @@ function getpcatpro(){
         
         $p_cat_title = $row_p_cat['p_cat_title'];
         
-        $p_cat_desc = $row_p_cat['p_cat_desc'];
-        
         $get_products ="select * from products where p_cat_id='$p_cat_id'";
         
         $run_products = mysqli_query($db,$get_products);
@@ -250,8 +248,6 @@ function getpcatpro(){
                 <div class='box'>
                 
                     <h1> $p_cat_title </h1>
-                    
-                    <p> $p_cat_desc </p>
                 
                 </div>
             
@@ -295,7 +291,7 @@ function getpcatpro(){
                     
                     <p class='price'>
                     
-                        $ $pro_price
+                        $pro_price
                     
                     </p>
                     
@@ -349,8 +345,6 @@ function getcatpro(){
         
         $cat_title = $row_cat['cat_title'];
         
-        $cat_desc = $row_cat['cat_desc'];
-        
         $get_cat = "select * from products where cat_id='$cat_id' LIMIT 0,6";
         
         $run_products = mysqli_query($db,$get_cat);
@@ -377,8 +371,7 @@ function getcatpro(){
                 <div class='box'>
                 
                     <h1> $cat_title </h1>
-                    
-                    <p> $cat_desc </p>
+                   
                 
                 </div>
             
@@ -420,7 +413,7 @@ function getcatpro(){
                                             
                         <p class='price'>
 
-                            $$pro_price
+                            BDT $pro_price
 
                         </p>
 
@@ -510,7 +503,7 @@ function total_price(){
         
     }
     
-    echo "$" . $total;
+    echo "BDT" . $total;
     
 }
 
