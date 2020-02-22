@@ -36,17 +36,6 @@
                    
                    <div class="box-header"><!-- box-header Begin -->
                        
-                       <center><!-- center Begin -->
-                           
-                           <h2> Register a new account </h2>
-						   <p>Before Registration know the rules</p>
-						   <p>* You have to provide 10% of your total income every three months to the 'oneshop authority' to increase the platform.</p>
-
-							<p>*Sharing of any spam content is strictly prohibited.</p>
-
-							<p>*Do not spread any negativity. If the oneshop authority finds you offensive in any way, we may ban you from the platfrom if necessary.</p>
-                           
-                       </center><!-- center Finish -->
                        
                        <form action="seller_register.php" method="post" enctype="multipart/form-data"><!-- form Begin -->
                            
@@ -97,6 +86,14 @@
                                <input type="text" class="form-control" name="business_type" required>
                                
                            </div>
+						   
+						   <div class="form-group"><!-- form-group Begin -->
+                               
+                               <label>Business Description</label>
+                               
+                               <input type="text" class="form-control" name="business_description" required>
+                               
+                           </div>
 
                            <div class="form-group"><!-- form-group Begin -->
                                
@@ -114,6 +111,33 @@
                                
                            </div><!-- form-group Finish -->
                            
+						   <div class="form-group"><!-- form-group Begin -->
+                               
+                               <label>Show a picture of your product</label>
+                               
+                               <input type="file" class="form-control form-height-custom" name="b_image" required>
+                               
+                           </div><!-- form-group Finish -->
+						   
+                       <div class="form-group"<!-- center Begin -->
+                           
+                           
+						   <h4>Before Registration know the rules</h4>
+						   <p>* You have to provide 10% of your total income every three months to the 'oneshop authority' to increase the platform.</p>
+
+							<p>*Sharing of any spam content is strictly prohibited.</p>
+
+							<p>*Do not spread any negativity. If the oneshop authority finds you offensive in any way, we may ban you from the platfrom if necessary.</p>
+                           
+                       </div><!-- center Finish -->
+						   <div class="form-group"><!-- form-group Begin -->
+						   
+								<input type="checkbox" id="agree" name="agree" value="Agreed" required>
+								
+								<label for="vehicle2"> I Agree with the Terms and Conditions</label><br>
+								
+							</div><!-- form-group Finish -->
+							
                            <div class="text-center"><!-- text-center Begin -->
                                
                                <button type="submit" name="register" class="btn btn-primary">
@@ -166,16 +190,24 @@ if(isset($_POST['register'])){
     $business_type = $_POST['business_type'];
     
     $seller_contact = $_POST['seller_contact'];
+	
+	$business_description = $_POST['business_description'];
     
     $s_image = $_FILES['s_image']['name'];
     
     $s_image_tmp = $_FILES['s_image']['tmp_name'];
+	
+	$b_image = $_FILES['b_image']['name'];
+    
+    $b_image_tmp = $_FILES['b_image']['tmp_name'];
     
     $s_ip = getRealIpUser();
     
     move_uploaded_file($s_image_tmp,"seller_area/seller_images/$s_image");
+	
+	move_uploaded_file($s_image_tmp,"seller_area/seller_images/$b_image");
     
-    $insert_customer = "insert into sellers (seller_name,seller_email,seller_password,seller_location,seller_contact,business_type,company_name,seller_ip,seller_image) values ('$seller_name','$seller_email','$seller_password','$seller_location','$seller_contact','$business_type','$s_company_name','$s_ip','$s_imag')";
+    $insert_customer = "insert into sellers (seller_name,seller_email,seller_password,seller_location,seller_contact,business_type,company_name,seller_ip,seller_image,	business_desc,status,business_image) values ('$seller_name','$seller_email','$seller_password','$seller_location','$seller_contact','$business_type','$s_company_name','$s_ip','$s_image','$business_description','0','$b_image')";
     
     $run_customer = mysqli_query($con,$insert_customer);
     

@@ -175,7 +175,7 @@ if(isset($_GET['pro_id'])){
                    <ul class="nav navbar-nav left"><!-- nav navbar-nav left Begin -->
                        
                        <li class="<?php if($active=='Home') echo"active"; ?>">
-                           <a href="index.php">Home</a>
+                           <a href="home.php">Home</a>
                        </li>
                        <li class="<?php if($active=='Shop') echo"active"; ?>">
                            <a href="shop.php">Shop</a>

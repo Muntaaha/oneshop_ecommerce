@@ -156,6 +156,14 @@
                         
                         include("delete_customer.php");
                         
+                }	if(isset($_GET['approve_seller'])){
+                        
+                        include("approve_seller.php");
+                        
+                }	if(isset($_GET['view_sellers'])){
+                        
+                        include("view_sellers.php");
+                        
                 }   if(isset($_GET['view_orders'])){
                         
                         include("view_orders.php");
