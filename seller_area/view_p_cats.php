@@ -5,7 +5,7 @@
         echo "<script>window.open('login.php','_self')</script>";
         
     }else{
-
+	$seller_id = $_SESSION['seller_email'];
 ?>
 
 <div class="row"><!-- row 1 begin -->
@@ -51,7 +51,7 @@
                             
                                 $i=0;
           
-                                $get_p_cats = "select * from product_categories";
+                                $get_p_cats = "select * from product_categories where seller = '$seller_id' ";
           
                                 $run_p_cats = mysqli_query($con,$get_p_cats);
           

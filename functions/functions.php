@@ -144,10 +144,12 @@ function getPro(){
 /// begin getShop functions ///
 
 function getShop(){
+	
+	
     
     global $db;
     
-    $get_products = "select * from sellerss order by 1 DESC LIMIT 0,8";
+    $get_products = "select * from sellers order by 1 DESC LIMIT 0,8";
     
     $run_products = mysqli_query($db,$get_products);
     
@@ -227,9 +229,13 @@ function getShop(){
 function getPCats(){
     
     global $db;
-    
-    $get_p_cats = "select * from product_categories";
-    
+    if(isset($_GET['seller_id'])){
+		$seller_id = $_GET['seller_id'];
+	
+    $get_p_cats = "select * from product_categories where seller = '$seller_id'";
+    }else{
+		$get_p_cats = "select * from product_categories order by 1 DESC LIMIT 1,6";
+	}
     $run_p_cats = mysqli_query($db,$get_p_cats);
     
     while($row_p_cats=mysqli_fetch_array($run_p_cats)){
@@ -259,9 +265,16 @@ function getPCats(){
 function getCats(){
     
     global $db;
-    
-    $get_cats = "select * from categories";
-    
+	
+    if(isset($_GET['seller_id'])){
+		$seller_id = $_GET['seller_id'];
+	
+	
+    $get_cats = "select * from categories where seller = '$seller_id'";
+    }
+	else{
+		$get_cats = "select * from categories order by 1 DESC LIMIT 1,6";
+	}
     $run_cats = mysqli_query($db,$get_cats);
     
     while($row_cats=mysqli_fetch_array($run_cats)){
@@ -281,6 +294,8 @@ function getCats(){
         ";
         
     }
+	
+
     
 }
     

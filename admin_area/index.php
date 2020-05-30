@@ -3,11 +3,11 @@
     session_start();
     include("includes/db.php");
     
-    if(!isset($_SESSION['admin_email'])){
+    //if(!isset($_SESSION['user_email'])){
         
-        echo "<script>window.open('login.php','_self')</script>";
+       // echo "<script>window.open('login.php','_self')</script>";
         
-    }else{
+    //}else{
         
         $admin_session = $_SESSION['admin_email'];
         
@@ -156,9 +156,17 @@
                         
                         include("delete_customer.php");
                         
+                }	if(isset($_GET['request_approval'])){
+                        
+                        include("request_approval.php");
+                        
                 }	if(isset($_GET['approve_seller'])){
                         
                         include("approve_seller.php");
+                        
+                }	if(isset($_GET['reject_seller'])){
+                        
+                        include("reject_seller.php");
                         
                 }	if(isset($_GET['view_sellers'])){
                         
@@ -210,4 +218,4 @@
 </html>
 
 
-<?php } ?>
+<?php //} ?>

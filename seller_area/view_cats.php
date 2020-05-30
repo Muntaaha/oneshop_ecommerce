@@ -50,7 +50,7 @@
                             
                                 $i=0;
           
-                                $get_cats = "select * from categories ";
+                                $get_cats = "select * from categories where seller = '$seller_id' ";
           
                                 $run_cats = mysqli_query($con,$get_cats);
           

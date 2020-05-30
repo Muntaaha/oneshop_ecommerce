@@ -21,7 +21,7 @@
             
         </button><!-- navbar-toggle finish -->
         
-        <a href="index.php?dashboard" class="navbar-brand">seller Area</a>
+        <a href="index.php?dashboard" class="navbar-brand">Seller Area</a>
         
     </div><!-- navbar-header finish -->
     
@@ -148,6 +148,22 @@
                 
             </li><!-- li finish -->
             
+			<li><!-- li begin -->
+                <a href="#" data-toggle="collapse" data-target="#users"><!-- a href begin -->
+                        
+                        <i class="fa fa-fw fa-users"></i> Users
+                        <i class="fa fa-fw fa-caret-down"></i>
+                        
+                </a><!-- a href finish -->
+                
+                <ul id="users" class="collapse"><!-- collapse begin -->
+                    <li><!-- li begin -->
+                        <a href="index.php?user_profile=<?php echo $seller_id; ?>"> Edit Profile </a>
+                    </li><!-- li finish -->
+                </ul><!-- collapse finish -->
+                
+            </li><!-- li finish -->
+			
             <li><!-- li begin -->
                 <a href="#" data-toggle="collapse" data-target="#slides"><!-- a href begin -->
                         

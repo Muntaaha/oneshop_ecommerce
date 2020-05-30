@@ -149,9 +149,21 @@
                 
             </li><!-- li finish -->
             <li><!-- li begin -->
-                <a href="index.php?view_sellers"><!-- a href begin -->
-                    <i class="fa fa-fw fa-users"></i> View Sellers
+			    <a href="#" data-toggle="collapse" data-target="#seller"><!-- a href begin -->
+                        
+                        <i class="fa fa-fw fa-users"></i> Sellers
+                        <i class="fa fa-fw fa-caret-down"></i>
+                        
                 </a><!-- a href finish -->
+                
+                <ul id="seller" class="collapse"><!-- collapse begin -->
+                    <li><!-- li begin -->
+                        <a href="index.php?view_sellers"> View Sellers </a>
+                    </li><!-- li finish -->
+					<li><!-- li begin -->
+                        <a href="index.php?request_approval"> Request Approval </a>
+                    </li><!-- li finish -->
+                </ul><!-- collapse finish -->
             </li><!-- li finish -->
             
             <li><!-- li begin -->

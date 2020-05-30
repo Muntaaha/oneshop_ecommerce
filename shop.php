@@ -4,7 +4,21 @@
     include("includes/header.php");
 
 ?>
-   
+  <?php
+	if(isset($_GET['seller_id'])){
+		$seller_id = $_GET['seller_id'];
+		
+		$get_seller = "select * from sellers WHERE seller_id='$seller_id'";
+                             
+		$run_seller = mysqli_query($con,$get_seller);
+		 
+		while($row_seller=mysqli_fetch_array($run_seller)){
+			$seller_name = $row_seller['seller_name'];
+			$company_name = $row_seller['company_name'];
+		}
+	}
+  
+  ?>
    <div id="content"><!-- #content Begin -->
        <div class="container"><!-- container Begin -->
            <div class="col-md-12"><!-- col-md-12 Begin -->
@@ -41,7 +55,7 @@
                       echo "
 
                        <div class='box'><!-- box Begin -->
-                           <h1>Shop</h1>
+                           <h1>$company_name</h1>
                        </div><!-- box Finish -->
 
                        ";
@@ -74,7 +88,7 @@
                             
                             $start_from = ($page-1) * $per_page;
                              
-                            $get_products = "select * from products order by 1 DESC LIMIT $start_from,$per_page";
+                            $get_products = "select * from products WHERE seller='$seller_id' order by 1 DESC LIMIT $start_from,$per_page";
                              
                             $run_products = mysqli_query($con,$get_products);
                              
@@ -96,7 +110,7 @@
                                         
                                             <a href='details.php?pro_id=$pro_id'>
                                             
-                                                <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                                                <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
                                             
                                             </a>
                                             

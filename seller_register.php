@@ -41,7 +41,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Seller Name</label>
+                               <label>Seller Name <span style="color: red;">(required)</span></label>
                                
                                <input type="text" class="form-control" name="seller_name" required>
                                
@@ -49,7 +49,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Seller Email</label>
+                               <label>Seller Email <span style="color: red;">(required)</span></label>
                                
                                <input type="text" class="form-control" name="seller_email" required>
                                
@@ -57,7 +57,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Seller Password</label>
+                               <label>Seller Password <span style="color: red;">(required)</span></label>
                                
                                <input type="password" class="form-control" name="seller_password" required>
                                
@@ -65,7 +65,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Seller Location</label>
+                               <label>Seller Location <span style="color: red;">(required)</span></label>
                                
                                <input type="text" class="form-control" name="seller_location" required>
                                
@@ -73,7 +73,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Company Name</label>
+                               <label>Company Name <span style="color: red;">(required)</span></label>
                                
                                <input type="text" class="form-control" name="s_company_name">
                                
@@ -81,7 +81,7 @@
 
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Business Type</label>
+                               <label>Business Type <span style="color: red;">(required)</span></label>
                                
                                <input type="text" class="form-control" name="business_type" required>
                                
@@ -89,7 +89,7 @@
 						   
 						   <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Business Description</label>
+                               <label>Business Description <span style="color: red;">(required)</span></label>
                                
                                <input type="text" class="form-control" name="business_description" required>
                                
@@ -97,7 +97,7 @@
 
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Your Contact</label>
+                               <label>Your Contact <span style="color: red;">(required)</span></label>
                                
                                <input type="text" class="form-control" name="seller_contact" required>
                                
@@ -105,7 +105,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Your Profile Picture</label>
+                               <label>Your Profile Picture <span style="color: red;">(required)</span></label>
                                
                                <input type="file" class="form-control form-height-custom" name="s_image" required>
                                
@@ -113,7 +113,7 @@
                            
 						   <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Show a picture of your product</label>
+                               <label>Show a picture of your product <span style="color: red;">(required)</span></label>
                                
                                <input type="file" class="form-control form-height-custom" name="b_image" required>
                                
@@ -214,7 +214,7 @@ if(isset($_POST['register'])){
     
     if($run_customer){
                   
-                  echo "<script>alert('New Seller has been registered')</script>";
+                  echo "<script>alert('Request has been placed to Admin Approval')</script>";
                   
                   echo "<script>window.open('index.php','_self')</script>";
                   

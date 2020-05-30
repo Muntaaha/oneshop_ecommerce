@@ -5,7 +5,7 @@
         echo "<script>window.open('login.php','_self')</script>";
         
     }else{
-
+$seller_id = $_SESSION['seller_id'];
 ?>
 
 <div class="row"><!-- row 1 begin -->
@@ -55,7 +55,7 @@
           
                                 $i=0;
                             
-                                $get_pro = "select * from products";
+                                $get_pro = "select * from products where seller = '$seller_id' ";
                                 
                                 $run_pro = mysqli_query($con,$get_pro);
           

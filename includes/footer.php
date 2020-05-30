@@ -47,7 +47,7 @@
                 
                     <?php 
                     
-                        $get_p_cats = "select * from product_categories";
+                        $get_p_cats = "select * from product_categories order by 1 DESC LIMIT 1,8";
                     
                         $run_p_cats = mysqli_query($con,$get_p_cats);
                     

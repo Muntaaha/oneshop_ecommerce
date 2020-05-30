@@ -13,7 +13,7 @@
         <ol class="breadcrumb"><!-- breadcrumb begin -->
             <li class="active"><!-- active begin -->
                 
-                <i class="fa fa-dashboard"></i> Dashboard / View Costumers
+                <i class="fa fa-dashboard"></i> Dashboard / Seller Request Approval
                 
             </li><!-- active finish -->
         </ol><!-- breadcrumb finish -->
@@ -26,7 +26,7 @@
             <div class="panel-heading"><!-- panel-heading begin -->
                <h3 class="panel-title"><!-- panel-title begin -->
                
-                   <i class="fa fa-tags"></i>  View Sellers
+                   <i class="fa fa-tags"></i>  View Seller Requests
                 
                </h3><!-- panel-title finish --> 
             </div><!-- panel-heading finish -->
@@ -38,10 +38,17 @@
                         <thead><!-- thead begin -->
                             <tr><!-- tr begin -->
                                 <th> No: </th>
-                                <th> Name: </th>
-                                <th> Image: </th>
-                                <th> E-Mail: </th>
-                                <th> Contact: </th>
+                                <th> Seller Name: </th>
+                                <th> Seller Image: </th>
+                                <th> Seller E-Mail: </th>
+                                <th> Seller Contact: </th>
+                                <th> Seller Location: </th>
+								<th> Company Name: </th>
+								<th> Business Type: </th>
+								<th> Business Image: </th>
+								<th> Business Description: </th>
+								<th> Approve: </th>
+								<th> Reject: </th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
                         
@@ -51,33 +58,52 @@
           
                                 $i=0;
                             
-                                $get_c = "select * from sellers where status = '1'";
+                                $get_s = "select * from sellers where status = '0'";
                                 
-                                $run_c = mysqli_query($con,$get_c);
+                                $run_s = mysqli_query($con,$get_s);
           
-                                while($row_c=mysqli_fetch_array($run_c)){
+                                while($row_s=mysqli_fetch_array($run_s)){
                                     
-                                    $c_id = $row_c['seller_id'];
+                                    $s_id = $row_s['seller_id'];
                                     
-                                    $c_name = $row_c['seller_name'];
+                                    $s_name = $row_s['seller_name'];
                                     
-                                    $c_img = $row_c['seller_image'];
+                                    $s_img = $row_s['seller_image'];
                                     
-                                    $c_email = $row_c['seller_email'];
+                                    $s_email = $row_s['seller_email'];
                                     
-                                    $c_contact = $row_c['seller_contact'];
+                                    $s_contact = $row_s['seller_contact'];
                                     
+                                    $s_location = $row_s['seller_location'];
+                                    
+                                    $s_company_name = $row_s['company_name'];
+                                    
+                                    $s_business_type = $row_s['business_type'];
+                                    
+                                    $s_business_image = $row_s['business_image'];
+                                    
+                                    $s_business_desc = $row_s['business_desc'];
                                     $i++;
                             
                             ?>
                             
                             <tr><!-- tr begin -->
                                 <td> <?php echo $i; ?> </td>
-                                <td> <?php echo $c_name; ?> </td>
-                                <td> <img src="../seller/seller_images/<?php echo $c_img; ?>" width="60" height="60"></td>
-                                <td> <?php echo $c_email; ?> </td>
-                                <td> <?php echo $c_contact ?> </td>
-								
+                                <td> <?php echo $s_name; ?> </td>
+                                <td> <img src="../seller/seller_images/<?php echo $s_img; ?>" width="60" height="60"></td>
+                                <td> <?php echo $s_email; ?> </td>
+                                <td> <?php echo $s_contact ?> </td>
+                                <td> <?php echo $s_location ?> </td>
+                                <td> <?php echo $s_company_name ?> </td>
+                                <td> <?php echo $s_business_type ?> </td>
+                                <td> <?php echo $s_business_image ?> </td>
+                                <td> <?php echo $s_business_desc ?> </td>
+								<td> 
+                                    <a href="index.php?approve_seller=<?php echo $s_id; ?>"> Approve</a> 
+                                </td>
+								<td> 
+                                    <a href="index.php?reject_seller=<?php echo $s_id; ?>">Reject</a> 
+                                </td>
                             </tr><!-- tr finish -->
                             
                             <?php } ?>

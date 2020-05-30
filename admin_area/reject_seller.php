@@ -10,17 +10,17 @@
 
 <?php 
 
-    if(isset($_GET['approve_seller'])){
+    if(isset($_GET['reject_seller'])){
         
-        $seller_id = $_GET['approve_seller'];
+        $reject_seller = $_GET['reject_seller'];
         
-        $seller_s = "Update sellers set status = '1' where seller_id='$seller_id'";
+        $delete_s = "delete from sellers where seller_id='$reject_seller'";
         
-        $run_seller_s = mysqli_query($con,$seller_s);
+        $run_delete = mysqli_query($con,$delete_s);
         
-        if($run_seller_s){
+        if($run_delete){
             
-            echo "<script>alert('Request has been Approved')</script>";
+            echo "<script>alert('Seller has been rejected')</script>";
             
             echo "<script>window.open('index.php?view_sellers','_self')</script>";
             

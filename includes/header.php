@@ -145,8 +145,8 @@ if(isset($_GET['pro_id'])){
                
                <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
                    
-                   <img src="images/ecom-store-logo.png" alt="M-dev-Store Logo" class="hidden-xs">
-                   <img src="images/ecom-store-logo-mobile.png" alt="M-dev-Store Logo Mobile" class="visible-xs">
+                   <img src="images/logo.png" alt="Logo" class="hidden-xs">
+                   <img src="images/logo.png" alt="Logo" class="visible-xs">
                    
                </a><!-- navbar-brand home Finish -->
                
@@ -175,10 +175,7 @@ if(isset($_GET['pro_id'])){
                    <ul class="nav navbar-nav left"><!-- nav navbar-nav left Begin -->
                        
                        <li class="<?php if($active=='Home') echo"active"; ?>">
-                           <a href="home.php">Home</a>
-                       </li>
-                       <li class="<?php if($active=='Shop') echo"active"; ?>">
-                           <a href="shop.php">Shop</a>
+                           <a href="index.php">Home</a>
                        </li>
                        <li class="<?php if($active=='Account') echo"active"; ?>">
                            
