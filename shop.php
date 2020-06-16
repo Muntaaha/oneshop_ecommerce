@@ -30,6 +30,7 @@
                    <li>
                        Shop
                    </li>
+				   <!--<li><?php// echo $company_name ?></li>-->
                </ul><!-- breadcrumb Finish -->
                
            </div><!-- col-md-12 Finish -->
@@ -46,25 +47,7 @@
            
            <div class="col-md-9"><!-- col-md-9 Begin -->
              
-             <?php 
-               
-                if(!isset($_GET['p_cat'])){
-                    
-                    if(!isset($_GET['cat'])){
-              
-                      echo "
-
-                       <div class='box'><!-- box Begin -->
-                           <h1>$company_name</h1>
-                       </div><!-- box Finish -->
-
-                       ";
-                        
-                    }
-                   
-                   }
-               
-               ?>
+             
                
                <div class="row"><!-- row Begin -->
                
@@ -87,9 +70,13 @@
                             }
                             
                             $start_from = ($page-1) * $per_page;
-                             
+                            if(isset($_GET['seller_id'])){
+								$seller_id = $_GET['seller_id'];
                             $get_products = "select * from products WHERE seller='$seller_id' order by 1 DESC LIMIT $start_from,$per_page";
-                             
+                            }
+							else{
+							$get_products = "select * from products order by 1 DESC LIMIT $start_from,$per_page";	
+							}
                             $run_products = mysqli_query($con,$get_products);
                              
                             while($row_products=mysqli_fetch_array($run_products)){

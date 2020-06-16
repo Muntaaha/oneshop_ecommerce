@@ -174,9 +174,6 @@ if(isset($_GET['pro_id'])){
                        <li class="<?php if($active=='Home') echo"active"; ?>">
                            <a href="index.php">Home</a>
                        </li>
-                       <li class="<?php if($active=='Shop') echo"active"; ?>">
-                           <a href="shop.php">Shop</a>
-                       </li>
                        <li class="<?php if($active=='Account') echo"active"; ?>">
                            
                            <?php 

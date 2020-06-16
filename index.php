@@ -284,7 +284,7 @@ if(isset($_GET['pro_id'])){
                             
                             $start_from = ($page-1) * $per_page;
                              
-                            $get_sellers = "select * from sellers order by 1 DESC LIMIT $start_from,$per_page";
+                            $get_sellers = "select * from sellers where status = '1' order by 1 DESC LIMIT $start_from,$per_page";
                              
                             $run_sellers = mysqli_query($con,$get_sellers);
                              
