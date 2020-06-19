@@ -164,24 +164,7 @@
                 
             </li><!-- li finish -->
 			
-            <li><!-- li begin -->
-                <a href="#" data-toggle="collapse" data-target="#slides"><!-- a href begin -->
-                        
-                        <i class="fa fa-fw fa-gear"></i> Slides
-                        <i class="fa fa-fw fa-caret-down"></i>
-                        
-                </a><!-- a href finish -->
-                
-                <ul id="slides" class="collapse"><!-- collapse begin -->
-                    <li><!-- li begin -->
-                        <a href="index.php?insert_slide"> Insert Slide </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
-                        <a href="index.php?view_slides"> View Slides </a>
-                    </li><!-- li finish -->
-                </ul><!-- collapse finish -->
-                
-            </li><!-- li finish -->
+            
             
             <li><!-- li begin -->
                 <a href="index.php?view_orders"><!-- a href begin -->

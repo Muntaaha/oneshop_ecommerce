@@ -194,7 +194,7 @@
                         
                         include("user_profile.php");
                         
-                }
+                }	
         
                 ?>
                 

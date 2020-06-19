@@ -204,6 +204,22 @@
                         
                         include("user_profile.php");
                         
+                }	if(isset($_GET['view_blog'])){
+                        
+                        include("view_blog.php");
+                        
+                }   if(isset($_GET['delete_blog'])){
+                        
+                        include("delete_blog.php");
+                        
+                }   if(isset($_GET['insert_blog'])){
+                        
+                        include("insert_blog.php");
+                        
+                }   if(isset($_GET['update_blog'])){
+                        
+                        include("update_blog.php");
+                        
                 }
         
                 ?>

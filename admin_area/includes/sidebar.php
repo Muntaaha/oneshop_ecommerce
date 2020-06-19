@@ -148,6 +148,30 @@
                 </ul><!-- collapse finish -->
                 
             </li><!-- li finish -->
+			<li><!-- li begin -->
+                <a href="#" data-toggle="collapse" data-target="#blogs"><!-- a href begin -->
+                        
+                        <i class="fa fa-fw fa-gear"></i> Blogs
+                        <i class="fa fa-fw fa-caret-down"></i>
+                        
+                </a><!-- a href finish -->
+                
+                <ul id="blogs" class="collapse"><!-- collapse begin -->
+                    <li><!-- li begin -->
+                        <a href="index.php?insert_blog"> Insert Blog </a>
+                    </li><!-- li finish -->
+					<li><!-- li begin -->
+                        <a href="index.php?delete_blog"> Delete Blog </a>
+                    </li><!-- li finish -->
+					<li><!-- li begin -->
+                        <a href="index.php?update_blog"> Update Blog </a>
+                    </li><!-- li finish -->
+                    <li><!-- li begin -->
+                        <a href="index.php?view_blog"> View Blogs </a>
+                    </li><!-- li finish -->
+                </ul><!-- collapse finish -->
+                
+            </li><!-- li finish -->
             <li><!-- li begin -->
 			    <a href="#" data-toggle="collapse" data-target="#seller"><!-- a href begin -->
                         

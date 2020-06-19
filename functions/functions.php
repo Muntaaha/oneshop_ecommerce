@@ -89,7 +89,7 @@ function getPro(){
             
                 <a href='details.php?pro_id=$pro_id'>
                 
-                    <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                    <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
                 
                 </a>
                 
@@ -171,7 +171,7 @@ function getShop(){
             
                 <a href='details.php?pro_id=$pro_id'>
                 
-                    <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                    <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
                 
                 </a>
                 
@@ -232,9 +232,9 @@ function getPCats(){
     if(isset($_GET['seller_id'])){
 		$seller_id = $_GET['seller_id'];
 	
-    $get_p_cats = "select * from product_categories where seller = '$seller_id'";
+    $get_p_cats = "select * from product_categories";
     }else{
-		$get_p_cats = "select * from product_categories order by 1 DESC LIMIT 1,6";
+		$get_p_cats = "select * from product_categories order by 1 DESC"; # LIMIT 1,6
 	}
     $run_p_cats = mysqli_query($db,$get_p_cats);
     
@@ -369,7 +369,7 @@ function getpcatpro(){
             
                 <a href='details.php?pro_id=$pro_id'>
                 
-                    <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                    <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
                 
                 </a>
                 
@@ -495,7 +495,7 @@ function getcatpro(){
                                         
                         <a href='details.php?pro_id=$pro_id'>
                                             
-                            <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                            <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
                                             
                         </a>
                                             

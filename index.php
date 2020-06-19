@@ -183,6 +183,9 @@ if(isset($_GET['pro_id'])){
                        <li class="<?php if($active=='Home') echo"active"; ?>">
                            <a href="index.php">Home</a>
                        </li>
+					   <li class="<?php if($active=='Shop') echo"active"; ?>">
+                           <a href="shop.php">Shop</a>
+                       </li>
                        <li class="<?php if($active=='Account') echo"active"; ?>">
                            
                            <?php 
@@ -262,6 +265,7 @@ if(isset($_GET['pro_id'])){
    </div><!-- navbar navbar-default Finish -->
       <div id="content"><!-- #content Begin -->
        <div class="container">
+	   <center style="margin-bottom: 20px;"><h1><b>Our Shops</b></h1></center>
    <div class="row"><!-- row Begin -->
                
                    <?php 
@@ -402,9 +406,280 @@ if(isset($_GET['pro_id'])){
                </center> 
                          </div><!-- container Finish -->
    </div><!-- #content Finish --> 
-   
+   <center style="margin-bottom: 20px;"><h1><b>Top Products</b></h1></center>
+   <div class="container">
+    <div class="row"><!-- row Begin -->
+               
+                   <?php 
+                   
+                        if(!isset($_GET['p_cat'])){
+                            
+                         if(!isset($_GET['cat'])){
+                            
+                            $per_page=6; 
+                             
+                            if(isset($_GET['page'])){
+                                
+                                $page = $_GET['page'];
+                                
+                            }else{
+                                
+                                $page=1;
+                                
+                            }
+                            
+                            $start_from = ($page-1) * $per_page;
+                            if(!isset($_GET['seller_id'])){
+                            
+							$get_products = "select * from products order by 1 ASC LIMIT 1,8";	
+							}
+                            $run_products = mysqli_query($con,$get_products);
+                             
+                            while($row_products=mysqli_fetch_array($run_products)){
+                                
+                                $pro_id = $row_products['product_id'];
+        
+                                $pro_title = $row_products['product_title'];
+
+                                $pro_price = $row_products['product_price'];
+
+                                $pro_img1 = $row_products['product_img1'];
+                                
+                                echo "
+                                
+                                    <div class='col-md-3 col-sm-6 center-responsive' style='margin-bottom: 30px;'>
+                                    
+                                        <div class='product'>
+                                        
+                                            <a href='details.php?pro_id=$pro_id'>
+                                            
+                                                <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
+                                            
+                                            </a>
+                                            
+                                            <div class='text'>
+                                            
+                                                <h4>
+                                                
+                                                    <a href='details.php?pro_id=$pro_id'> $pro_title </a>
+                                                
+                                                </h4>
+                                            
+                                                <p class='price'>
+
+                                                    $$pro_price
+
+                                                </p>
+
+                                                <p class='buttons'>
+
+                                                    <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
+
+                                                        View Details
+
+                                                    </a>
+
+                                                    <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
+
+                                                        <i class='fa fa-shopping-cart'></i> Add To Cart
+
+                                                    </a>
+
+                                                </p>
+                                            
+                                            </div>
+                                        
+                                        </div>
+                                    
+                                    </div>
+                                
+                                ";
+                                
+                        }
+                        
+                   ?>
+               
+               </div><!-- row Finish -->
+			   </div>
+						 <?php 
+						 }
+						 }
+?>
+		<center style="margin-bottom: 20px; margin-top:100px;"><h1><b>Trending Products</b></h1></center>
+<div class="container">
+    <div class="row"><!-- row Begin -->
+               
+                   <?php 
+                   
+                        if(!isset($_GET['p_cat'])){
+                            
+                         if(!isset($_GET['cat'])){
+                            
+                            $per_page=6; 
+                             
+                            if(isset($_GET['page'])){
+                                
+                                $page = $_GET['page'];
+                                
+                            }else{
+                                
+                                $page=1;
+                                
+                            }
+                            
+                            $start_from = ($page-1) * $per_page;
+                            if(!isset($_GET['seller_id'])){
+                            
+							$get_products = "select * from products order by 1 DESC LIMIT 1,8";	
+							}
+                            $run_products = mysqli_query($con,$get_products);
+                             
+                            while($row_products=mysqli_fetch_array($run_products)){
+                                
+                                $pro_id = $row_products['product_id'];
+        
+                                $pro_title = $row_products['product_title'];
+
+                                $pro_price = $row_products['product_price'];
+
+                                $pro_img1 = $row_products['product_img1'];
+                                
+                                echo "
+                                
+                                    <div class='col-md-3 col-sm-6 center-responsive' style='margin-bottom: 30px;'>
+                                    
+                                        <div class='product'>
+                                        
+                                            <a href='details.php?pro_id=$pro_id'>
+                                            
+                                                <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
+                                            
+                                            </a>
+                                            
+                                            <div class='text'>
+                                            
+                                                <h4>
+                                                
+                                                    <a href='details.php?pro_id=$pro_id'> $pro_title </a>
+                                                
+                                                </h4>
+                                            
+                                                <p class='price'>
+
+                                                    $$pro_price
+
+                                                </p>
+
+                                                <p class='buttons'>
+
+                                                    <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
+
+                                                        View Details
+
+                                                    </a>
+
+                                                    <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
+
+                                                        <i class='fa fa-shopping-cart'></i> Add To Cart
+
+                                                    </a>
+
+                                                </p>
+                                            
+                                            </div>
+                                        
+                                        </div>
+                                    
+                                    </div>
+                                
+                                ";
+                                
+                        }
+                        
+                   ?>
+               
+               </div><!-- row Finish -->
+			   </div>
+
    <?php 
-    
+    }
+							
+						}
+					 ?>
+					 
+					 
+	<center style="margin-bottom: 80px; margin-top:100px;"><h1><b>Blogs</b></h1></center>				 
+	<div class="container">
+    <div class="row"><!-- row Begin -->
+               
+	   <?php 
+	   
+		
+				if(!isset($_GET['seller_id'])){
+				//echo "HELLO1";
+				$get_blog = "select * from blog";	# order by 1 DESC LIMIT 1,4
+				
+				}
+				
+				$run_blog = mysqli_query($con,$get_blog);
+				 
+				while($row_blog=mysqli_fetch_array($run_blog)){
+					
+					$id = $row_blog['id'];
+					
+					$title = $row_blog['title'];
+
+					$description = $row_blog['description'];
+
+					$image = $row_blog['image'];
+					
+					echo "
+					
+						<div class='col-md-6 col-sm-6 center-responsive' style='margin-bottom: 30px;'>
+						
+							<div class='product'>
+							
+								<a href='blog_details.php?id=$id'>
+								
+									<img class='img-responsive' src='admin_area/admin_images/$image'>
+								
+								</a>
+								
+								<div class='text'>
+								
+									<h4>
+									
+										<a href='blog_details.php?id=$id'> $title </a>
+									
+									</h4>
+
+									<p class='buttons'>
+
+										<a class='btn btn-default' href='blog_details.php?id=$id'>
+
+											View Details
+
+										</a>
+
+									</p>
+								
+								</div>
+							
+							</div>
+						
+						</div>
+					
+					";
+					
+			}
+			
+	   ?>
+               
+               </div><!-- row Finish -->
+			   </div>
+
+    				 
+	<?php 
     include("includes/footer.php");
     
     ?>
