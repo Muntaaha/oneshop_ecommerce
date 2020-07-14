@@ -149,23 +149,12 @@
                
                <div class="box" id="details"><!-- box Begin -->
                        
-                       <h4>Product Details</h4>
+                  <h4>Product Details</h4>
                    
-                   <p>
-                       
-                       <?php echo $pro_desc; ?>
-                       
-                   </p>
+                    <p><?php echo $seller_name; ?> </p>
+                    <p><?php echo $seller_contact; ?> </p>
                    
-                       <h4>Size</h4>
-                       
-                       <ul>
-                           <li>Small</li>
-                           <li>Medium</li>
-                           <li>Large</li>
-                       </ul>  
-                       
-                       <hr>
+                  <hr>
                    
                </div><!-- box Finish -->
                

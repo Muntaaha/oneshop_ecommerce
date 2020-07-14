@@ -38,14 +38,16 @@
                         <thead><!-- thead begin -->
                             <tr><!-- tr begin -->
                                 <th> No: </th>
-                                <th> Customer Email: </th>
+                                <th> Customer Name: </th>
+                                <th> Customer Address: </th>
                                 <th> Invoice No: </th>
                                 <th> Product Name: </th>
                                 <th> Product Qty: </th>
-                                <th> Product Size: </th>
+                                <th> Payment Status: </th>
                                 <th> Order Date: </th>
+                                <th> Delivery Date: </th>
                                 <th> Total Amount: </th>
-                                <th> Status: </th>
+                                <th> Delivery Status: </th>
                                 <th> Delete: </th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
@@ -91,6 +93,10 @@
                                     $row_customer = mysqli_fetch_array($run_customer);
                                     
                                     $customer_email = $row_customer['customer_email'];
+
+                                    $customer_name = $row_customer['customer_name'];
+
+                                    $customer_address = $row_customer['customer_address'];
                                     
                                     $get_c_order = "select * from customer_orders where order_id='$order_id'";
                                     
@@ -101,19 +107,21 @@
                                     $order_date = $row_c_order['order_date'];
                                     
                                     $order_amount = $row_c_order['due_amount'];
-                                    
+
                                     $i++;
                             
                             ?>
                             
                             <tr><!-- tr begin -->
                                 <td> <?php echo $i; ?> </td>
-                                <td> <?php echo $customer_email; ?> </td>
+                                <td> <?php echo $customer_name; ?> </td>
+                                <td> <?php echo $customer_address; ?> </td>
                                 <td> <?php echo $invoice_no; ?></td>
                                 <td> <?php echo $product_title; ?> </td>
                                 <td> <?php echo $qty; ?></td>
-                                <td> <?php echo $size; ?> </td>
+                                <td> <?php echo "---"; ?> </td>
                                 <td> <?php echo $order_date; ?> </td>
+                                <td> <?php echo date('Y-m-d', strtotime($order_date. ' + 10 days')); ?> </td>
                                 <td> <?php echo $order_amount; ?> </td>
                                 <td>
                                     

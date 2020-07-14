@@ -72,6 +72,14 @@ if(isset($_GET['pro_id'])){
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
+	<style>
+	
+	.btn {
+		margin-bottom: 5px!important;
+		font-size: 12px!important;
+		
+	}
+	</style>
 </head>
 <body>
    
@@ -304,7 +312,7 @@ if(isset($_GET['pro_id'])){
                                 
                                 echo "
                                 
-                                    <div class='col-md-4 col-sm-6 center-responsive'>
+                                    <div class='col-md-3 col-sm-4 center-responsive'>
                                     
                                         <div class='product'>
                                         
@@ -431,7 +439,7 @@ if(isset($_GET['pro_id'])){
                             $start_from = ($page-1) * $per_page;
                             if(!isset($_GET['seller_id'])){
                             
-							$get_products = "select * from products order by 1 ASC LIMIT 1,8";	
+							$get_products = "select * from products order by 1 ASC LIMIT 1,12";	
 							}
                             $run_products = mysqli_query($con,$get_products);
                              
@@ -447,9 +455,9 @@ if(isset($_GET['pro_id'])){
                                 
                                 echo "
                                 
-                                    <div class='col-md-3 col-sm-6 center-responsive' style='margin-bottom: 30px;'>
+                                    <div class='col-md-2 col-sm-6 center-responsive' style='margin-bottom: 30px;'>
                                     
-                                        <div class='product'>
+                                        <div style='height: 400px'>
                                         
                                             <a href='details.php?pro_id=$pro_id'>
                                             
@@ -459,7 +467,7 @@ if(isset($_GET['pro_id'])){
                                             
                                             <div class='text'>
                                             
-                                                <h4>
+                                                <h4 style='height: 40px;'>
                                                 
                                                     <a href='details.php?pro_id=$pro_id'> $pro_title </a>
                                                 
@@ -473,13 +481,13 @@ if(isset($_GET['pro_id'])){
 
                                                 <p class='buttons'>
 
-                                                    <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
+                                                    <a class='btn btn-sm btn-warning' href='details.php?pro_id=$pro_id'>
 
                                                         View Details
 
                                                     </a>
 
-                                                    <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
+                                                    <a class='btn btn-sm btn-primary' href='details.php?pro_id=$pro_id'>
 
                                                         <i class='fa fa-shopping-cart'></i> Add To Cart
 
@@ -530,7 +538,7 @@ if(isset($_GET['pro_id'])){
                             $start_from = ($page-1) * $per_page;
                             if(!isset($_GET['seller_id'])){
                             
-							$get_products = "select * from products order by 1 DESC LIMIT 1,8";	
+							$get_products = "select * from products order by 1 DESC LIMIT 1,12";	
 							}
                             $run_products = mysqli_query($con,$get_products);
                              
@@ -546,9 +554,9 @@ if(isset($_GET['pro_id'])){
                                 
                                 echo "
                                 
-                                    <div class='col-md-3 col-sm-6 center-responsive' style='margin-bottom: 30px;'>
+                                    <div class='col-md-2 col-sm-6 center-responsive' style='margin-bottom: 30px;'>
                                     
-                                        <div class='product'>
+                                        <div style='height: 400px'>
                                         
                                             <a href='details.php?pro_id=$pro_id'>
                                             
@@ -558,7 +566,7 @@ if(isset($_GET['pro_id'])){
                                             
                                             <div class='text'>
                                             
-                                                <h4>
+                                                <h4 style='height: 40px;'>
                                                 
                                                     <a href='details.php?pro_id=$pro_id'> $pro_title </a>
                                                 

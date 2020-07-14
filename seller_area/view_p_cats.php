@@ -51,7 +51,8 @@
                             
                                 $i=0;
           
-                                $get_p_cats = "select * from product_categories where seller = '$seller_id' ";
+                                $get_p_cats = "select * from product_categories "; #seller register e required er jaigai * dea dew..
+
           
                                 $run_p_cats = mysqli_query($con,$get_p_cats);
           

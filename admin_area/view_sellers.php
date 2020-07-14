@@ -1,10 +1,10 @@
 <?php 
     
-    //if(!isset($_SESSION['seller_email'])){
+    // if(!isset($_SESSION['seller_email'])){
         
-        //echo "<script>window.open('login.php','_self')</script>";
+        // echo "<script>window.open('login.php','_self')</script>";
         
-    //}else{
+    // }else{
 
 ?>
 
@@ -42,6 +42,9 @@
                                 <th> Image: </th>
                                 <th> E-Mail: </th>
                                 <th> Contact: </th>
+                                <th> Company Name: </th>
+                                <th> Business Type: </th>
+                                <th> Payment: </th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
                         
@@ -67,6 +70,10 @@
                                     
                                     $c_contact = $row_c['seller_contact'];
                                     
+                                    $company_name = $row_c['company_name'];
+
+                                    $business_type = $row_c['business_type'];
+
                                     $i++;
                             
                             ?>
@@ -74,10 +81,12 @@
                             <tr><!-- tr begin -->
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $c_name; ?> </td>
-                                <td> <img src="../seller/seller_images/<?php echo $c_img; ?>" width="60" height="60"></td>
+                                <td> <img src="../seller_area/seller_images/<?php echo $c_img; ?>" width="60" height="60"></td>
                                 <td> <?php echo $c_email; ?> </td>
                                 <td> <?php echo $c_contact ?> </td>
-								
+                                <td> <?php echo $company_name ?> </td>
+								<td> <?php echo $business_type ?> </td>
+                                <td>Incomplete</td>
                             </tr><!-- tr finish -->
                             
                             <?php } ?>
@@ -92,4 +101,4 @@
     </div><!-- col-lg-12 finish -->
 </div><!-- row 2 finish -->
 
-<?php //} ?>
+ <?php //} ?>

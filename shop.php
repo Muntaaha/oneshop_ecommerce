@@ -4,6 +4,13 @@
     include("includes/header.php");
 
 ?>
+<style>
+  .btn {
+    margin-bottom: 5px!important;
+    font-size: 12px!important;
+    
+  }
+  </style>
   <?php
 	if(isset($_GET['seller_id'])){
 		$seller_id = $_GET['seller_id'];
@@ -17,6 +24,10 @@
 			$company_name = $row_seller['company_name'];
 		}
 	}
+  else{
+   $seller_name = " ";
+   $company_name = " ";
+  }
   
   ?>
    <div id="content"><!-- #content Begin -->
@@ -30,7 +41,7 @@
                    <li>
                        Shop
                    </li>
-				   <!--<li><?php// echo $company_name ?></li>-->
+				          <li><?php echo $company_name ?></li>
                </ul><!-- breadcrumb Finish -->
                
            </div><!-- col-md-12 Finish -->
@@ -57,7 +68,7 @@
                             
                          if(!isset($_GET['cat'])){
                             
-                            $per_page=6; 
+                            $per_page=8; 
                              
                             if(isset($_GET['page'])){
                                 
@@ -71,12 +82,26 @@
                             
                             $start_from = ($page-1) * $per_page;
                             if(isset($_GET['seller_id'])){
-								$seller_id = $_GET['seller_id'];
-                            $get_products = "select * from products WHERE seller='$seller_id' order by 1 DESC LIMIT $start_from,$per_page";
+              								$seller_id = $_GET['seller_id'];
+                              $get_products = "select * from products WHERE seller='$seller_id' order by 1 DESC "; #LIMIT $start_from,$per_page
+                            ?>
+                            <div class="box" style="height: 100px">
+                              <h3>
+                            <?php
+                              $shop_name = "select company_name from sellers where seller_id='$seller_id'";
+                              $get_shop_name = mysqli_query($con,$shop_name);
+                              $row_shop_name = mysqli_fetch_array($get_shop_name);
+                              $shop = $row_shop_name['company_name'];
+                              echo $shop;
+                            ?>
+
+                          </h3>
+                            </div>
+                            <?php
                             }
-							else{
-							$get_products = "select * from products order by 1 DESC LIMIT $start_from,$per_page";	
-							}
+                            else{
+              							$get_products = "select * from products order by 1 DESC LIMIT $start_from,$per_page";	
+              							}
                             $run_products = mysqli_query($con,$get_products);
                              
                             while($row_products=mysqli_fetch_array($run_products)){
@@ -91,9 +116,9 @@
                                 
                                 echo "
                                 
-                                    <div class='col-md-4 col-sm-6 center-responsive'>
+                                    <div class='col-md-3 col-sm-6 center-responsive'>
                                     
-                                        <div class='product'>
+                                        <div style='height: 400px'>
                                         
                                             <a href='details.php?pro_id=$pro_id'>
                                             
@@ -103,15 +128,15 @@
                                             
                                             <div class='text'>
                                             
-                                                <h3>
+                                                <h4 style='height: 30px;'>
                                                 
                                                     <a href='details.php?pro_id=$pro_id'> $pro_title </a>
                                                 
-                                                </h3>
+                                                </h4>
                                             
                                                 <p class='price'>
 
-                                                    $$pro_price
+                                                    BDT$pro_price
 
                                                 </p>
 
@@ -144,10 +169,12 @@
                    ?>
                
                </div><!-- row Finish -->
-               
-               <center>
+                <?php 
+                if(!isset($_GET['seller_id'])){
+                ?>
+                <center>
                    <ul class="pagination"><!-- pagination Begin -->
-					 <?php
+					         <?php
                              
                     $query = "select * from products";
                              
@@ -199,7 +226,9 @@
                        
                    </ul><!-- pagination Finish -->
                </center>
-                
+          <?php 
+            }
+          ?>
                 <?php 
                
                getpcatpro(); 

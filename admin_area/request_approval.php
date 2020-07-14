@@ -90,13 +90,13 @@
                             <tr><!-- tr begin -->
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $s_name; ?> </td>
-                                <td> <img src="../seller/seller_images/<?php echo $s_img; ?>" width="60" height="60"></td>
+                                <td> <img src="../seller_area/seller_images/<?php echo $s_img; ?>" width="60" height="60"></td>
                                 <td> <?php echo $s_email; ?> </td>
                                 <td> <?php echo $s_contact ?> </td>
                                 <td> <?php echo $s_location ?> </td>
                                 <td> <?php echo $s_company_name ?> </td>
                                 <td> <?php echo $s_business_type ?> </td>
-                                <td> <?php echo $s_business_image ?> </td>
+                                <td> <img src="../seller_area/product_images/<?php echo $s_business_image ?>" width="60" height="60"> </td>
                                 <td> <?php echo $s_business_desc ?> </td>
 								<td> 
                                     <a href="index.php?approve_seller=<?php echo $s_id; ?>"> Approve</a> 

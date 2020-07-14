@@ -63,6 +63,13 @@ if(isset($_GET['pro_id'])){
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
+	<style>
+	.btn {
+		margin-bottom: 5px!important;
+		font-size: 12px!important;
+		
+	}
+	</style>
 </head>
 <body>
    

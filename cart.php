@@ -97,7 +97,7 @@
                                        
                                        <td>
                                            
-                                           <img class="img-responsive" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Product 3a">
+                                           <img class="img-responsive" src="seller_area/product_images/<?php echo $product_img1; ?>" alt="Product 3a">
                                            
                                        </td>
                                        
@@ -133,7 +133,7 @@
                                        
                                        <td>
                                            
-                                           $<?php echo $sub_total; ?>
+                                           BDT<?php echo $sub_total; ?>
                                            
                                        </td>
                                        
@@ -148,7 +148,7 @@
                                    <tr><!-- tr Begin -->
                                        
                                        <th colspan="5">Total</th>
-                                       <th colspan="2">$<?php echo $total; ?></th>
+                                       <th colspan="2">BDT<?php echo $total; ?></th>
                                        
                                    </tr><!-- tr Finish -->
                                    
@@ -256,7 +256,7 @@
                             <div class='text'><!-- text Begin -->
                                 <h3><a href='details.php?pro_id=$pro_id'> $pro_title </a></h3>
                                 
-                                <p class='price'>$$pro_price</p>
+                                <p class='price'>BDT$pro_price</p>
                                 
                             </div><!-- text Finish -->
                             
@@ -298,28 +298,28 @@
                                <tr><!-- tr Begin -->
                                    
                                    <td> Order All Sub-Total </td>
-                                   <th> $<?php echo $total; ?> </th>
+                                   <th> BDT<?php echo $total; ?> </th>
                                    
                                </tr><!-- tr Finish -->
                                
                                <tr><!-- tr Begin -->
                                    
                                    <td> Shipping and Handling </td>
-                                   <td> $0 </td>
+                                   <td> BDT0 </td>
                                    
                                </tr><!-- tr Finish -->
                                
                                <tr><!-- tr Begin -->
                                    
                                    <td> Tax </td>
-                                   <th> $0 </th>
+                                   <th> BDT0 </th>
                                    
                                </tr><!-- tr Finish -->
                                
                                <tr class="total"><!-- tr Begin -->
                                    
                                    <td> Total </td>
-                                   <th> $<?php echo $total; ?> </th>
+                                   <th> BDT<?php echo $total; ?> </th>
                                    
                                </tr><!-- tr Finish -->
                                

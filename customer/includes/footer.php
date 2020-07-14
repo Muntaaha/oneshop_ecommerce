@@ -6,10 +6,10 @@
                <h4>Pages</h4>
                 
                 <ul><!-- ul Begin -->
-                    <li><a href="../cart.php">Shopping Cart</a></li>
-                    <li><a href="../contact.php">Contact Us</a></li>
-                    <li><a href="../shop.php">Shop</a></li>
-                    <li><a href="my_account.php">My Account</a></li>
+                    <li><a href="cart.php">Shopping Cart</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
+                    <li><a href="shop.php">Shop</a></li>
+                    <li><a href="customer/my_account.php">My Account</a></li>
                 </ul><!-- ul Finish -->
                 
                 <hr>
@@ -22,33 +22,17 @@
                            
                            if(!isset($_SESSION['customer_email'])){
                                
-                               echo"<a href='../checkout.php'>Login</a>";
+                               echo"<a href='checkout.php'>Login</a>";
                                
                            }else{
                                
-                              echo"<a href='my_account.php?my_orders'>My Account</a>"; 
+                              echo"<a href='customer/my_account.php?my_orders'>My Account</a>"; 
                                
                            }
                            
                            ?>
                     
-                    <li>
-                    
-                            <?php 
-                           
-                           if(!isset($_SESSION['customer_email'])){
-                               
-                               echo"<a href='../checkout.php'>Login</a>";
-                               
-                           }else{
-                               
-                              echo"<a href='my_account.php?edit_account'>Edit Account</a>"; 
-                               
-                           }
-                           
-                           ?>
-                    
-                    </li>
+                    <li><a href="customer_register.php">Register</a></li>
                 </ul><!-- ul Finish -->
                 
                 <hr class="hidden-md hidden-lg hidden-sm">
@@ -63,7 +47,7 @@
                 
                     <?php 
                     
-                        $get_p_cats = "select * from product_categories";
+                        $get_p_cats = "select * from product_categories order by 1 DESC LIMIT 1,8";
                     
                         $run_p_cats = mysqli_query($con,$get_p_cats);
                     
@@ -77,7 +61,7 @@
                             
                                 <li>
                                 
-                                    <a href='../shop.php?p_cat=$p_cat_id'>
+                                    <a href='shop.php?p_cat=$p_cat_id'>
                                     
                                         $p_cat_title
                                     
@@ -103,16 +87,16 @@
                 
                 <p><!-- p Start -->
                     
-                    <strong>M-Dev Media inc.</strong>
-                    <br/>Cibubur
-                    <br/>Ciracas
-                    <br/>0818-0683-3157
-                    <br/>mugianto4th@gmail.com
-                    <br/><strong>MrGhie</strong>
+                    <strong>One Shop</strong>
+                    <br/>Shahreen Haque
+                    <br/>Ummey Mukta
+                    <br/>+8801849112288
+                    <br/>jui@gmail.com
+                    <br/><strong>mukta@gmail.com</strong>
                     
                 </p><!-- p Finish -->
                 
-                <a href="../contact.php">Check Our Contact Page</a>
+                <a href="contact.php">Check Our Contact Page</a>
                 
                 <hr class="hidden-md hidden-lg">
                 
@@ -120,38 +104,37 @@
             
             <div class="col-sm-6 col-md-3">
                 
-                <h4>Get The News</h4>
+                <h4>Go through Our Blogs</h4>
                 
                 <p class="text-muted">
-                    Dont miss our latest update products.
+                   <a href="http://localhost/oneshop_ecommerce/blog_details.php?id=1">Click Here</a> to see our most popular blog.
                 </p>
                 
-                <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=M-devMedia', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" method="post"><!-- form begin -->
-                    <div class="input-group"><!-- input-group begin -->
+                <!-- <form action="#" method="post" target="popupwindow" onsubmit="window.open('#', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" method="post"><!-- form begin -->
+                  <!--   <div class="input-group"> --><!-- input-group begin -->
                         
-                        <input type="text" class="form-control" name="email">
+                       <!--  <input type="text" class="form-control" name="email"> -->
                         
-                        <input type="hidden" value="M-devMedia" name="uri"/><input type="hidden" name="loc" value="en_US"/>
+                      <!--   <input type="hidden" value="one-Shop-Media" name="uri"/><input type="hidden" name="loc" value="en_US"/> -->
                         
-                        <span class="input-group-btn"><!-- input-group-btn begin -->
+                       <!--  <span class="input-group-btn"> --><!-- input-group-btn begin -->
                             
-                            <input type="submit" value="subscribe" class="btn btn-default">
+                           <!--  <input type="submit" value="subscribe" class="btn btn-default">
                             
-                        </span><!-- input-group-btn Finish -->
+                        </span> --><!-- input-group-btn Finish -->
                         
-                    </div><!-- input-group Finish -->
-                </form><!-- form Finish -->
-                
+                   <!--  </div> --><!-- input-group Finish -->
+               <!--  </form> --><!-- form Finish --> 
                 <hr>
                 
                 <h4>Keep In Touch</h4>
                 
                 <p class="social">
-                    <a href="../#" class="fa fa-facebook"></a>
-                    <a href="../#" class="fa fa-twitter"></a>
-                    <a href="../#" class="fa fa-instagram"></a>
-                    <a href="../#" class="fa fa-google-plus"></a>
-                    <a href="../#" class="fa fa-envelope"></a>
+                    <a href="https://www.facebook.com/shahreen0111" class="fa fa-facebook"></a>
+                    <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fmobile.twitter.com%2FIJahaan%3Ffbclid%3DIwAR3Nk9ucN38X-M8CpdRh51OhgWpqVewc48wclLEu6rMq7QsGt_qANE4hJPg&h=AT0oOPxlWtITUmrhp-G6yceHjxBdctjD_HxekypURnh6UT6hvQQrLWiodO6VysU7Ik1sWb9A0q_UfM6Ao0toItYpfqvhskFlpCftLvBiYdL6aiXSov8G8Pv0p5DZeU5_kYoaPqWRl7Y2NYA" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                   <!--  <a href="#" class="fa fa-google-plus"></a>
+                    <a href="#" class="fa fa-envelope"></a> -->
                 </p>
                 
             </div>
@@ -160,17 +143,3 @@
 </div><!-- #footer Finish -->
 
 
-<div id="copyright"><!-- #copyright Begin -->
-    <div class="container"><!-- container Begin -->
-        <div class="col-md-6"><!-- col-md-6 Begin -->
-            
-            <p class="pull-left">&copy; 2018 M-Dev Store All Rights Reserve</p>
-            
-        </div><!-- col-md-6 Finish -->
-        <div class="col-md-6"><!-- col-md-6 Begin -->
-            
-            <p class="pull-right">Theme by: <a href="#">MrGhie</a></p>
-            
-        </div><!-- col-md-6 Finish -->
-    </div><!-- container Finish -->
-</div><!-- #copyright Finish -->

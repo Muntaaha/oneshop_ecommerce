@@ -145,7 +145,10 @@ if(isset($_SESSION['customer_email'])){
                        <li>
                            <a href="../index.php">Home</a>
                        </li>
-                       <li class="active">
+                       <li>
+                           <a href="../shop.php">Shop</a>
+                       </li>
+                       <li>
                            <a href="my_account.php">My Account</a>
                        </li>
                        <li>

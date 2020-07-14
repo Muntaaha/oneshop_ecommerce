@@ -33,15 +33,26 @@
            <div class="col-md-9"><!-- col-md-9 Begin -->
                
                <div class="box"><!-- box Begin -->
-                   
+                   <h2 style="text-align: center;">Seller Registration</h2>
+                   <hr>
                    <div class="box-header"><!-- box-header Begin -->
-                       
+                    <div class="form-group"><!-- center Begin -->
+                           
+                           
+                         <h4>Before Registration know the rules</h4>
+                         <p>* Oneshop will deduct a small 10% percentage  of comission from the payment of your orders.</p>
+
+                        <p>*Sharing of any spam content is strictly prohibited.</p>
+
+                        <p>*Do not spread any negativity. If the oneshop authority finds you offensive in any way, we may ban you from the platfrom if necessary.</p>
+                           
+                       </div><!-- center Finish -->   
                        
                        <form action="seller_register.php" method="post" enctype="multipart/form-data"><!-- form Begin -->
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Seller Name <span style="color: red;">(required)</span></label>
+                               <label>Seller Name <span style="color: red;">*</span></label>
                                
                                <input type="text" class="form-control" name="seller_name" required>
                                
@@ -49,7 +60,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Seller Email <span style="color: red;">(required)</span></label>
+                               <label>Seller Email <span style="color: red;">*</span></label>
                                
                                <input type="text" class="form-control" name="seller_email" required>
                                
@@ -57,7 +68,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Seller Password <span style="color: red;">(required)</span></label>
+                               <label>Seller Password <span style="color: red;">*</span></label>
                                
                                <input type="password" class="form-control" name="seller_password" required>
                                
@@ -65,7 +76,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Seller Location <span style="color: red;">(required)</span></label>
+                               <label>Seller Location <span style="color: red;">*</span></label>
                                
                                <input type="text" class="form-control" name="seller_location" required>
                                
@@ -73,7 +84,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Company Name <span style="color: red;">(required)</span></label>
+                               <label>Company Name <span style="color: red;">*</span></label>
                                
                                <input type="text" class="form-control" name="s_company_name">
                                
@@ -81,7 +92,7 @@
 
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Business Type <span style="color: red;">(required)</span></label>
+                               <label>Business Type <span style="color: red;">*</span></label>
                                
                                <input type="text" class="form-control" name="business_type" required>
                                
@@ -89,7 +100,7 @@
 						   
 						   <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Business Description <span style="color: red;">(required)</span></label>
+                               <label>Business Description <span style="color: red;">*</span></label>
                                
                                <input type="text" class="form-control" name="business_description" required>
                                
@@ -97,7 +108,7 @@
 
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Your Contact <span style="color: red;">(required)</span></label>
+                               <label>Your Contact <span style="color: red;">*</span></label>
                                
                                <input type="text" class="form-control" name="seller_contact" required>
                                
@@ -105,7 +116,7 @@
                            
                            <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Your Profile Picture <span style="color: red;">(required)</span></label>
+                               <label>Your Profile Picture <span style="color: red;">*</span></label>
                                
                                <input type="file" class="form-control form-height-custom" name="s_image" required>
                                
@@ -113,23 +124,13 @@
                            
 						   <div class="form-group"><!-- form-group Begin -->
                                
-                               <label>Show a picture of your product <span style="color: red;">(required)</span></label>
+                               <label>Show a picture of your product <span style="color: red;">*</span></label>
                                
                                <input type="file" class="form-control form-height-custom" name="b_image" required>
                                
                            </div><!-- form-group Finish -->
 						   
-                       <div class="form-group"<!-- center Begin -->
-                           
-                           
-						   <h4>Before Registration know the rules</h4>
-						   <p>* You have to provide 10% of your total income every three months to the 'oneshop authority' to increase the platform.</p>
-
-							<p>*Sharing of any spam content is strictly prohibited.</p>
-
-							<p>*Do not spread any negativity. If the oneshop authority finds you offensive in any way, we may ban you from the platfrom if necessary.</p>
-                           
-                       </div><!-- center Finish -->
+                       
 						   <div class="form-group"><!-- form-group Begin -->
 						   
 								<input type="checkbox" id="agree" name="agree" value="Agreed" required>

@@ -31,6 +31,8 @@ if(isset($_GET['pro_id'])){
     
     $row_product = mysqli_fetch_array($run_product);
     
+    $seller_id = $row_product['seller'];
+
     $p_cat_id = $row_product['p_cat_id'];
     
     $pro_title = $row_product['product_title'];
@@ -44,7 +46,17 @@ if(isset($_GET['pro_id'])){
     $pro_img2 = $row_product['product_img2'];
     
     $pro_img3 = $row_product['product_img3'];
+
+    $get_seller = "select * from sellers where seller_id='$seller_id'";
     
+    $run_seller = mysqli_query($con,$get_seller);
+    
+    $row_seller = mysqli_fetch_array($run_seller);
+
+    $seller_contact = $row_seller['seller_contact'];
+
+    $seller_name = $row_seller['seller_name'];
+
     $get_p_cat = "select * from product_categories where p_cat_id='$p_cat_id'";
     
     $run_p_cat = mysqli_query($con,$get_p_cat);

@@ -190,23 +190,23 @@
                 </ul><!-- collapse finish -->
             </li><!-- li finish -->
             
-            <li><!-- li begin -->
-                <a href="index.php?view_customers"><!-- a href begin -->
+           <!--  <li>
+                <a href="index.php?view_customers">
                     <i class="fa fa-fw fa-users"></i> View Customers
-                </a><!-- a href finish -->
-            </li><!-- li finish -->
+                </a>
+            </li>
             
-            <li><!-- li begin -->
-                <a href="index.php?view_orders"><!-- a href begin -->
+            <li>
+                <a href="index.php?view_orders">
                     <i class="fa fa-fw fa-book"></i> View Orders
-                </a><!-- a href finish -->
-            </li><!-- li finish -->
+                </a>
+            </li>
             
-            <li><!-- li begin -->
-                <a href="index.php?view_payments"><!-- a href begin -->
+            <li>
+                <a href="index.php?view_payments">
                     <i class="fa fa-fw fa-money"></i> View Payments
-                </a><!-- a href finish -->
-            </li><!-- li finish -->
+                </a>
+            </li> -->
             
             <li><!-- li begin -->
                 <a href="#" data-toggle="collapse" data-target="#users"><!-- a href begin -->
