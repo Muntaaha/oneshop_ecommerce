@@ -33,10 +33,12 @@
                        <h1>Shopping Cart</h1>
                        
                        <?php 
+					   
+					   $customer = $_SESSION['customer_email'];
                        
                        $ip_add = getRealIpUser();
                        
-                       $select_cart = "select * from cart where ip_add='$ip_add'";
+                       $select_cart = "select * from cart where customer='$customer'";
                        
                        $run_cart = mysqli_query($con,$select_cart);
                        

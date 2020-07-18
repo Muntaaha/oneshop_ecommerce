@@ -555,13 +555,18 @@ function items(){
     
     $ip_add = getRealIpUser();
     
-    $get_items = "select * from cart where ip_add='$ip_add'";
+	$customer = $_SESSION['customer_email'];
+	
+    $get_items = "select * from cart where  customer='$customer'";
     
     $run_items = mysqli_query($db,$get_items);
     
     $count_items = mysqli_num_rows($run_items);
-    
-    echo $count_items;
+    if($count_items>0){
+		echo $count_items;
+	}else{
+		echo '0';
+	}
     
 }
 
@@ -574,10 +579,12 @@ function total_price(){
     global $db;
     
     $ip_add = getRealIpUser();
-    
+	
+    $customer = $_SESSION['customer_email'];
+	
     $total = 0;
     
-    $select_cart = "select * from cart where ip_add='$ip_add'";
+    $select_cart = "select * from cart where customer='$customer'";
     
     $run_cart = mysqli_query($db,$select_cart);
     
