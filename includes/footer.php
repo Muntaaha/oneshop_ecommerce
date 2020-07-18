@@ -88,11 +88,8 @@
                 <p><!-- p Start -->
                     
                     <strong>One Shop</strong>
-                    <br/>Shahreen Haque
-                    <br/>Ummey Mukta
-                    <br/>+8801849112288
-                    <br/>jui@gmail.com
-                    <br/><strong>mukta@gmail.com</strong>
+                    <br/><strong>Shahreen Haque</strong>
+                    <br/><strong>shahreen15-506@diu.edu.bd</strong>
                     
                 </p><!-- p Finish -->
                 

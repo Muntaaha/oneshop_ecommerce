@@ -99,7 +99,7 @@ if(isset($_POST['login'])){
         
        echo "<script>alert('You are Logged in')</script>"; 
         
-       echo "<script>window.open('checkout.php','_self')</script>";
+       echo "<script>window.open('customer/my_account.php?my_orders','_self')</script>";
         
     }
     

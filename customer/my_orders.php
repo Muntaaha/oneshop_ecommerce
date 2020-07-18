@@ -28,11 +28,9 @@
                 <th> Due Amount: </th>
                 <th> Invoice No: </th>
                 <th> Qty: </th>
-                <th> Size: </th>
                 <th> Order Date:</th>
-                <th> Paid / Unpaid: </th>
-                <th> Status: </th>
-                
+				<th> Delivery Date</th>
+                <th> Payment Status </th>
             </tr><!--  tr Finish  -->
             
         </thead><!--  thead Finish  -->
@@ -75,33 +73,27 @@
                 
                 $i++;
                 
-                if($order_status=='pending'){
+                //if($order_status=='pending'){
                     
-                    $order_status = 'Unpaid';
+                   // $order_status = 'Unpaid';
                     
-                }else{
+                //}else{
                     
-                    $order_status = 'Paid';
+                   //// $order_status = 'Paid';
                     
-                }
+               // }
             
             ?>
             
             <tr><!--  tr Begin  -->
                 
                 <th> <?php echo $i; ?> </th>
-                <td> $<?php echo $due_amount; ?> </td>
+                <td> BDT<?php echo $due_amount; ?> </td>
                 <td> <?php echo $invoice_no; ?> </td>
                 <td> <?php echo $qty; ?> </td>
-                <td> <?php echo $size; ?> </td>
                 <td> <?php echo $order_date; ?> </td>
+				<td> <?php echo date('Y-m-d', strtotime($order_date. ' + 10 days')); ?> </td>
                 <td> <?php echo $order_status; ?> </td>
-                
-                <td>
-                    
-                    <a href="confirm.php?order_id=<?php echo $order_id; ?>" target="_blank" class="btn btn-primary btn-sm"> Confirm Paid </a>
-                    
-                </td>
                 
             </tr><!--  tr Finish  -->
             

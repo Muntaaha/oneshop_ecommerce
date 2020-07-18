@@ -1,13 +1,13 @@
 <div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar-menu Begin -->
-    <!-- <div class="panel-heading"> panel-heading Begin -->
-        <!-- <h3 class="panel-title">Products Categories</h3> -->
-    <!-- </div>panel-heading Finish --> 
+    <div class="panel-heading" style="background-color: rgba(154,205,50,0.6);color: #fff;"> 
+        <h3 class="panel-title"><b>Products Categories</b></h3>
+    </div>
     
     <div class="panel-body"><!-- panel-body Begin -->
         <ul class="nav nav-pills nav-stacked category-menu"><!-- nav nav-pills nav-stacked category-menu Begin -->
 			
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#apparelformen"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#apparelformen"><!-- a href begin -->
 						
 						Apparel for Men
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -25,7 +25,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -36,7 +36,7 @@
 			</li><!-- li finish -->		
 
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#apparelforwomen"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#apparelforwomen"><!-- a href begin -->
 						
 						Apparel for Women
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -54,7 +54,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -65,7 +65,7 @@
 			</li><!-- li finish -->	
 
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#MotherKids"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#MotherKids"><!-- a href begin -->
 						
 						Mother & Kids
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -83,7 +83,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -94,7 +94,7 @@
 			</li><!-- li finish -->		
             
             <li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#NakshiKantha"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#NakshiKantha"><!-- a href begin -->
 						
 						Nakshi Kantha
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -112,7 +112,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -129,15 +129,15 @@
 
 
 <div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar-menu Begin -->
-    <!-- <div class="panel-heading"> panel-heading Begin -->
-        <!-- <h3 class="panel-title">Products Categories</h3> -->
-    <!-- </div>panel-heading Finish --> 
+    <div class="panel-heading" style="background-color: rgba(154,205,50,0.6);color: #fff;"> 
+        <h3 class="panel-title"><b>Products Categories</b></h3>
+    </div>
     
     <div class="panel-body"><!-- panel-body Begin -->
         <ul class="nav nav-pills nav-stacked category-menu"><!-- nav nav-pills nav-stacked category-menu Begin -->
 			
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#JewelryAccessories"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#JewelryAccessories"><!-- a href begin -->
 						
 						Jewelry & Accessories
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -155,7 +155,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -166,7 +166,7 @@
 			</li><!-- li finish -->		
 
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#BeautyHealth"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#BeautyHealth"><!-- a href begin -->
 						
 						Beauty & Health
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -184,7 +184,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -195,7 +195,7 @@
 			</li><!-- li finish -->	
 
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#LuggageBags"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#LuggageBags"><!-- a href begin -->
 						
 						Luggage & Bags
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -213,7 +213,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -224,7 +224,7 @@
 			</li><!-- li finish -->		
             
             <li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#Shoe"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#Shoe"><!-- a href begin -->
 						
 						Shoe
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -242,7 +242,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -260,15 +260,15 @@
 
 
 <div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar-menu Begin -->
-    <!-- <div class="panel-heading"> panel-heading Begin -->
-        <!-- <h3 class="panel-title">Products Categories</h3> -->
-    <!-- </div>panel-heading Finish --> 
+    <div class="panel-heading" style="background-color: rgba(154,205,50,0.6);color: #fff;"> 
+        <h3 class="panel-title"><b>Products Categories</b></h3>
+    </div>
     
     <div class="panel-body"><!-- panel-body Begin -->
         <ul class="nav nav-pills nav-stacked category-menu"><!-- nav nav-pills nav-stacked category-menu Begin -->
 			
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#RawProducts"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#RawProducts"><!-- a href begin -->
 						
 						Raw Products
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -286,7 +286,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -297,7 +297,7 @@
 			</li><!-- li finish -->		
 
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#HomeGardening"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#HomeGardening"><!-- a href begin -->
 						
 						Home & Gardening
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -315,7 +315,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -326,7 +326,7 @@
 			</li><!-- li finish -->	
 
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#CraftMaterials"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#CraftMaterials"><!-- a href begin -->
 						
 						Craft Materials
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -344,7 +344,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -355,7 +355,7 @@
 			</li><!-- li finish -->		
             
             <li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#Tools"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#Tools"><!-- a href begin -->
 						
 						Tools
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -373,7 +373,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -384,7 +384,7 @@
 			</li><!-- li finish -->	
 
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#CellphoneTelecommunication"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#CellphoneTelecommunication"><!-- a href begin -->
 						
 						Cellphone & Telecommunication
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -402,7 +402,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -418,15 +418,15 @@
 
 
 <div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar-menu Begin -->
-    <!-- <div class="panel-heading"> panel-heading Begin -->
-        <!-- <h3 class="panel-title">Products Categories</h3> -->
-    <!-- </div>panel-heading Finish --> 
+    <div class="panel-heading" style="background-color: rgba(154,205,50,0.6);color: #fff;"> 
+        <h3 class="panel-title"><b>Products Categories</b></h3>
+    </div>
     
     <div class="panel-body"><!-- panel-body Begin -->
         <ul class="nav nav-pills nav-stacked category-menu"><!-- nav nav-pills nav-stacked category-menu Begin -->
 			
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#FoodItem"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#FoodItem"><!-- a href begin -->
 						
 						Food Item
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -444,7 +444,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					
@@ -455,7 +455,7 @@
 			</li><!-- li finish -->		
 
 			<li><!-- li begin -->
-				<a href="#" data-toggle="collapse" data-target="#Other"><!-- a href begin -->
+				<a style='color: rgba(154,205,50,1);' href="#" data-toggle="collapse" data-target="#Other"><!-- a href begin -->
 						
 						Other
 						<i class="fa fa-fw fa-caret-down"></i>
@@ -473,7 +473,7 @@
 						$categories = $row_prod_list["categories"];
 						echo "
 							<li><!-- li begin -->
-								<a href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
+								<a style='color: rgba(154,205,50,1);' href='shop.php?p_cat=$prod_category_id'> $prod_category_name </a>
 							</li><!-- li finish -->
 						";
 					

@@ -1,8 +1,12 @@
 <?php 
 
-    $active='Cart';
-    include("includes/header.php");
-
+    
+	//if(!isset($_SESSION['customer_email'])){
+		// include("checkout.php");
+	//}
+	//else{
+		$active='Cart';
+		include("includes/header.php");
 ?>
    
    <div id="content"><!-- #content Begin -->
@@ -250,7 +254,7 @@
                     <div class='col-md-3 col-sm-6 center-responsive'><!-- col-md-3 col-sm-6 center-responsive Begin -->
                        <div class='product same-height'><!-- product same-height Begin -->
                            <a href='details.php?pro_id=$pro_id'>
-                               <img class='img-responsive' src='admin_area/product_images/$pro_img1' alt='Product 6'>
+                               <img class='img-responsive' src='seller_area/product_images/$pro_img1' alt='Product 6'>
                             </a>
                             
                             <div class='text'><!-- text Begin -->
@@ -337,7 +341,7 @@
    </div><!-- #content Finish -->
    
    <?php 
-    
+   // }
     include("includes/footer.php");
     
     ?>

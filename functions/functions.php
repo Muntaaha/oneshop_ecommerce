@@ -27,7 +27,9 @@ function add_cart(){
     global $db;
     
     if(isset($_GET['add_cart'])){
-        
+		
+        $customer = $_SESSION['customer_email'];
+		
         $ip_add = getRealIpUser();
         
         $p_id = $_GET['add_cart'];
@@ -36,7 +38,7 @@ function add_cart(){
         
         $product_size = $_POST['product_size'];
         
-        $check_product = "select * from cart where ip_add='$ip_add' AND p_id='$p_id'";
+        $check_product = "select * from cart where customer='$customer' AND p_id='$p_id'";
         
         $run_check = mysqli_query($db,$check_product);
         
@@ -47,7 +49,7 @@ function add_cart(){
             
         }else{
             
-            $query = "insert into cart (p_id,ip_add,qty,size) values ('$p_id','$ip_add','$product_qty','$product_size')";
+            $query = "insert into cart (p_id,ip_add,qty,size,customer) values ('$p_id','$ip_add','$product_qty','$product_size','$customer')";
             
             $run_query = mysqli_query($db,$query);
             

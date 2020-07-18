@@ -36,17 +36,7 @@
                    <h2 style="text-align: center;">Seller Registration</h2>
                    <hr>
                    <div class="box-header"><!-- box-header Begin -->
-                    <div class="form-group"><!-- center Begin -->
-                           
-                           
-                         <h4>Before Registration know the rules</h4>
-                         <p>* Oneshop will deduct a small 10% percentage  of comission from the payment of your orders.</p>
-
-                        <p>*Sharing of any spam content is strictly prohibited.</p>
-
-                        <p>*Do not spread any negativity. If the oneshop authority finds you offensive in any way, we may ban you from the platfrom if necessary.</p>
-                           
-                       </div><!-- center Finish -->   
+                    
                        
                        <form action="seller_register.php" method="post" enctype="multipart/form-data"><!-- form Begin -->
                            
@@ -129,7 +119,17 @@
                                <input type="file" class="form-control form-height-custom" name="b_image" required>
                                
                            </div><!-- form-group Finish -->
-						   
+						   <div class="form-group"><!-- center Begin -->
+                           
+                           
+							 <h4>Before Registration know the rules</h4>
+							 <p>* Oneshop will deduct a small 10% percentage  of comission from the payment of your orders.</p>
+
+							<p>*Sharing of any spam content is strictly prohibited.</p>
+
+							<p>*Do not spread any negativity. If the oneshop authority finds you offensive in any way, we may ban you from the platfrom if necessary.</p>
+							   
+						   </div><!-- center Finish -->   
                        
 						   <div class="form-group"><!-- form-group Begin -->
 						   

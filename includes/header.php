@@ -104,7 +104,19 @@ if(isset($_GET['pro_id'])){
                    ?>
                    
                </a>
-               <a href="checkout.php"><?php items(); ?> Items In Your Cart | Total Price: <?php total_price(); ?> </a>
+               <a href="checkout.php"><?php if(isset($_SESSION['customer_email'])){
+												items();
+												}else{
+													echo "0";
+												}
+				
+			   ?> Items In Your Cart | Total Price: <?php if(isset($_SESSION['customer_email'])){
+												total_price();
+												}else{
+													echo "0";
+												}
+				
+			   ?> </a>
                
            </div><!-- col-md-6 offer Finish -->
            
@@ -210,7 +222,18 @@ if(isset($_GET['pro_id'])){
                            
                        </li>
                        <li class="<?php if($active=='Cart') echo"active"; ?>">
-                           <a href="cart.php">Shopping Cart</a>
+                          <?php 
+                           
+                           if(!isset($_SESSION['customer_email'])){
+                               
+                               echo"<a href='checkout.php'>Shopping Cart</a>";
+                               
+                           }else{
+                             
+                            echo"<a href='cart.php'>Shopping Cart</a>";
+						   }
+                           
+                           ?>
                        </li>
                        <li class="<?php if($active=='Contact') echo"active"; ?>">
                            <a href="contact.php">Contact Us</a>
@@ -220,11 +243,22 @@ if(isset($_GET['pro_id'])){
                    
                </div><!-- padding-nav Finish -->
                
-               <a href="cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->
+               <a href="<?php if(isset($_SESSION['customer_email'])){
+										echo 'cart.php';
+									   }else{
+										echo 'checkout.php';   
+									   }
+										?>" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->
                    
                    <i class="fa fa-shopping-cart"></i>
                    
-                   <span><?php items(); ?> Items In Your Cart</span>
+                   <span><?php if(isset($_SESSION['customer_email'])){
+												items();
+												}else{
+													echo "0";
+												}
+				
+			   ?> Items In Your Cart</span>
                    
                </a><!-- btn navbar-btn btn-primary Finish -->
                

@@ -44,7 +44,7 @@
                                 <th> Contact: </th>
                                 <th> Company Name: </th>
                                 <th> Business Type: </th>
-                                <th> Payment: </th>
+                               <!-- <th> Payment: </th>-->
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
                         
@@ -86,7 +86,7 @@
                                 <td> <?php echo $c_contact ?> </td>
                                 <td> <?php echo $company_name ?> </td>
 								<td> <?php echo $business_type ?> </td>
-                                <td>Incomplete</td>
+                                <!--<td>Incomplete</td>-->
                             </tr><!-- tr finish -->
                             
                             <?php } ?>

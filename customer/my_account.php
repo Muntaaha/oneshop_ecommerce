@@ -61,7 +61,19 @@ if(isset($_SESSION['customer_email'])){
                    ?>
                
                </a>
-               <a href="checkout.php"> <?php items(); ?> Items In Your Cart | Total Price: <?php total_price(); ?> </a>
+               <a href="checkout.php"> <?php if(isset($_SESSION['customer_email'])){
+												items();
+												}else{
+													echo "0";
+												}
+				
+			   ?> Items In Your Cart | Total Price: <?php if(isset($_SESSION['customer_email'])){
+												total_price();
+												}else{
+													echo "0";
+												}
+				
+			   ?> </a>
                
            </div><!-- col-md-6 offer Finish -->
            
@@ -73,7 +85,7 @@ if(isset($_SESSION['customer_email'])){
                        <a href="../customer_register.php">Register</a>
                    </li>
                    <li>
-                       <a href="my_account.php">My Account</a>
+                       <a href="my_account.php?my_orders">My Account</a>
                    </li>
                    <li>
                        <a href="../cart.php">Go To Cart</a>
@@ -149,7 +161,7 @@ if(isset($_SESSION['customer_email'])){
                            <a href="../shop.php">Shop</a>
                        </li>
                        <li>
-                           <a href="my_account.php">My Account</a>
+                           <a href="my_account.php?my_orders">My Account</a>
                        </li>
                        <li>
                            <a href="../cart.php">Shopping Cart</a>
@@ -166,7 +178,13 @@ if(isset($_SESSION['customer_email'])){
                    
                    <i class="fa fa-shopping-cart"></i>
                    
-                   <span><?php items(); ?> Items In Your Cart</span>
+                   <span><?php if(isset($_SESSION['customer_email'])){
+												items();
+												}else{
+													echo "0";
+												}
+				
+			   ?> Items In Your Cart</span>
                    
                </a><!-- btn navbar-btn btn-primary Finish -->
                

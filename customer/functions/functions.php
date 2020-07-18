@@ -18,7 +18,7 @@ function getRealIpUser(){
     
 }
 
-/// finish getRealIpUser functions ///
+// finish getRealIpUser functions ///
 
 /// begin add_cart functions ///
 

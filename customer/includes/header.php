@@ -96,7 +96,19 @@ if(isset($_GET['pro_id'])){
                    ?>
                    
                </a>
-               <a href="checkout.php"><?php items(); ?> Items In Your Cart | Total Price: <?php total_price(); ?> </a>
+               <a href="checkout.php"><?php if(isset($_SESSION['customer_email'])){
+												items();
+												}else{
+													echo "0";
+												}
+				
+			   ?> Items In Your Cart | Total Price: <?php if(isset($_SESSION['customer_email'])){
+												total_price();
+												}else{
+													echo "0";
+												}
+				
+			   ?> </a>
                
            </div><!-- col-md-6 offer Finish -->
            

@@ -9,16 +9,24 @@ include("functions/functions.php");
 if(isset($_GET['c_id'])){
     
     $customer_id = $_GET['c_id'];
+	
+	$select_customer = "select * from customers where customer_id='$customer_id'";
+    
+    $run_customer = mysqli_query($con,$select_customer);
+    
+    $row_customer = mysqli_fetch_array($run_customer);
+    
+    $customer_email = $row_customer['customer_email'];
     
 }
 
 $ip_add = getRealIpUser();
 
-$status = "pending";
+$status = "Cash On Delivery";
 
 $invoice_no = mt_rand();
 
-$select_cart = "select * from cart where ip_add='$ip_add'";
+$select_cart = "select * from cart where customer='$customer_email'";
 
 $run_cart = mysqli_query($con,$select_cart);
 
@@ -46,7 +54,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         
         $run_pending_order = mysqli_query($con,$insert_pending_order);
         
-        $delete_cart = "delete from cart where ip_add='$ip_add'";
+        $delete_cart = "delete from cart where customer='$customer_email'";
         
         $run_delete = mysqli_query($con,$delete_cart);
         
