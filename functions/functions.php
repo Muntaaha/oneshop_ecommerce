@@ -27,8 +27,11 @@ function add_cart(){
     global $db;
     
     if(isset($_GET['add_cart'])){
-		
-        $customer = $_SESSION['customer_email'];
+		if(isset($_SESSION['customer_email'])){
+			$customer = $_SESSION['customer_email'];
+		}else{
+			$customer = ' ';
+		}
 		
         $ip_add = getRealIpUser();
         
@@ -52,7 +55,7 @@ function add_cart(){
             $query = "insert into cart (p_id,ip_add,qty,size,customer) values ('$p_id','$ip_add','$product_qty','$product_size','$customer')";
             
             $run_query = mysqli_query($db,$query);
-            
+            echo "<script>alert('This product has been added')</script>";
             echo "<script>window.open('details.php?pro_id=$p_id','_self')</script>";
             
         }
@@ -554,10 +557,12 @@ function items(){
     global $db;
     
     $ip_add = getRealIpUser();
-    
-	$customer = $_SESSION['customer_email'];
-	
-    $get_items = "select * from cart where  customer='$customer'";
+     if(isset($_SESSION['customer_email'])){
+		$customer = $_SESSION['customer_email'];
+		$get_items = "select * from cart where  customer='$customer'";
+	}else{
+		$get_items = "select * from cart where  customer=' '";
+	}
     
     $run_items = mysqli_query($db,$get_items);
     
@@ -580,11 +585,15 @@ function total_price(){
     
     $ip_add = getRealIpUser();
 	
-    $customer = $_SESSION['customer_email'];
+    
 	
     $total = 0;
-    
-    $select_cart = "select * from cart where customer='$customer'";
+    if(isset($_SESSION['customer_email'])){
+		$customer = $_SESSION['customer_email'];
+		$select_cart = "select * from cart where customer='$customer'";
+	}else{
+		$select_cart = "select * from cart where customer=' '";
+	}
     
     $run_cart = mysqli_query($db,$select_cart);
     

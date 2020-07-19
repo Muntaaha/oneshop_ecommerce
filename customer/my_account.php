@@ -61,7 +61,7 @@ if(isset($_SESSION['customer_email'])){
                    ?>
                
                </a>
-               <a href="checkout.php"> <?php if(isset($_SESSION['customer_email'])){
+               <a href="../checkout.php"> <?php if(isset($_SESSION['customer_email'])){
 												items();
 												}else{
 													echo "0";

@@ -18,9 +18,8 @@
                    </li>
                    
                    <li>
-                       <a href="shop.php?p_cat=<?php echo $p_cat_id; ?>"><?php echo $p_cat_title; ?></a>
+                       <?php //echo $pro_title; ?>
                    </li>
-                   <li> <?php echo $pro_title; ?> </li>
                </ul><!-- breadcrumb Finish -->
                
            </div><!-- col-md-12 Finish -->

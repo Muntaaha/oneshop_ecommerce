@@ -18,7 +18,7 @@ function getRealIpUser(){
     
 }
 
-// finish getRealIpUser functions ///
+/// finish getRealIpUser functions ///
 
 /// begin add_cart functions ///
 
@@ -27,7 +27,12 @@ function add_cart(){
     global $db;
     
     if(isset($_GET['add_cart'])){
-        
+		if(isset($_SESSION['customer_email'])){
+			$customer = $_SESSION['customer_email'];
+		}else{
+			$customer = ' ';
+		}
+		
         $ip_add = getRealIpUser();
         
         $p_id = $_GET['add_cart'];
@@ -36,7 +41,7 @@ function add_cart(){
         
         $product_size = $_POST['product_size'];
         
-        $check_product = "select * from cart where ip_add='$ip_add' AND p_id='$p_id'";
+        $check_product = "select * from cart where customer='$customer' AND p_id='$p_id'";
         
         $run_check = mysqli_query($db,$check_product);
         
@@ -47,10 +52,10 @@ function add_cart(){
             
         }else{
             
-            $query = "insert into cart (p_id,ip_add,qty,size) values ('$p_id','$ip_add','$product_qty','$product_size')";
+            $query = "insert into cart (p_id,ip_add,qty,size,customer) values ('$p_id','$ip_add','$product_qty','$product_size','$customer')";
             
             $run_query = mysqli_query($db,$query);
-            
+            echo "<script>alert('This product has been added')</script>";
             echo "<script>window.open('details.php?pro_id=$p_id','_self')</script>";
             
         }
@@ -89,7 +94,7 @@ function getPro(){
             
                 <a href='details.php?pro_id=$pro_id'>
                 
-                    <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                    <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
                 
                 </a>
                 
@@ -107,7 +112,7 @@ function getPro(){
                     
                     <p class='price'>
                     
-                        $ $pro_price
+                        BDT $pro_price
                     
                     </p>
                     
@@ -141,14 +146,101 @@ function getPro(){
 
 /// finish getPro functions ///
 
+/// begin getShop functions ///
+
+function getShop(){
+	
+	
+    
+    global $db;
+    
+    $get_products = "select * from sellers order by 1 DESC LIMIT 0,8";
+    
+    $run_products = mysqli_query($db,$get_products);
+    
+    while($row_products=mysqli_fetch_array($run_products)){
+        
+        $pro_id = $row_products['product_id'];
+        
+        $pro_title = $row_products['product_title'];
+        
+        $pro_price = $row_products['product_price'];
+        
+        $pro_img1 = $row_products['product_img1'];
+        
+        echo "
+        
+        <div class='col-md-4 col-sm-6 single'>
+        
+            <div class='product'>
+            
+                <a href='details.php?pro_id=$pro_id'>
+                
+                    <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
+                
+                </a>
+                
+                <div class='text'>
+                
+                    <h3>
+            
+                        <a href='details.php?pro_id=$pro_id'>
+
+                            $pro_title
+
+                        </a>
+                    
+                    </h3>
+                    
+                    <p class='price'>
+                    
+                        BDT $pro_price
+                    
+                    </p>
+                    
+                    <p class='button'>
+                    
+                        <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
+
+                            View Details
+
+                        </a>
+                    
+                        <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
+
+                            <i class='fa fa-shopping-cart'></i> Add to Cart
+
+                        </a>
+                    
+                    </p>
+                
+                </div>
+            
+            </div>
+        
+        </div>
+        
+        ";
+        
+    }
+    
+}
+
+/// finish getShop functions ///
+
+
 /// begin getPCats functions ///
 
 function getPCats(){
     
     global $db;
-    
+    if(isset($_GET['seller_id'])){
+		$seller_id = $_GET['seller_id'];
+	
     $get_p_cats = "select * from product_categories";
-    
+    }else{
+		$get_p_cats = "select * from product_categories order by 1 DESC"; # LIMIT 1,6
+	}
     $run_p_cats = mysqli_query($db,$get_p_cats);
     
     while($row_p_cats=mysqli_fetch_array($run_p_cats)){
@@ -178,9 +270,16 @@ function getPCats(){
 function getCats(){
     
     global $db;
-    
-    $get_cats = "select * from categories";
-    
+	
+    if(isset($_GET['seller_id'])){
+		$seller_id = $_GET['seller_id'];
+	
+	
+    $get_cats = "select * from categories where seller = '$seller_id'";
+    }
+	else{
+		$get_cats = "select * from categories order by 1 DESC LIMIT 1,6";
+	}
     $run_cats = mysqli_query($db,$get_cats);
     
     while($row_cats=mysqli_fetch_array($run_cats)){
@@ -200,6 +299,8 @@ function getCats(){
         ";
         
     }
+	
+
     
 }
     
@@ -222,8 +323,6 @@ function getpcatpro(){
         $row_p_cat = mysqli_fetch_array($run_p_cat);
         
         $p_cat_title = $row_p_cat['p_cat_title'];
-        
-        $p_cat_desc = $row_p_cat['p_cat_desc'];
         
         $get_products ="select * from products where p_cat_id='$p_cat_id'";
         
@@ -250,8 +349,6 @@ function getpcatpro(){
                 <div class='box'>
                 
                     <h1> $p_cat_title </h1>
-                    
-                    <p> $p_cat_desc </p>
                 
                 </div>
             
@@ -277,7 +374,7 @@ function getpcatpro(){
             
                 <a href='details.php?pro_id=$pro_id'>
                 
-                    <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                    <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
                 
                 </a>
                 
@@ -295,7 +392,7 @@ function getpcatpro(){
                     
                     <p class='price'>
                     
-                        $ $pro_price
+                        $pro_price
                     
                     </p>
                     
@@ -349,8 +446,6 @@ function getcatpro(){
         
         $cat_title = $row_cat['cat_title'];
         
-        $cat_desc = $row_cat['cat_desc'];
-        
         $get_cat = "select * from products where cat_id='$cat_id' LIMIT 0,6";
         
         $run_products = mysqli_query($db,$get_cat);
@@ -377,8 +472,7 @@ function getcatpro(){
                 <div class='box'>
                 
                     <h1> $cat_title </h1>
-                    
-                    <p> $cat_desc </p>
+                   
                 
                 </div>
             
@@ -406,7 +500,7 @@ function getcatpro(){
                                         
                         <a href='details.php?pro_id=$pro_id'>
                                             
-                            <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                            <img class='img-responsive' src='seller_area/product_images/$pro_img1'>
                                             
                         </a>
                                             
@@ -420,7 +514,7 @@ function getcatpro(){
                                             
                         <p class='price'>
 
-                            $$pro_price
+                            BDT $pro_price
 
                         </p>
 
@@ -463,14 +557,21 @@ function items(){
     global $db;
     
     $ip_add = getRealIpUser();
-    
-    $get_items = "select * from cart where ip_add='$ip_add'";
+     if(isset($_SESSION['customer_email'])){
+		$customer = $_SESSION['customer_email'];
+		$get_items = "select * from cart where  customer='$customer'";
+	}else{
+		$get_items = "select * from cart where  customer=' '";
+	}
     
     $run_items = mysqli_query($db,$get_items);
     
     $count_items = mysqli_num_rows($run_items);
-    
-    echo $count_items;
+    if($count_items>0){
+		echo $count_items;
+	}else{
+		echo '0';
+	}
     
 }
 
@@ -483,10 +584,16 @@ function total_price(){
     global $db;
     
     $ip_add = getRealIpUser();
+	
     
+	
     $total = 0;
-    
-    $select_cart = "select * from cart where ip_add='$ip_add'";
+    if(isset($_SESSION['customer_email'])){
+		$customer = $_SESSION['customer_email'];
+		$select_cart = "select * from cart where customer='$customer'";
+	}else{
+		$select_cart = "select * from cart where customer=' '";
+	}
     
     $run_cart = mysqli_query($db,$select_cart);
     
@@ -510,7 +617,7 @@ function total_price(){
         
     }
     
-    echo "$" . $total;
+    echo "BDT" . $total;
     
 }
 

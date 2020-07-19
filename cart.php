@@ -34,12 +34,15 @@
                        
                        <?php 
 					   
-					   $customer = $_SESSION['customer_email'];
+					   
                        
                        $ip_add = getRealIpUser();
-                       
-                       $select_cart = "select * from cart where customer='$customer'";
-                       
+                       if(isset($_SESSION['customer_email'])){
+						    $customer = $_SESSION['customer_email'];
+							$select_cart = "select * from cart where customer='$customer'";
+                       }else{
+							$select_cart = "select * from cart where customer=' '";   
+					   }
                        $run_cart = mysqli_query($con,$select_cart);
                        
                        $count = mysqli_num_rows($run_cart);
