@@ -475,7 +475,7 @@ if(isset($_GET['pro_id'])){
                                             
                                                 <p class='price'>
 
-                                                    $$pro_price
+                                                    BDT $pro_price
 
                                                 </p>
 
@@ -574,7 +574,7 @@ if(isset($_GET['pro_id'])){
                                             
                                                 <p class='price'>
 
-                                                    $$pro_price
+                                                    BDT $pro_price
 
                                                 </p>
 

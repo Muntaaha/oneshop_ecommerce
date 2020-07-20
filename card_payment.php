@@ -45,7 +45,7 @@
 if(isset($_POST['submit'])){
 	$ip_add = getRealIpUser();
 
-	$status = "Paid By Bkaash";
+	$status = "pending";
 
 	$invoice_no = mt_rand();
 
@@ -90,6 +90,13 @@ if(isset($_POST['submit'])){
 		}
 		
 	}
+	$insert_payment = "insert into payments(c_id,invoice_no,amount,payment_mode,phone_card_number,ref_cvv,payment_date) values('$customer_id','$invoice_no','$total_amount','Debit/Credit','$_POST[card_number]','$_POST[card_holder_name]',NOW())";
+	
+	$run_insert_payment = mysqli_query($con,$insert_payment);
+			
+	echo "<script>alert('Your orders has been submitted, Thanks')</script>";
+	
+	echo "<script>window.open('customer/my_account.php?my_orders','_self')</script>";
 }
 
 ?>

@@ -56,7 +56,7 @@ function add_cart(){
             
             $run_query = mysqli_query($db,$query);
             echo "<script>alert('This product has been added')</script>";
-            echo "<script>window.open('details.php?pro_id=$p_id','_self')</script>";
+            echo "<script>window.open('cart.php','_self')</script>";
             
         }
         

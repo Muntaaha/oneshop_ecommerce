@@ -44,7 +44,8 @@
                                 <th> Contact: </th>
                                 <th> Company Name: </th>
                                 <th> Business Type: </th>
-                               <!-- <th> Payment: </th>-->
+							   <th> Total Earned by Admin(10%) </th>
+							   <th> Total Earned (Seller)</th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
                         
@@ -53,7 +54,8 @@
                             <?php 
           
                                 $i=0;
-                            
+								
+								$total_payment= 0;
                                 $get_c = "select * from sellers where status = '1'";
                                 
                                 $run_c = mysqli_query($con,$get_c);
@@ -76,6 +78,19 @@
 
                                     $i++;
                             
+									$seller_payment = "select * from customer_orders where seller_id = '$c_id'";
+									
+									$run_seller_payment = mysqli_query($con,$seller_payment);
+									
+									while($row_payment=mysqli_fetch_array($run_seller_payment)){
+										
+										$payment = $row_payment['due_amount'];
+										
+										$total_payment += $payment;
+										
+									}
+									
+									$admin_payment = $total_payment * (10/100);
                             ?>
                             
                             <tr><!-- tr begin -->
@@ -86,6 +101,8 @@
                                 <td> <?php echo $c_contact ?> </td>
                                 <td> <?php echo $company_name ?> </td>
 								<td> <?php echo $business_type ?> </td>
+								<td> <?php echo $admin_payment ?> </td>
+								<td> <?php echo $total_payment ?> </td>
                                 <!--<td>Incomplete</td>-->
                             </tr><!-- tr finish -->
                             
