@@ -42,7 +42,7 @@
    <center><h1><?php echo $title; ?></h1>
 	<img class='img-responsive' src='admin_area/admin_images/<?php echo $image; ?>'>
 	<p style="text-align:center; margin: 30px 0; font-size:20px;"> <?php echo $description; ?></p>
-   
+   <!-- <?php //echo $id; ?> -->
    </center>
    
    <?php 

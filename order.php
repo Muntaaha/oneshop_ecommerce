@@ -98,6 +98,9 @@ while($row_cart = mysqli_fetch_array($run_cart)){
     }
     
 }
+$insert_payment = "insert into payments(c_id,invoice_no,amount,payment_mode,phone_card_number,ref_cvv,payment_date) values('$customer_id','$invoice_no','$total_amount','Cash on Delivery','$_POST[c_phone]','$_POST[c_address]',NOW())";
+  
+  $run_insert_payment = mysqli_query($con,$insert_payment);
 }
 ?>
 <?php 

@@ -41,10 +41,12 @@
                                 <th> Invoice No: </th>
                                 <th> Amount Paid: </th>
                                 <th> Method: </th>
-                                <th> Reference No: </th>
-                                <th> Payment Code: </th>
+                                <th> Reference/Card Holder Name/ Delivery Address: </th>
+                                <th> Phone/Card Number: </th>
                                 <th> Payment Date: </th>
-                                <th> Delete Payment: </th>
+                                <th> Payment Status: </th>
+                                <th> Delivery Status: </th>
+                                <th> Confirm Payment: </th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
                         
@@ -68,11 +70,15 @@
                                     
                                     $payment_mode = $row_payments['payment_mode'];
                                     
-                                    $ref_no = $row_payments['ref_no'];
+                                    $ref_no = $row_payments['ref_cvv'];
                                     
-                                    $code = $row_payments['code'];
+                                    $phone_card_number = $row_payments['phone_card_number'];
                                     
                                     $payment_date = $row_payments['payment_date'];
+
+                                    $payment_status = $row_payments['payment_status'];
+
+                                    $delivery_status = $row_payments['delivery_status'];
                                     
                                     $i++;
                             
@@ -84,17 +90,39 @@
                                 <td> <?php echo $amount; ?></td>
                                 <td> <?php echo $payment_mode; ?> </td>
                                 <td> <?php echo $ref_no; ?></td>
-                                <td> <?php echo $code; ?> </td>
+                                <td> <?php echo $phone_card_number; ?> </td>
                                 <td> <?php echo $payment_date; ?> </td>
-                                <td> 
+                                <td> <?php if($payment_status=="0"){
+                                                echo "Pending";
+                                            }
+                                            else{
+                                                echo "Paid";
+                                            } 
+                                     ?> 
+                                </td>
+                                <td> <?php if($delivery_status=="0"){
+                                                echo "Pending";
+                                            }
+                                            else{
+                                                echo "Delivered";
+                                            } 
+                                     ?> 
+                                </td>
+                                <?php if($payment_status=="1"){ ?>
+                                    <td><i class="fa fa-check"></i><?php echo "Paid"; ?></td>
+                                <?php
+                                }
+                                else{ ?>
+                                <td>
                                      
                                      <a href="index.php?delete_payment=<?php echo $payment_id; ?>">
                                      
-                                        <i class="fa fa-trash-o"></i> Delete
+                                        <i class="fa fa-check"></i> Payment Confirmed
                                     
                                      </a> 
                                      
                                 </td>
+                            <?php } ?>
                             </tr><!-- tr finish -->
                             
                             <?php } ?>

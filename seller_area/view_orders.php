@@ -5,7 +5,7 @@
         echo "<script>window.open('login.php','_self')</script>";
         
     }else{
-
+        $s_email = $_SESSION['seller_email'];
 ?>
 
 <div class="row"><!-- row 1 begin -->
@@ -58,7 +58,7 @@
           
                                 $i=0;
                             
-                                $get_orders = "select * from pending_orders";
+                                $get_orders = "select * from customer_orders";
                                 
                                 $run_orders = mysqli_query($con,$get_orders);
           
@@ -69,6 +69,16 @@
                                     $c_id = $row_order['customer_id'];
                                     
                                     $invoice_no = $row_order['invoice_no'];
+
+                                    $get_status = "select * from payments where invoice_no='$invoice_no'";
+                                    
+                                    $run_status = mysqli_query($con,$get_status);
+                                    
+                                    $row_status = mysqli_fetch_array($run_status);
+                                    
+                                    $payment_status = $row_status['payment_status'];
+
+                                    $delivery_status = $row_status['delivery_status'];
                                     
                                     $product_id = $row_order['product_id'];
                                     
@@ -85,6 +95,16 @@
                                     $row_products = mysqli_fetch_array($run_products);
                                     
                                     $product_title = $row_products['product_title'];
+
+                                    $seller_id = $row_products['seller'];
+
+                                    $get_seller = "select * from sellers where seller_id='$seller_id'";
+                                    
+                                    $run_seller = mysqli_query($con,$get_seller);
+                                    
+                                    $row_seller = mysqli_fetch_array($run_seller);
+                                    
+                                    $seller_email = $row_seller['seller_email'];
                                     
                                     $get_customer = "select * from customers where customer_id='$c_id'";
                                     
@@ -109,7 +129,7 @@
                                     $order_amount = $row_c_order['due_amount'];
 
                                     $i++;
-                            
+                            if($s_email == $seller_email){
                             ?>
                             
                             <tr><!-- tr begin -->
@@ -119,7 +139,20 @@
                                 <td> <?php echo $invoice_no; ?></td>
                                 <td> <?php echo $product_title; ?> </td>
                                 <td> <?php echo $qty; ?></td>
-                                <td> <?php echo "---"; ?> </td>
+                                <td> <?php 
+                                    
+                                        if($payment_status=='0'){
+                                            
+                                            echo 'Pending';
+                                            
+                                        }else{
+                                            
+                                            echo 'Complete';
+                                            
+                                        }
+                                    
+                                    ?> 
+                                </td>
                                 <td> <?php echo $order_date; ?> </td>
                                 <td> <?php echo date('Y-m-d', strtotime($order_date. ' + 10 days')); ?> </td>
                                 <td> <?php echo $order_amount; ?> </td>
@@ -127,13 +160,13 @@
                                     
                                     <?php 
                                     
-                                        if($order_status=='pending'){
+                                        if($delivery_status=='0'){
                                             
-                                            echo $order_status='pending';
+                                            echo 'Pending';
                                             
                                         }else{
                                             
-                                            echo $order_status='Complete';
+                                            echo 'Complete';
                                             
                                         }
                                     
@@ -151,7 +184,9 @@
                                 </td>
                             </tr><!-- tr finish -->
                             
-                            <?php } ?>
+                            <?php 
+                        } 
+                    } ?>
                             
                         </tbody><!-- tbody finish -->
                         

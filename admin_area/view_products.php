@@ -42,6 +42,7 @@
                                 <th> Product Image: </th>
                                 <th> Product Price: </th>
                                 <th> Product Sold: </th>
+                                <th> Company Name: </th>
                                 <th> Product Keywords: </th>
                                 <th> Product Date: </th>
                                 <th> Product Delete: </th>
@@ -71,6 +72,16 @@
                                     $pro_keywords = $row_pro['product_keywords'];
                                     
                                     $pro_date = $row_pro['date'];
+
+                                    $seller_id = $row_pro['seller'];
+
+                                    $get_seller = "select * from sellers where seller_id ='$seller_id'";
+
+                                    $run_seller = mysqli_query($con, $get_seller);
+
+                                    $row_seller = mysqli_fetch_array($run_seller);
+
+                                    $seller_name = $row_seller['company_name'];
                                     
                                     $i++;
                             
@@ -93,6 +104,7 @@
                                     
                                      ?> 
                                 </td>
+                                <td> <?php echo $seller_name; ?> </td>
                                 <td> <?php echo $pro_keywords; ?> </td>
                                 <td> <?php echo $pro_date ?> </td>
                                 <td> 

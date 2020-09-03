@@ -2,7 +2,22 @@
 
     $active='Cart';
     include("includes/header.php");
+    if(isset($_GET['add_cart'])){
+        
+        $p_id = $_GET['add_cart'];
 
+        $item_details = "select * from products where product_id='$p_id'";
+
+        $run_item_details = mysqli_query($db,$item_details);
+
+        $row_pro = mysqli_fetch_array($run_item_details);
+
+        $pro_title = $row_pro['product_title'];
+
+        $pro_price = $row_pro['product_price'];
+
+         $product_size = ' ';
+      }
 ?>
    
    <div id="content"><!-- #content Begin -->
@@ -101,7 +116,7 @@
                                        
                                        <select name="product_size" class="form-control" required oninput="setCustomValidity('')" oninvalid="setCustomValidity('Must pick 1 size for the product')"><!-- form-control Begin -->
                                           
-                                           <option disabled selected>Select a Size</option>
+                                           
                                            <option>Small</option>
                                            <option>Medium</option>
                                            <option>Large</option>
@@ -149,9 +164,12 @@
                <div class="box" id="details"><!-- box Begin -->
                        
                   <h4>Product Details</h4>
-                   
-                    <p><?php echo $seller_name; ?> </p>
-                    <p><?php echo $seller_contact; ?> </p>
+                  	<h5><b>Product Description</b><h5>
+                  	<p><?php echo $pro_desc; ?></p>
+                   	<p>You can checkout more produts of this shop.<p>
+                   	<p><a class='' href='shop.php?seller_id=$seller_id'><?php echo $company_name; ?></a></p>
+                    <p><b>Owner Name:</b> <?php echo $seller_name; ?> </p>
+                    <p><b>Contact Number:</b> <?php echo $seller_contact; ?> </p>
                    
                   <hr>
                    

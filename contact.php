@@ -96,37 +96,37 @@
                        
                        <?php 
                        
-                       if(isset($_POST['submit'])){
+                       // if(isset($_POST['submit'])){
                            
-                           /// Admin receives message with this ///
+                       //     /// Admin receives message with this ///
                            
-                           $sender_name = $_POST['name'];
+                       //     $sender_name = $_POST['name'];
                            
-                           $sender_email = $_POST['email'];
+                       //     $sender_email = $_POST['email'];
                            
-                           $sender_subject = $_POST['subject'];
+                       //     $sender_subject = $_POST['subject'];
                            
-                           $sender_message = $_POST['message'];
+                       //     $sender_message = $_POST['message'];
                            
-                           $receiver_email = "mugianto4th@gmail.com";
+                       //     $receiver_email = "mugianto4th@gmail.com";
                            
-                           mail($receiver_email,$sender_name,$sender_subject,$sender_message,$sender_email);
+                       //     mail($receiver_email,$sender_name,$sender_subject,$sender_message,$sender_email);
                            
-                           /// Auto reply to sender with this ///
+                       //     /// Auto reply to sender with this ///
                            
-                           $email = $_POST['email'];
+                       //     $email = $_POST['email'];
                            
-                           $subject = "Welcome to my website";
+                       //     $subject = "Welcome to my website";
                            
-                           $msg = "Thanks for sending us message. ASAP we will reply your message";
+                       //     $msg = "Thanks for sending us message. ASAP we will reply your message";
                            
-                           $from = "mugianto4th@gmail.com";
+                       //     $from = "mugianto4th@gmail.com";
                            
-                           mail($email,$subject,$msg,$from);
+                       //     mail($email,$subject,$msg,$from);
                            
-                           echo "<h2 align='center'> Your message has sent sucessfully </h2>";
+                       //     echo "<h2 align='center'> Your message has sent sucessfully </h2>";
                            
-                       }
+                       // }
                        
                        ?>
                        
@@ -138,6 +138,29 @@
            
        </div><!-- container Finish -->
    </div><!-- #content Finish -->
+   <?php 
+
+if(isset($_POST['submit'])){
+    
+    $contact_name = $_POST['name'];
+    $contact_email = $_POST['email'];
+    $contact_subject = $_POST['subject'];
+    $contact_message = $_POST['message'];
+    
+    $insert_contact = "insert into contact (contact_name,contact_email,contact_subject,contact_message) values ('$contact_name','$contact_email','$contact_subject','$contact_message')";
+    
+    $run_contact = mysqli_query($con,$insert_contact);
+    
+    if($run_contact){
+        
+        echo "<script>alert('Thanks for sending us message. ASAP we will reply your message')</script>";
+        echo "<script>window.open('contact.php','_self')</script>";
+        
+    }
+    
+}
+
+?>
    
    <?php 
     

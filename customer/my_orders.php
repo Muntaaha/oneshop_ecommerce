@@ -24,13 +24,14 @@
             
             <tr><!--  tr Begin  -->
                 
-                <th> ON: </th>
+                <th> NO: </th>
                 <th> Due Amount: </th>
                 <th> Invoice No: </th>
-                <th> Qty: </th>
+                <th> Payment Mode: </th>
                 <th> Order Date:</th>
 				<th> Delivery Date</th>
                 <th> Payment Status </th>
+                <th> Delivery Status </th>
             </tr><!--  tr Finish  -->
             
         </thead><!--  thead Finish  -->
@@ -49,7 +50,7 @@
             
             $customer_id = $row_customer['customer_id'];
             
-            $get_orders = "select * from customer_orders where customer_id='$customer_id'";
+            $get_orders = "select * from payments where c_id='$customer_id'";
             
             $run_orders = mysqli_query($con,$get_orders);
             
@@ -57,43 +58,48 @@
             
             while($row_orders = mysqli_fetch_array($run_orders)){
                 
-                $order_id = $row_orders['order_id'];
+                $order_id = $row_orders['payment_id'];
                 
-                $due_amount = $row_orders['due_amount'];
+                $amount = $row_orders['amount'];
                 
                 $invoice_no = $row_orders['invoice_no'];
+
+                $payment_method = $row_orders['payment_mode'];
                 
-                $qty = $row_orders['qty'];
+                $payment_date = substr($row_orders['payment_date'],0,11);
                 
-                $size = $row_orders['size'];
-                
-                $order_date = substr($row_orders['order_date'],0,11);
-                
-                $order_status = $row_orders['order_status'];
+                $payment_status = $row_orders['payment_status'];
+
+                $delivery_status = $row_orders['delivery_status'];
                 
                 $i++;
-                
-                //if($order_status=='pending'){
-                    
-                   // $order_status = 'Unpaid';
-                    
-                //}else{
-                    
-                   //// $order_status = 'Paid';
-                    
-               // }
             
             ?>
             
             <tr><!--  tr Begin  -->
                 
                 <th> <?php echo $i; ?> </th>
-                <td> BDT<?php echo $due_amount; ?> </td>
+                <td> BDT<?php echo $amount; ?> </td>
                 <td> <?php echo $invoice_no; ?> </td>
-                <td> <?php echo $qty; ?> </td>
-                <td> <?php echo $order_date; ?> </td>
-				<td> <?php echo date('Y-m-d', strtotime($order_date. ' + 10 days')); ?> </td>
-                <td> <?php echo $order_status; ?> </td>
+                <td> <?php echo $payment_method; ?> </td>
+                <td> <?php echo $payment_date; ?> </td>
+				<td> <?php echo date('Y-m-d', strtotime($payment_date. ' + 10 days')); ?> </td>
+                <td> <?php if($payment_status=="0"){
+                        echo "Pending";
+                    }
+                    else{
+                        echo "Paid";
+                    } 
+                     ?> 
+                </td>
+                <td> <?php if($delivery_status=="0"){
+                    ?><a href="my_account.php?confirm_delivery=<?php echo $order_id; ?>">Pending</a><?php
+                    }
+                    else{
+                        echo "Delivered";
+                    } 
+                     ?> 
+                </td>
                 
             </tr><!--  tr Finish  -->
             

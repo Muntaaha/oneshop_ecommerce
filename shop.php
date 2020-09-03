@@ -100,8 +100,8 @@
                             <?php
                             }
                             else{
-              							$get_products = "select * from products order by 1 DESC LIMIT $start_from,$per_page";	
-              							}
+  							$get_products = "select * from products order by 1 DESC LIMIT $start_from,$per_page";	
+  							}
                             $run_products = mysqli_query($con,$get_products);
                              
                             while($row_products=mysqli_fetch_array($run_products)){
@@ -113,6 +113,16 @@
                                 $pro_price = $row_products['product_price'];
 
                                 $pro_img1 = $row_products['product_img1'];
+
+                                $seller = $row_products['seller'];
+
+                                $get_seller = "select * from sellers where seller_id = '$seller'";
+                                
+                                $run_seller = mysqli_query($con,$get_seller);
+
+                                $row_seller = mysqli_fetch_array($run_seller);
+
+                                $company_name = $row_seller['company_name'];
                                 
                                 echo "
                                 
@@ -133,6 +143,11 @@
                                                     <a href='details.php?pro_id=$pro_id'> $pro_title </a>
                                                 
                                                 </h4>
+                                                <h5 style='height: 30px;'>
+                                                
+                                                    <a href='details.php?pro_id=$pro_id'> $company_name </a>
+                                                
+                                                </h5>
                                             
                                                 <p class='price'>
 

@@ -202,15 +202,15 @@ if(isset($_SESSION['customer_email'])){
                
                <div class="collapse clearfix" id="search"><!-- collapse clearfix Begin -->
                    
-                   <form method="get" action="results.php" class="navbar-form"><!-- navbar-form Begin -->
+                   <form method="POST" action="../search.php" class="navbar-form"><!-- navbar-form Begin -->
                        
                        <div class="input-group"><!-- input-group Begin -->
                            
-                           <input type="text" class="form-control" placeholder="Search" name="user_query" required>
+                           <input type="text" class="form-control" placeholder="Search" name="search" required>
                            
                            <span class="input-group-btn"><!-- input-group-btn Begin -->
                            
-                           <button type="submit" name="search" value="Search" class="btn btn-primary"><!-- btn btn-primary Begin -->
+                           <button type="submit" name="submit-search" class="btn btn-primary"><!-- btn btn-primary Begin -->
                                
                                <i class="fa fa-search"></i>
                                
@@ -263,6 +263,14 @@ if(isset($_SESSION['customer_email'])){
                    
                    if (isset($_GET['my_orders'])){
                        include("my_orders.php");
+                   }
+                   
+                   ?>
+                   
+                   <?php
+
+                   if (isset($_GET['confirm_delivery'])){
+                       include("confirm_delivery.php");
                    }
                    
                    ?>

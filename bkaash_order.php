@@ -87,7 +87,7 @@ if(isset($_POST['submit'])){
 		}
 		
 	}
-	$insert_payment = "insert into payments(c_id,invoice_no,amount,payment_mode,phone_card_number,ref_cvv,payment_date) values('$customer_id','$invoice_no','$total_amount','Bkash','$_POST[phone_number]','$_POST[reference]',NOW())";
+	$insert_payment = "insert into payments(c_id,invoice_no,amount,payment_mode,phone_card_number,ref_cvv,payment_date) values('$customer_id','$invoice_no','$total_amount','Bkash','$_POST[c_phone]','$_POST[reference]',NOW())";
 	
 	$run_insert_payment = mysqli_query($con,$insert_payment);
 			
@@ -129,8 +129,8 @@ if(isset($_POST['submit'])){
                        
                        <center><!-- center Begin -->
                            
-                           <h2> Bkaash Payment Details </h2>
-						   <h3>bKash numb: 01907933773</h3>
+                           <h2> bKash Payment Details </h2>
+						   <h3>bKash Number: 01907933773</h3>
                            
                        </center><!-- center Finish -->
                        
@@ -163,13 +163,7 @@ if(isset($_POST['submit'])){
 									<input type="text" value= "<?php echo $total_amount; ?>" class="form-control" name="amount" disabled>
 									   
 								</div><!-- form-group Finish -->
-							   <div class="form-group"><!-- form-group Begin -->
-                               
-                               <label>Phone Number</label>
-                               
-                               <input type="text" class="form-control" name="phone_number" required>
-                               
-                           </div><!-- form-group Finish -->
+							   
                            
                            <div class="form-group"><!-- form-group Begin -->
                                

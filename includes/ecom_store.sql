@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2020 at 10:31 AM
+-- Generation Time: Aug 17, 2020 at 11:07 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.1.29
 
@@ -68,7 +68,7 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `title`, `image`, `description`) VALUES
-(1, 'Hello World', 'image.jpeg', 'I am your first Blog!!!! Hurray I am working ');
+(2, 'I am a Blog', 'image.jpeg', 'Blog Testing 1 2 3');
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,8 @@ INSERT INTO `blog` (`id`, `title`, `image`, `description`) VALUES
 --
 
 CREATE TABLE `cart` (
-  `p_id` int(10) NOT NULL,
+  `id` int(10) NOT NULL,
+  `p_id` int(11) NOT NULL,
   `ip_add` varchar(255) NOT NULL,
   `qty` int(10) NOT NULL,
   `size` text NOT NULL,
@@ -88,11 +89,10 @@ CREATE TABLE `cart` (
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`p_id`, `ip_add`, `qty`, `size`, `customer`) VALUES
-(21, '::1', 1, '', 'mitu@gmail.com'),
-(25, '::1', 1, '', 'mitu@gmail.com'),
-(62, '::1', 1, '', ''),
-(67, '::1', 1, '', '');
+INSERT INTO `cart` (`id`, `p_id`, `ip_add`, `qty`, `size`, `customer`) VALUES
+(1, 92, '', 1, ' ', ''),
+(2, 95, '', 1, ' ', ''),
+(3, 97, '', 1, ' ', ' ');
 
 -- --------------------------------------------------------
 
@@ -126,6 +126,27 @@ INSERT INTO `categories` (`seller`, `cat_id`, `cat_title`) VALUES
 (5, 16, 'Luggage & Bags'),
 (5, 17, 'Mother & Kids'),
 (5, 18, 'Food Item');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `contact_id` int(11) NOT NULL,
+  `contact_name` text NOT NULL,
+  `contact_email` varchar(200) NOT NULL,
+  `contact_subject` varchar(200) NOT NULL,
+  `contact_message` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`contact_id`, `contact_name`, `contact_email`, `contact_subject`, `contact_message`) VALUES
+(1, 'Muntaaha', 'muntaaha@yahoo.com', 'just a subject', 'Hello, I am a message');
 
 -- --------------------------------------------------------
 
@@ -164,26 +185,48 @@ INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `cust
 CREATE TABLE `customer_orders` (
   `order_id` int(10) NOT NULL,
   `customer_id` int(10) NOT NULL,
+  `seller_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `due_amount` int(100) NOT NULL,
   `invoice_no` int(100) NOT NULL,
   `qty` int(10) NOT NULL,
   `size` text NOT NULL,
   `order_date` date NOT NULL,
-  `order_status` text NOT NULL
+  `order_status` text NOT NULL,
+  `customer_name` varchar(200) NOT NULL,
+  `customer_phone` varchar(200) NOT NULL,
+  `customer_address` varchar(200) NOT NULL,
+  `total_amount` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer_orders`
 --
 
-INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`) VALUES
-(11, 6, 300, 206863956, 1, 'Small', '2019-02-06', 'Complete'),
-(12, 6, 10, 206863956, 1, 'Small', '2019-02-06', 'Complete'),
-(13, 7, 166, 2002430815, 1, '', '2020-02-06', 'pending'),
-(14, 7, 20, 2002430815, 2, 'Medium', '2020-02-06', 'pending'),
-(15, 8, 80, 952886812, 1, '', '2020-06-11', 'pending'),
-(16, 8, 200, 152398492, 1, 'Small', '2020-06-11', 'pending'),
-(17, 8, 1100, 703139470, 1, 'Medium', '2020-06-11', 'pending');
+INSERT INTO `customer_orders` (`order_id`, `customer_id`, `seller_id`, `product_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`, `customer_name`, `customer_phone`, `customer_address`, `total_amount`) VALUES
+(11, 6, 3, 7, 300, 206863956, 1, 'Small', '2019-02-06', 'Complete', '', '', '', ''),
+(12, 6, 3, 3, 10, 206863956, 1, 'Small', '2019-02-06', 'Complete', '', '', '', ''),
+(13, 7, 3, 31, 166, 2002430815, 1, '', '2020-02-06', 'pending', '', '', '', ''),
+(14, 7, 3, 22, 20, 2002430815, 2, 'Medium', '2020-02-06', 'pending', '', '', '', ''),
+(15, 8, 3, 97, 80, 952886812, 1, '', '2020-06-11', 'pending', '', '', '', ''),
+(16, 8, 3, 0, 200, 152398492, 1, 'Small', '2020-06-11', 'pending', '', '', '', ''),
+(17, 8, 3, 21, 1100, 703139470, 1, 'Medium', '2020-06-11', 'pending', '', '', '', ''),
+(18, 8, 7, 21, 200, 739546590, 1, '', '2020-07-20', 'Cash On Delivery', '', '', '', ''),
+(19, 8, 5, 25, 500, 739546590, 1, '', '2020-07-20', 'Cash On Delivery', '', '', '', ''),
+(20, 8, 10, 95, 500, 1475887554, 1, '', '2020-07-20', 'Cash On Delivery', 'mitu', '01730985674', 'uttara', ''),
+(21, 8, 10, 97, 300, 1475887554, 1, '', '2020-07-20', 'Cash On Delivery', 'mitu', '01730985674', 'uttara', ''),
+(22, 8, 10, 97, 300, 529811425, 1, '', '2020-07-20', 'Cash On Delivery', 'mitu', '01730985674', 'uttara', '300'),
+(23, 8, 10, 98, 550, 1385202603, 1, '', '2020-07-20', 'Paid By Bkaash', 'mitu', '01730985674', 'uttara', '550'),
+(24, 8, 10, 97, 300, 187050161, 1, '', '2020-07-20', 'Paid By Bkaash', 'mitu', '01730985674', 'uttara', '300'),
+(25, 8, 10, 94, 50, 440155613, 1, '', '2020-07-20', 'pending', 'mitu', '01730985674', 'uttara', '600'),
+(26, 8, 10, 98, 550, 440155613, 1, '', '2020-07-20', 'pending', 'mitu', '01730985674', 'uttara', '600'),
+(27, 8, 10, 96, 699, 2062962528, 1, '', '2020-08-07', 'Cash On Delivery', 'mitu', '01730985674', 'uttara', '699'),
+(28, 8, 10, 97, 300, 1785499861, 1, '', '2020-08-07', 'Cash On Delivery', 'mitu', '01730985674', 'uttara', '300'),
+(29, 8, 10, 96, 3495, 711834881, 5, 'Small', '2020-08-07', 'Cash On Delivery', 'mitu', '01730985674', 'uttara', '3495'),
+(30, 8, 10, 95, 500, 25697955, 1, ' ', '2020-08-18', 'pending', 'mitu', '01730985674', 'uttara', '1910'),
+(31, 8, 10, 92, 1100, 25697955, 1, ' ', '2020-08-18', 'pending', 'mitu', '01730985674', 'uttara', '1910'),
+(32, 8, 10, 97, 300, 25697955, 1, 'Small', '2020-08-18', 'pending', 'mitu', '01730985674', 'uttara', '1910'),
+(33, 8, 10, 93, 10, 25697955, 1, 'Small', '2020-08-18', 'pending', 'mitu', '01730985674', 'uttara', '1910');
 
 -- --------------------------------------------------------
 
@@ -193,20 +236,27 @@ INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice
 
 CREATE TABLE `payments` (
   `payment_id` int(10) NOT NULL,
+  `c_id` int(11) NOT NULL,
   `invoice_no` int(10) NOT NULL,
   `amount` int(10) NOT NULL,
   `payment_mode` text NOT NULL,
-  `ref_no` int(10) NOT NULL,
-  `code` int(10) NOT NULL,
-  `payment_date` text NOT NULL
+  `phone_card_number` varchar(250) NOT NULL,
+  `ref_cvv` varchar(100) NOT NULL,
+  `payment_date` text NOT NULL,
+  `payment_status` tinyint(1) NOT NULL,
+  `delivery_status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `payments`
 --
 
-INSERT INTO `payments` (`payment_id`, `invoice_no`, `amount`, `payment_mode`, `ref_no`, `code`, `payment_date`) VALUES
-(6, 206863956, 10, 'Western Union', 123123, 321321, '02-09-2019');
+INSERT INTO `payments` (`payment_id`, `c_id`, `invoice_no`, `amount`, `payment_mode`, `phone_card_number`, `ref_cvv`, `payment_date`, `payment_status`, `delivery_status`) VALUES
+(7, 8, 187050161, 300, 'Bkash', '01821729408', 'Muntaaha', '2020-07-20 18:13:38', 1, 1),
+(8, 8, 440155613, 600, 'Debit/Credit', '123456783719', 'Muntaaha Rahman', '2020-07-20 18:20:42', 1, 0),
+(9, 8, 1785499861, 300, 'Cash on Delivery', '01730985674', 'uttara', '2020-08-07 22:41:51', 0, 0),
+(10, 8, 711834881, 3495, 'Cash on Delivery', '01730985674', 'uttara', '2020-08-07 22:48:03', 0, 0),
+(11, 8, 25697955, 1910, 'Bkash', '01730985674', 'Mantaqaa', '2020-08-18 02:42:19', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -232,7 +282,23 @@ INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_
 (11, 7, 2002430815, '9', 1, '', 'pending'),
 (12, 7, 2002430815, '15', 2, 'Medium', 'pending'),
 (14, 8, 152398492, '21', 1, 'Small', 'pending'),
-(15, 8, 703139470, '24', 1, 'Medium', 'pending');
+(15, 8, 703139470, '24', 1, 'Medium', 'pending'),
+(16, 8, 739546590, '21', 1, '', 'Cash On Delivery'),
+(17, 8, 739546590, '25', 1, '', 'Cash On Delivery'),
+(18, 8, 1475887554, '95', 1, '', 'Cash On Delivery'),
+(19, 8, 1475887554, '97', 1, '', 'Cash On Delivery'),
+(20, 8, 529811425, '97', 1, '', 'Cash On Delivery'),
+(21, 8, 1385202603, '98', 1, '', 'Paid By Bkaash'),
+(22, 8, 187050161, '97', 1, '', 'Paid By Bkaash'),
+(23, 8, 440155613, '94', 1, '', 'pending'),
+(24, 8, 440155613, '98', 1, '', 'pending'),
+(25, 8, 2062962528, '96', 1, '', 'Cash On Delivery'),
+(26, 8, 1785499861, '97', 1, '', 'Cash On Delivery'),
+(27, 8, 711834881, '96', 5, 'Small', 'Cash On Delivery'),
+(28, 8, 25697955, '95', 1, ' ', 'pending'),
+(29, 8, 25697955, '92', 1, ' ', 'pending'),
+(30, 8, 25697955, '97', 1, 'Small', 'pending'),
+(31, 8, 25697955, '93', 1, 'Small', 'pending');
 
 -- --------------------------------------------------------
 
@@ -261,7 +327,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `seller`, `date`, `product_title`, `product_img1`, `product_img2`, `product_img3`, `product_price`, `product_keywords`, `product_desc`) VALUES
 (17, 23, 6, '6', '2020-07-09 16:40:02', 'Red Half Silk Jamdani Saree', 'red1.jpg', 'red2.jpg', 'red3.jpg', 4000, 'Red jamdani, Half Silk Jamdani, Handloomed Jamdani.', '<p>Handloomed jamdani silk saree with allover work. Alltogether 14haat sharee which comes together with blouse piece.</p>'),
-(18, 28, 7, '', '2020-07-09 16:39:02', 'Black and White Embroidery Lace', 'lc1.jpg', 'lc2.jpg', 'lc3.jpg', 200, 'white lace,black lace,embroidery lace, lace', '<p>3Yards 22cm black white embroidery lace fabric sewing supplies for garments elastic lace.</p>'),
+(18, 28, 7, '6', '2020-08-03 12:50:58', 'Black and White Embroidery Lace', 'lc1.jpg', 'lc2.jpg', 'lc3.jpg', 200, 'white lace,black lace,embroidery lace, lace', '<p>3Yards 22cm black white embroidery lace fabric sewing supplies for garments elastic lace.</p>'),
 (19, 24, 7, '7', '2020-07-09 16:37:58', 'Sewing Needle', 'n1.jpg', 'n2.jpg', 'n3.jpg', 50, 'sewing needle, needle set', '<p>Sewing needle set with needles with different thickness to help you sew with threads with different thicknes.</p>'),
 (20, 25, 7, '7', '2020-07-09 16:39:36', 'Black Silk Thread', 'bl1.jpg', 'bl2.jpg', 'bl3.PNG', 80, 'silk thread, black', '<p>New 1 roll black silk thread String Cord 0.2mm Thickness with great smoothness.</p>'),
 (21, 26, 7, '7', '2020-07-09 16:44:26', 'Wooden Buttons', 'btn1.jpg', 'btn2.jpg', 'btn3.jpg', 200, 'buttons,wooden', '<p>High quality 50pcs 10mm-25mm 2-holes and 4-holes round wooden buttons for clothing, scrapbooking, sewing accessories</p>'),
@@ -274,28 +340,28 @@ INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `seller`, `date`, `p
 (28, 5, 5, '5', '2020-07-07 16:09:56', 'Dark Red Mixed Cotton Polo T-Shirt', '10.jpg', '11.jpg', '10.jpg', 550, 'Polo T-Shirt,Dark Red,Ribbed Collar.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Dark red cotton-polyester polo shirt. Features three button placket, slit on both side and ribbed collar.</span></p>'),
 (29, 5, 5, '5', '2020-07-07 16:22:41', 'Sea Blue Cotton-Polyester Polo T-Shirt', '8.jpg', '9.jpg', '8.jpg', 550, 'Sea Blue,Polo T-Shirt.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Sea blue pique cotton-polyester polo shirt. Features three button placket and slit on both side.</span></p>'),
 (30, 18, 5, '5', '2020-07-07 16:58:08', 'White Dyed Panjabi', 'p1.JPG', 'p2.JPG', 'p1.JPG', 1500, 'White,Panjabi.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">White and yellow dyed viscose-cotton panjabi with prints. Embroidery detailing on arm. Features in-seam side pockets.</span></p>'),
-(31, 18, 5, '5', '2020-07-07 17:02:56', 'Deep Orange Printed Slim Fit Viscose-Cotton Panjabi', 'p3.JPG', 'p4.JPG', 'p3.JPG', 1150, 'White,Yellow,Blue,Printed Panjabi.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Deep orange slim fit viscose-cotton panjabi with white, yellow and blue prints.</span></p>'),
+(31, 18, 5, '5', '2020-07-16 10:06:53', 'Deep Orange Printed Panjabi', 'p3.JPG', 'p4.JPG', 'p3.JPG', 1150, 'White,Yellow,Blue,Printed Panjabi.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Deep orange slim fit viscose-cotton panjabi with white, yellow and blue prints.</span></p>'),
 (32, 19, 5, '5', '2020-07-07 17:07:26', 'Maroon Check Cotton Lungi', 'lng1.JPG', 'lng2.JPG', 'lng1.JPG', 800, 'Cotton,Lungi.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Maroon, black and yellow check mercerized cotton lungi.</span></p>'),
 (33, 20, 5, '5', '2020-07-07 17:17:31', 'Pink Embroidered Cotton Fatua', 'ft1.JPG', 'ft2.JPG', 'ft1.JPG', 1448, 'Pink,Cotton,Embroidered Fatua.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Pink jacquard cotton fatua with embroidery. Features two in-seam side pocket. Embroidery work is completed with pink thread.</span></p>'),
-(34, 20, 5, '5', '2020-07-07 17:25:47', 'Mint Green Embroidered Silk-Cotton Fatua', 'ft3.JPG', 'ft4.JPG', 'ft3.JPG', 2643, 'Mint Green,Silk,Cotton,Fatua.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Mint green silk-cotton fatua with embroidery and dual bottom pockets. Embroidery work is completed with mustard and green thread.</span></p>'),
+(34, 20, 5, '5', '2020-07-16 10:05:34', 'Mint Green Embroidered Fatua', 'ft3.JPG', 'ft4.JPG', 'ft3.JPG', 2643, 'Mint Green,Silk,Cotton,Fatua.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Mint green silk-cotton fatua with embroidery and dual bottom pockets. Embroidery work is completed with mustard and green thread.</span></p>'),
 (35, 10, 6, '5', '2020-07-07 17:34:36', 'Cotton T-Shirt', 'girltee1.JPG', 'girltee2.JPG', 'girltee3.JPG', 380, 'Cotton T-shirt.', '<p>Cotton Graphic T-Shirt.</p>'),
 (36, 10, 6, '5', '2020-07-07 17:44:08', 'Cotton T-Shirt', 'girltee4.JPG', 'girltee5.JPG', 'girltee3.JPG', 380, 'Black,Cotton T-Shirt.', '<p>Cotton Graphic T-Shirt.</p>'),
-(37, 13, 6, '5', '2020-07-07 17:58:29', 'Deep Purple Printed and Embroidered Viscose Salwar Kamiz Set', 'sk1.JPG', 'sk2.JPG', 'sk1.JPG', 4799, 'Embroidery Salwar Kamiz.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Deep purple printed viscose kamiz with embroidery. Comes with viscose salwar and light teal printed cotton dupatta.</span></p>'),
+(37, 13, 6, '5', '2020-07-16 10:03:56', 'Purple Embroidered Salwar Kamiz Set', 'sk1.JPG', 'sk2.JPG', 'sk1.JPG', 4799, 'Embroidery Salwar Kamiz.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Deep purple printed viscose kamiz with embroidery. Comes with viscose salwar and light teal printed cotton dupatta.</span></p>'),
 (38, 15, 6, '5', '2020-07-07 18:11:57', 'Olive Embroidered Viscose Top', 'top1.JPG', 'top3.JPG', 'top2.JPG', 1659, 'Olive Viscose Top,Embroidery.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Olive viscose top with embroidery. Embroidery work is completed with red, blue-grey, brown and olive thread.</span></p>'),
 (39, 11, 5, '5', '2020-07-07 18:18:14', 'Slim Fit Mixed Cotton Formal Pant', 'pant1.JPG', 'pant3.JPG', 'pant2.JPG', 2249, 'Cotton Formal Pant.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Charcoal grey pinstriped slim fit mixed cotton formal pant. This pant has four pockets, hook-button closure, belt loops and zip fly.</span></p>'),
 (40, 21, 5, '5', '2020-07-07 18:24:48', 'Light Blue Slim Fit Cotton Shirt', 'shirt1.JPG', 'shirt3.JPG', 'shirt2.JPG', 2406, 'Light Blue,Cotton Shirt.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Light blue executive premium slim fit cotton shirt. Chest pocket, french placket and round cuffs with adjustable buttoning.</span></p>'),
 (41, 16, 6, '5', '2020-07-07 18:32:50', 'Red Printed Cotton Skirt', 'skirt1.JPG', 'skirt2.JPG', 'skirt3.JPG', 1400, 'Red Cotton Skirt.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Red cotton skirt with golden prints and sequin detail. Zip opening on left.</span></p>'),
-(42, 22, 6, '5', '2020-07-07 18:38:50', 'Pastel Green Printed and Embroidered Voile Kurti', 'kurti1.JPG', 'kurti3.JPG', 'kurti2.JPG', 2199, 'Pastel Green,Printed Kurti.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Pastel green printed voile kurti with multicolour embroidery.</span></p>'),
-(43, 23, 6, '5', '2020-07-07 18:45:20', 'Printed and Embroidered Half Silk Saree', 'sr1.JPG', 'sr3.JPG', 'sr2.JPG', 5255, 'Half Silk Saree.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Half silk saree with white embroidery around pink and green prints. Aanchal with tassel trim and comes with unstitched blouse piece.</span></p>'),
+(42, 22, 6, '5', '2020-07-16 09:48:50', ' Green Embroidered Voile Kurti', 'kurti1.JPG', 'kurti3.JPG', 'kurti2.JPG', 2199, 'Pastel Green,Printed Kurti.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Pastel green printed voile kurti with multicolour embroidery.</span></p>'),
+(43, 23, 6, '5', '2020-07-16 09:26:30', 'Embroidered Half Silk Saree', 'sr1.JPG', 'sr3.JPG', 'sr2.JPG', 5255, 'Half Silk Saree.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Half silk saree with white embroidery around pink and green prints. Aanchal with tassel trim and comes with unstitched blouse piece.</span></p>'),
 (44, 60, 17, '5', '2020-07-07 19:07:28', 'Red Embroidered Voile Nima', 'nima1.JPG', 'nima3.JPG', 'nima2.JPG', 250, 'Red Nima,Voile Pant.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Red voile nima with white embroidery. Comes with voile pant or nappy.</span></p>'),
 (45, 60, 17, '5', '2020-07-07 19:14:32', 'Aqua Printed Voile Frock with Bottom', 'fr1.JPG', 'fr2.JPG', 'fr1.JPG', 499, 'Aqua Printed Voile Frock,Pant,Nappy.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Aqua printed voile frock with lace trim. Comes with matching voile pant or nappy.</span></p>'),
 (46, 61, 17, '5', '2020-07-07 19:19:07', 'Light Blue Voile Nima with Bottom', 'ghh.JPG', 'hgf.JPG', 'jfjfjfj.JPG', 380, 'Light Blue Voile Nima.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Light blue voile nima with white prints. Comes with matching voile pant or nappy.</span></p>'),
-(47, 42, 12, '5', '2020-07-08 14:25:39', 'Blue Nakshi Kantha Embroidered Silk Saree', 'nk1.JPG', 'nk3.JPG', 'nk2.JPG', 17000, 'Blue Slik Saree,Nakshi Kantha.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Blue silk saree with multicolour Nakshi Kantha embroidery and muslin panel. Comes with tassel trimmed aanchal and matching unstitched blouse piece.</span></p>'),
-(48, 42, 12, '5', '2020-07-08 14:36:03', 'Hot Pink Nakshi Kantha Embroidered Silk Saree', 'nk4.JPG', 'nk6.JPG', 'nk5.JPG', 21999, 'Hot Pink Slik Saree,Nakshi Kantha.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Hot pink silk saree with Nakshi Kantha embroidery and tassel trimmed aanchal. Comes with matching unstitched blouse piece. Embroidery work is completed with green, yellow and lavender thread.</span></p>'),
-(49, 43, 12, '5', '2020-07-08 14:42:52', 'Printed and Embroidered Silk Shawl', 'sh1.JPG', 'sh3.JPG', 'sh2.JPG', 5999, 'Slik Shawl.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Printed silk shawl with multicolour Nakshi Kantha embroidery and tassel trimmed border.</span></p>'),
-(50, 45, 12, '5', '2020-07-08 14:49:22', 'Red Nakshi Kantha Embroidered Cotton Bed Cover', 'bd1.JPG', 'bd2.JPG', 'bd1.JPG', 18650, 'Red Cotton Bed Cover.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Red cotton bed cover with multicolour Nakshi Kantha embroidery.</span></p>'),
+(47, 42, 12, '5', '2020-07-16 10:00:09', 'Blue Nakshi Kantha Silk Saree', 'nk1.JPG', 'nk3.JPG', 'nk2.JPG', 17000, 'Blue Slik Saree,Nakshi Kantha.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Blue silk saree with multicolour Nakshi Kantha embroidery and muslin panel. Comes with tassel trimmed aanchal and matching unstitched blouse piece.</span></p>'),
+(48, 42, 12, '5', '2020-07-16 10:01:31', 'Pink Nakshi Kantha Silk Saree', 'nk4.JPG', 'nk6.JPG', 'nk5.JPG', 21999, 'Hot Pink Slik Saree,Nakshi Kantha.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Hot pink silk saree with Nakshi Kantha embroidery and tassel trimmed aanchal. Comes with matching unstitched blouse piece. Embroidery work is completed with green, yellow and lavender thread.</span></p>'),
+(49, 43, 12, '5', '2020-07-16 09:58:50', 'Embroidered Silk Shawl', 'sh1.JPG', 'sh3.JPG', 'sh2.JPG', 5999, 'Slik Shawl.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Printed silk shawl with multicolour Nakshi Kantha embroidery and tassel trimmed border.</span></p>'),
+(50, 45, 12, '5', '2020-07-16 09:52:14', 'Red Nakshi Kantha Bed Cover', 'bd1.JPG', 'bd2.JPG', 'bd1.JPG', 18650, 'Red Cotton Bed Cover.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Red cotton bed cover with multicolour Nakshi Kantha embroidery.</span></p>'),
 (51, 46, 12, '5', '2020-07-08 15:12:59', 'Blue Embroidered Cotton Nakshi Kantha.', 'nk7.JPG', 'nk8.JPG', 'nk9.JPG', 11999, 'Blue Cotton Nakshi Kantha.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Blue cotton Nakshi Kantha with all over three shades of brown embroidery.</span></p>'),
-(52, 33, 8, '5', '2020-07-09 16:51:19', 'Pastel Orange Appliqued Cotton Curtain', '12.JPG', '13.JPG', '12.JPG', 1400, 'Cotton Curtain,Multicolour.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Pastel orange cotton curtain with multicolour applique. Hang with loops.</span></p>'),
+(52, 33, 8, '5', '2020-07-16 09:53:20', 'Pastel Orange Cotton Curtain', '12.JPG', '13.JPG', '12.JPG', 1400, 'Cotton Curtain,Multicolour.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Pastel orange cotton curtain with multicolour applique. Hang with loops.</span></p>'),
 (53, 33, 8, '5', '2020-07-09 16:55:29', 'Mustard Pillow Cover', '14.JPG', '15.JPG', '14.JPG', 298, 'Cotton Pillow,Printed Pillow.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Mustard printed cotton pillow cover.</span></p>'),
 (54, 34, 8, '5', '2020-07-09 17:02:20', 'Jute Placemat', '16.JPG', '18.JPG', '16.JPG', 65, 'Yellow,Teal Jute,Placemat.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Yellow and teal jute weaved placemat.</span></p>'),
 (55, 34, 8, '5', '2020-07-09 17:08:08', 'Kitchen Paper Towel Holder', '19.JPG', '20.JPG', '19.JPG', 999, 'Kitchen Paper Towel Roll Holder.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Brass leaves etched golden kitchen paper towel roll holder.</span></p>'),
@@ -312,7 +378,36 @@ INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `seller`, `date`, `p
 (66, 64, 16, '5', '2020-07-09 18:39:05', 'Black Fabric Bag', 'fabric bag1.JPG', 'fabric bag2.JPG', 'fabric bag1.JPG', 1150, 'Fabric Bag.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Black, white and navy blue weaving fabric bag with gabardine lining and leather hand carrying strap.</span></p>'),
 (67, 52, 13, '5', '2020-07-09 18:52:59', 'Blackhead Removal', 'skin1.JPG', 'skin2.JPG', 'skin3.JPG', 90, 'Acne Removal.', '<p>Acne Blackhead Removal Stainless</p>'),
 (68, 50, 13, '5', '2020-07-09 19:01:32', 'Makeup Brushes Set', 'makeup4.JPG', 'makeup5.JPG', 'makeup6.JPG', 450, 'Makeup,Brushes Set.', '<p>professonal Makeup Brushes Set.</p>'),
-(69, 50, 13, '5', '2020-07-09 19:06:01', 'Eyelashes', 'makeup.JPG', 'makeup3.JPG', 'makeup2.JPG', 199, 'Fake Eyelashes.', '<p>Natural Volumn Fake Soft Eyelashes.</p>');
+(69, 50, 13, '5', '2020-07-09 19:06:01', 'Eyelashes', 'makeup.JPG', 'makeup3.JPG', 'makeup2.JPG', 199, 'Fake Eyelashes.', '<p>Natural Volumn Fake Soft Eyelashes.</p>'),
+(70, 21, 5, '10', '2020-07-17 04:27:30', 'Red Patterned Cotton Shirt', '25.JPG', '26.JPG', '25.JPG', 795, 'Red,Shirt.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Red, grey and ivory weaved hand loomed cotton shirt with red textured.</span></p>'),
+(71, 36, 8, '10', '2020-07-17 04:32:13', 'Plant Flower Pot', 'gardening tools3.JPG', 'gardening tools2.JPG', 'gardening tools2.JPG', 170, 'Pot,Plant Flower Pot.', '<p>Mini Colourful Round Plastic Pant Flower Pot.</p>'),
+(72, 39, 11, '10', '2020-07-17 05:00:08', 'Stone Studded Silver Ring', '27.JPG', '28.JPG', '27.JPG', 323, 'White,Diamond,Silver Ring.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">White faux american diamonds studded silver ring.</span></p>'),
+(73, 39, 11, '10', '2020-07-17 05:04:50', 'Stone Studded Oxidized Ring', '29.JPG', '30.JPG', '29.JPG', 386, 'Ring,Orange Stone.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Orange stone studded oxidized brass ring.</span></p>'),
+(74, 38, 11, '10', '2020-07-17 05:10:49', 'Gold Plated Silver Earrings', '31.JPG', '32.JPG', '31.JPG', 2500, 'White,Black,Gold Plated Silver Earring.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">White pearls and black stone studded gold plated silver earrings.</span></p>'),
+(75, 38, 11, '10', '2020-07-17 05:22:41', 'Mina Oxidized Silver Earrings', '33.JPG', '34.JPG', '33.JPG', 1599, 'Silver,Earring.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Faux emerald and american diamond studded oxidized silver earrings with blue mina detailing.</span></p>'),
+(76, 37, 11, '10', '2020-07-17 05:27:37', 'Beads Necklace', '35.JPG', '36.JPG', '35.JPG', 999, 'Necklace.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Multicolour ten layer beads necklace with metal pieces.</span></p>'),
+(77, 40, 11, '10', '2020-07-17 05:54:06', 'Kacher Churi Set', '37.JPG', '39.JPG', '38.JPG', 70, 'Bangles,Churi.', '<p>Colourful Handmand Kacher Churi.</p>'),
+(78, 40, 11, '10', '2020-07-17 06:06:05', 'Infinity Bracelets', '40.JPG', '42.JPG', '41.JPG', 200, 'Bracelets.', '<p>Silver and Gold Colour Infinity Shape Women Bracelets.</p>'),
+(79, 51, 13, '10', '2020-07-17 06:17:39', 'Arm Blood Pressure Monitors', '43.JPG', '44.JPG', '45.JPG', 2000, 'Device,Blood Pressure.', '<p>Arm Blood Pressure Automatics Device.</p>'),
+(80, 63, 16, '10', '2020-07-17 06:25:54', 'Travel Bags', '46.JPG', '47.JPG', '48.JPG', 1699, 'Travel Bag,Luggage.', '<p>High Quality Travel Bag.</p>'),
+(81, 47, 15, '10', '2020-07-17 06:36:46', 'Brown Leather Sandal', '49.JPG', '50.JPG', '51.JPG', 1467, 'Sandel,Shoe.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Brown slip-on leather sandal. Features comfortable footbed and rubber sole.</span></p>'),
+(82, 48, 15, '10', '2020-07-17 06:54:37', 'Red Leather Sandals', '53.JPG', '52.JPG', '54.JPG', 750, 'Leather,Sandel.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Red faux leather sandals with stone and beads.</span></p>'),
+(83, 48, 15, '10', '2020-07-17 07:01:46', 'Wooden Sandels', 'shuksari.PNG', 'shuksari2.PNG', 'shuksari.PNG', 650, 'Sandels.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Red sandals with flower and beads.</span></p>'),
+(84, 49, 15, '10', '2020-07-17 07:08:33', 'Brown Leather Slider Sandals', '57.JPG', '55.JPG', '56.JPG', 657, 'Kids,Leather Sandels.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Brown and blue upper leather sandals with comfortable insole and rubber sole.</span></p>'),
+(85, 27, 7, '10', '2020-07-17 07:21:27', 'Green Printed Cotton Fabric', '58.JPG', '59.JPG', '58.JPG', 403, 'Cotton,Fabric.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Green hand loomed cotton fabric with shades of green prints. Sold in meters as per requirement.</span></p>'),
+(86, 29, 10, '10', '2020-07-17 07:30:14', 'Blue Printed Wrapping Paper', '60.JPG', '61.JPG', '60.JPG', 28, 'Blue,Wrapping Paper.', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Blue wrapping paper with white prints. Comes with a gift tag</span></p>'),
+(87, 29, 10, '10', '2020-07-17 07:36:19', 'Handmade Greeting Card', '62.JPG', '63.JPG', '64.JPG', 80, 'Card', '<p><span style=\"color: #333333; font-family: helveticaregular, arial, sans-serif; font-size: 13px; text-align: justify;\">Ivory recycled handmade paper greetings card with multicolour flower detailing and ivory envelope.</span></p>'),
+(88, 68, 9, '10', '2020-07-17 07:54:22', 'Digital Multimeter Tester', '65.JPG', '66.JPG', '67.JPG', 980, 'Digital,Tester.', '<p>Multicolour Digital Multimeter Voltage Tester.</p>'),
+(89, 53, 14, '10', '2020-07-17 08:09:38', 'Samsung Galaxy S8 Plus', '68.JPG', '69.JPG', '70.JPG', 42500, 'Samsung,Cellphone.', '<p>Camera&nbsp;Back: 12 MP, Front 8 MP</p>\r\n<p>Operating Sytem: Android 6.0.1 (Marshmallow), upgradable to Android 8.0 (Oreo)</p>\r\n<p>Battery Capacity: Non-removable Li-Ion 3500 mAh battery</p>\r\n<p>CPU- RAM - Memory: Octa-core - 4/6 GB - 64/128 GB</p>'),
+(90, 54, 14, '10', '2020-07-17 08:17:14', 'Samsung Battery', '71.JPG', '72.JPG', '71.JPG', 250, 'Samsung,Battery.', '<p>Samsung Original EB-BC115BBC Battery.</p>'),
+(91, 55, 14, '10', '2020-07-17 08:25:18', 'silicone phone case', '73.JPG', '75.JPG', '74.JPG', 300, 'Phone Case.', '<p>silicone phone case for huawei p30 lite.</p>'),
+(92, 56, 14, '10', '2020-07-17 08:30:47', 'Telephone', '76.JPG', '77.JPG', '76.JPG', 1100, 'Telaphone,Landline.', '<p>Landline Extension Telephone for Home</p>'),
+(93, 30, 10, '10', '2020-07-17 08:37:04', 'Paper', '2.2.PNG', '2.1.PNG', '2.2.PNG', 10, 'Paper.', '<p>Colourful Handmade Paper.</p>'),
+(94, 31, 10, '10', '2020-07-17 08:44:24', 'Painting Brush', '79.JPG', '78.JPG', '79.JPG', 50, 'Painting Brush.', '<p>Wooden Handle Painting Brush.</p>'),
+(95, 32, 10, '10', '2020-07-17 08:49:57', 'Balloons', '80.JPG', '81.JPG', '80.JPG', 500, 'Balloons.', '<p>Happy Birthday Decoration Balloons.</p>'),
+(96, 67, 4, '10', '2020-07-17 08:58:45', 'Food Container', '82.JPG', '83.JPG', '84.JPG', 699, 'Organizer.', '<p>Home Kitchen Fridge Space Saver Organizer food container.</p>'),
+(97, 58, 18, '10', '2020-07-17 09:08:14', 'Handmade Food', 'h.1.PNG', 'f.1.PNG', 'h.1.PNG', 300, 'Food.', '<p>Fresh Handmand Food.</p>'),
+(98, 57, 18, '10', '2020-07-17 09:15:07', 'Frozen Food', '85.JPG', '86.JPG', '87.JPG', 550, 'Frozen,Food.', '<p>Fresh Frozen Food.</p>');
 
 -- --------------------------------------------------------
 
@@ -390,7 +485,7 @@ INSERT INTO `product_categories` (`p_cat_id`, `p_cat_title`, `categories`, `cid`
 (65, 'Leather Bags', 'Luggage & Bags', 16, 5),
 (66, 'Jute Bags', 'Luggage & Bags', 16, 5),
 (67, 'Others', 'Other', 4, 5),
-(68, 'Measurement & Analysis Instruments', 'Tools', 0, 5);
+(68, 'Measurement & Analysis Instruments', 'Tools', 9, 5);
 
 -- --------------------------------------------------------
 
@@ -426,7 +521,7 @@ INSERT INTO `sellers` (`seller_id`, `seller_name`, `seller_email`, `seller_image
 (8, 'Palash Kabir', 'palash_kabir@gmail.com', 'IMG_7601.jpg', '1234', '+8801822667455', 'Chattogram', 'Palash', 'Cellphone & Telecommunication', '::1', 'Cellphone & Telecommunication', 'redmi-note-9-pro-18.jpg', 1),
 (9, 'Ishika Rahman', 'ishika.rahman@gmail.com', 'CI.jpg', '1234', '+880155778900', 'Chattogram', 'Ifsha', 'Craft Materials', '::1', 'Craft Materials', 'ifsha-pp.jpg', 1),
 (10, 'Roddur Hasan', 'roddur_hasan1@gmail.com', 'eker-bhitor-shob_seller.pp.JPG', '1234', '+8801716774566', 'Dhaka', 'Eker Bhitor Shob', 'various category', '::1', 'Variety of products at your door', 'eker-bhitor-shob.PNG', 1),
-(11, 'Jeba Noor', 'jeba12.noor@gmail.com', 'food-seller-pp.JPG', '1234', '+8801811445000', 'Chattogram', 'à¦˜à¦°à§‡ à¦¬à¦¸à§‡ à¦¦à§‡à¦¶à§€ à¦¬à¦¿à¦¦à§‡à¦¶à§€ à¦°à¦¾à¦¨à§à¦¨à¦¾', 'Food Items', '::1', 'Various homemde Food', 'food.PNG', 1),
+(11, 'Jeba Noor', 'jeba12.noor@gmail.com', 'food-seller-pp.JPG', '1234', '+8801811445000', 'Chattogram', 'Ghorer shade Ranna', 'Food Items', '::1', 'Various homemde Food', 'food.PNG', 1),
 (12, 'Sabbir Hossain', 'sabbir_hossain@gmail.com', 'Nakshi_kanthar_shomahar-seller.pp.JPG', '1234', '+8801717654435', 'Sylhet', 'Nakshi Kanthar Shomahar', 'Different nakshi kantha motif products', '::1', 'Different nakshi kantha motif products', 'nakhi-kantha-pp.PNG', 1),
 (13, 'Shukh kabir', 'shukh_kabir@gmail.com', 'shuksari-seller-pp.JPG', '1234', '+8801718775886', 'Dhaka', 'Shuksari', 'shoes', '::1', 'Unique and pretty shoes', 'shuksari-pp.jpg', 1),
 (14, 'Tamin Shahriar', 'tamin11_shahriar@gmail.com', 'ghor_shajai-seller.pp.JPG', '1234', '+8801876644578', 'Dhaka', 'Ghor Shajai', 'Home & Gardening', '::1', 'Home & Gardening products', 'ghor_shajai.pp.jpg', 0);
@@ -473,13 +568,19 @@ ALTER TABLE `blog`
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`p_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`contact_id`);
 
 --
 -- Indexes for table `customers`
@@ -543,13 +644,25 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -561,25 +674,25 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `pending_orders`
 --
 ALTER TABLE `pending_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `product_categories`

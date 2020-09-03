@@ -27,15 +27,9 @@
         
         $seller_image = $row_seller['seller_image'];
         
-        //$seller_country = $row_seller['seller_country'];
-        
-        //$seller_about = $row_seller['seller_about'];
-        
         $seller_contact = $row_seller['seller_contact'];
         
-        //$seller_job = $row_seller['seller_job'];
-        
-        $get_products = "select * from products";
+        $get_products = "select * from products where seller='$seller_id'";
         
         $run_products = mysqli_query($con,$get_products);
         
@@ -53,7 +47,7 @@
         
         $count_p_categories = mysqli_num_rows($run_p_categories);
         
-        $get_pending_orders = "select * from pending_orders";
+        $get_pending_orders = "select * from customer_orders where seller_id='$seller_id'";
         
         $run_pending_orders = mysqli_query($con,$get_pending_orders);
         

@@ -103,11 +103,22 @@
                 
                 <h4>Go through Our Blogs</h4>
                 
+               <?php 
+                  $get_blogs = "select * from blog"; 
+               
+                  $run_blogs = mysqli_query($con,$get_blogs);
+                   
+                  while($row_blogs=mysqli_fetch_array($run_blogs)){
+
+                    $id = $row_blogs['id'];
+
+                  }
+                ?>
                 <p class="text-muted">
-                   <a href="http://localhost/oneshop_ecommerce/blog_details.php?id=1">Click Here</a> to see our most popular blog.
+                   <a href="http://localhost/oneshop_ecommerce/blog_details.php?id=<?php echo $id; ?>">Click Here</a> to see our most popular blog.
                 </p>
                 
-                <!-- <form action="#" method="post" target="popupwindow" onsubmit="window.open('#', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" method="post"><!-- form begin -->
+                <!-- <form action="#" method="post" target="popupwindow" onsubmit="window.open('#', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" method="post">form begin -->
                   <!--   <div class="input-group"> --><!-- input-group begin -->
                         
                        <!--  <input type="text" class="form-control" name="email"> -->

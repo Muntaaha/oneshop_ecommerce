@@ -160,12 +160,6 @@
                     <li><!-- li begin -->
                         <a href="index.php?insert_blog"> Insert Blog </a>
                     </li><!-- li finish -->
-					<li><!-- li begin -->
-                        <a href="index.php?delete_blog"> Delete Blog </a>
-                    </li><!-- li finish -->
-					<li><!-- li begin -->
-                        <a href="index.php?update_blog"> Update Blog </a>
-                    </li><!-- li finish -->
                     <li><!-- li begin -->
                         <a href="index.php?view_blog"> View Blogs </a>
                     </li><!-- li finish -->
@@ -190,13 +184,13 @@
                 </ul><!-- collapse finish -->
             </li><!-- li finish -->
             
-           <!--  <li>
-                <a href="index.php?view_customers">
-                    <i class="fa fa-fw fa-users"></i> View Customers
+            <li>
+                <a href="index.php?contact_message">
+                    <i class="fa fa-fw fa-users"></i> Messages
                 </a>
             </li>
             
-            <li>
+             <li>
                 <a href="index.php?view_orders">
                     <i class="fa fa-fw fa-book"></i> View Orders
                 </a>
@@ -206,9 +200,9 @@
                 <a href="index.php?view_payments">
                     <i class="fa fa-fw fa-money"></i> View Payments
                 </a>
-            </li> -->
+            </li>
             
-            <li><!-- li begin -->
+            <li>
                 <a href="#" data-toggle="collapse" data-target="#users"><!-- a href begin -->
                         
                         <i class="fa fa-fw fa-users"></i> Users

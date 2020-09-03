@@ -13,7 +13,7 @@
         <ol class="breadcrumb"><!-- breadcrumb begin -->
             <li class="active"><!-- active begin -->
                 
-                <i class="fa fa-dashboard"></i> Dashboard / View Blogs
+                <i class="fa fa-dashboard"></i> Dashboard / View Messages
                 
             </li><!-- active finish -->
         </ol><!-- breadcrumb finish -->
@@ -26,7 +26,7 @@
             <div class="panel-heading"><!-- panel-heading begin -->
                <h3 class="panel-title"><!-- panel-title begin -->
                
-                   <i class="fa fa-tags"></i>  View Blogs
+                   <i class="fa fa-tags"></i>  View Messages
                 
                </h3><!-- panel-title finish --> 
             </div><!-- panel-heading finish -->
@@ -37,12 +37,11 @@
                         
                         <thead><!-- thead begin -->
                             <tr><!-- tr begin -->
-                                <th> Blog ID: </th>
-                                <th> Blog Title: </th>
-                                <th> Blog Image: </th>
-                                <th> Blog Description: </th>
-                                <!-- <th> Product Update: </th> -->
-                                <th> Product Delete: </th>
+                                <th> Serial Number </th>
+                                <th> Name </th>
+                                <th> Email </th>
+                                <th> Subject </th>
+                                <th> Message </th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
                         
@@ -52,47 +51,30 @@
           
                                 $i=0;
                             
-                                $get_pro = "select * from blog";
+                                $get_pro = "select * from contact";
                                 
                                 $run_pro = mysqli_query($con,$get_pro);
           
                                 while($row_pro=mysqli_fetch_array($run_pro)){
                                     
-                                    $id = $row_pro['id'];
+                                    $name = $row_pro['contact_name'];
                                     
-                                    $title = $row_pro['title'];
+                                    $email = $row_pro['contact_email'];
                                     
-                                    $image = $row_pro['image'];
+                                    $subject = $row_pro['contact_subject'];
                                     
-                                    $description = $row_pro['description'];
+                                    $message = $row_pro['contact_message'];
                                     
                                     $i++;
                             
                             ?>
                             
                             <tr><!-- tr begin -->
-                                <td> <?php echo $id; ?> </td>
-                                <td> <?php echo $title; ?> </td>
-                                <td> <img src="admin_images/<?php echo $image; ?>" width="60" height="60"></td>
-                                <td> <?php echo $description; ?> </td>
-                               <!--  <td> 
-                                     
-                                     <a href="index.php?update_blog=<?php echo $id; ?>">
-                                     
-                                        <i class="fa fa-trash-o"></i> Update
-                                    
-                                     </a> 
-                                     
-                                </td> -->
-                                <td> 
-                                     
-                                     <a href="index.php?delete_blog=<?php echo $id; ?>">
-                                     
-                                        <i class="fa fa-trash-o"></i> Delete
-                                    
-                                     </a> 
-                                     
-                                </td>
+                                <td> <?php echo $i; ?> </td>
+                                <td> <?php echo $name; ?> </td>
+                                <td> <?php echo $email; ?> </td>
+                                <td> <?php echo $subject; ?> </td>
+                                <td> <?php echo $message ?> </td>
                             </tr><!-- tr finish -->
                             
                             <?php } ?>

@@ -36,28 +36,37 @@ function add_cart(){
         $ip_add = getRealIpUser();
         
         $p_id = $_GET['add_cart'];
+
+        $item_details = "select * from products where product_id='$p_id'";
+
+        $run_item_details = mysqli_query($db,$item_details);
+
+        $row_pro = mysqli_fetch_array($run_item_details);
+
+        $pro_title = $row_pro['product_title'];
         
         $product_qty = $_POST['product_qty'];
-        
+
         $product_size = $_POST['product_size'];
         
-        $check_product = "select * from cart where customer='$customer' AND p_id='$p_id'";
+        $check_product = "select * from cart where customer='$customer' and p_id='$p_id'";
         
         $run_check = mysqli_query($db,$check_product);
         
         if(mysqli_num_rows($run_check)>0){
-            
+             
             echo "<script>alert('This product has already added in cart')</script>";
             echo "<script>window.open('details.php?pro_id=$p_id','_self')</script>";
             
         }else{
             
-            $query = "insert into cart (p_id,ip_add,qty,size,customer) values ('$p_id','$ip_add','$product_qty','$product_size','$customer')";
+            $query = "insert into cart (p_id,qty,size,customer) values ('$p_id','$product_qty','$product_size','$customer')";
             
             $run_query = mysqli_query($db,$query);
-            echo "<script>alert('This product has been added')</script>";
-            echo "<script>window.open('cart.php','_self')</script>";
-            
+            if($run_query){
+                echo "<script>alert('This product has been added')</script>";
+                echo "<script>window.open('cart.php','_self')</script>";
+            }
         }
         
     }
@@ -85,6 +94,16 @@ function getPro(){
         $pro_price = $row_products['product_price'];
         
         $pro_img1 = $row_products['product_img1'];
+
+        $seller = $row_products['seller'];
+
+        $get_seller = "select * from sellers where seller_id = '$seller'";
+        
+        $run_seller = mysqli_query($db,$get_seller);
+
+        $row_seller = mysqli_fetch_array($run_seller);
+
+        $company_name = $row_seller['company_name'];
         
         echo "
         
@@ -109,6 +128,8 @@ function getPro(){
                         </a>
                     
                     </h3>
+
+                    <h4><center><a href='details.php?pro_id'>$company_name</a></center></h4>
                     
                     <p class='price'>
                     
@@ -167,6 +188,16 @@ function getShop(){
         $pro_price = $row_products['product_price'];
         
         $pro_img1 = $row_products['product_img1'];
+
+        $seller = $row_products['seller'];
+
+        $get_seller = "select * from sellers where seller_id = '$seller'";
+        
+        $run_seller = mysqli_query($db,$get_seller);
+
+        $row_seller = mysqli_fetch_array($run_seller);
+
+        $company_name = $row_seller['company_name'];
         
         echo "
         
@@ -191,6 +222,8 @@ function getShop(){
                         </a>
                     
                     </h3>
+
+                    <h4><center><a href='details.php?pro_id=$pro_id'></a></center></h4>
                     
                     <p class='price'>
                     
@@ -365,6 +398,16 @@ function getpcatpro(){
             $pro_price = $row_products['product_price'];
 
             $pro_img1 = $row_products['product_img1'];
+
+            $seller = $row_products['seller'];
+
+            $get_seller = "select * from sellers where seller_id = '$seller'";
+            
+            $run_seller = mysqli_query($db,$get_seller);
+
+            $row_seller = mysqli_fetch_array($run_seller);
+
+            $company_name = $row_seller['company_name'];
             
             echo "
             
@@ -389,6 +432,7 @@ function getpcatpro(){
                         </a>
                     
                     </h3>
+                    <h4><center><a href='details.php?pro_id=$pro_id'>$company_name</a></center></h4>
                     
                     <p class='price'>
                     
@@ -491,6 +535,16 @@ function getcatpro(){
             $pro_desc = $row_products['product_desc'];
             
             $pro_img1 = $row_products['product_img1'];
+
+            $seller = $row_products['seller'];
+
+            $get_seller = "select * from sellers where seller_id = '$seller'";
+            
+            $run_seller = mysqli_query($db,$get_seller);
+
+            $row_seller = mysqli_fetch_array($run_seller);
+
+            $company_name = $row_seller['company_name'];
             
             echo "
             
@@ -511,7 +565,7 @@ function getcatpro(){
                                 <a href='details.php?pro_id=$pro_id'> $pro_title </a>
                                                 
                             </h3>
-                                            
+                            <h4><center><a href='details.php?pro_id=$pro_id'>$company_name</a></center></h4>        
                         <p class='price'>
 
                             BDT $pro_price

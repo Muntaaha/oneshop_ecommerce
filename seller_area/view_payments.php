@@ -6,6 +6,8 @@
         
     }else{
 
+        $seller_email = $_SESSION['seller_email'];
+
 ?>
 
 <div class="row"><!-- row 1 begin -->
@@ -38,13 +40,12 @@
                         <thead><!-- thead begin -->
                             <tr><!-- tr begin -->
                                 <th> No: </th>
-                                <th> Invoice No: </th>
-                                <th> Amount Paid: </th>
-                                <th> Method: </th>
-                                <th> Reference No: </th>
-                                <th> Payment Code: </th>
-                                <th> Payment Date: </th>
-                                <th> Delete Payment: </th>
+                                <th> Product Name: </th>
+                                <th> Customer Name: </th>
+                                <th> Ordered Quantity: </th>
+                                <th> Total Price: </th>
+                                <th> Seller Payment: </th>
+                                <th> Admin Payment: </th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
                         
@@ -53,48 +54,63 @@
                             <?php 
           
                                 $i=0;
+
+                                $get_seller = "select * from sellers where seller_email = '$seller_email'";
+
+                                $run_seller = mysqli_query($con,$get_seller);
+
+                                $row_seller = mysqli_fetch_array($run_seller);
+
+                                $seller_id = $row_seller['seller_id'];
                             
-                                $get_payments = "select * from payments";
+                                $get_order_datails = "select * from customer_orders where seller_id='$seller_id'";
                                 
-                                $run_payments = mysqli_query($con,$get_payments);
+                                $run_order_datails = mysqli_query($con,$get_order_datails);
           
-                                while($row_payments=mysqli_fetch_array($run_payments)){
+                                while($row_order_datails=mysqli_fetch_array($run_order_datails)){
                                     
-                                    $payment_id = $row_payments['payment_id'];
+                                    $customer_id = $row_order_datails['customer_id'];
                                     
-                                    $invoice_no = $row_payments['invoice_no'];
+                                    $product_id = $row_order_datails['product_id'];
                                     
-                                    $amount = $row_payments['amount'];
+                                    $amount = $row_order_datails['due_amount'];
                                     
-                                    $payment_mode = $row_payments['payment_mode'];
+                                    $qty = $row_order_datails['qty'];
                                     
-                                    $ref_no = $row_payments['ref_no'];
+                                    $size = $row_order_datails['size'];
                                     
-                                    $code = $row_payments['code'];
-                                    
-                                    $payment_date = $row_payments['payment_date'];
+                                    $order_date = $row_order_datails['order_date'];
+
+                                    $get_customer = "select * from customers where customer_id = '$customer_id'";
+
+                                    $run_customer = mysqli_query($con,$get_customer);
+
+                                    $row_customer=mysqli_fetch_array($run_customer);
+
+                                    $customer_name = $row_customer['customer_name'];
+
+                                    $get_product = "select * from products where product_id = '$product_id'";
+
+                                    $run_product = mysqli_query($con,$get_product);
+
+                                    $row_product=mysqli_fetch_array($run_product);
+
+                                    $product_name = $row_product['product_title'];
                                     
                                     $i++;
                             
                             ?>
                             
                             <tr><!-- tr begin -->
-                                <td> <?php echo $i; ?> </td>
-                                <td> <?php echo $invoice_no; ?> </td>
+                                <td> <?php echo $seller_id; ?> </td>
+                                <td> <?php echo $product_name; ?> </td>
+                                <td> <?php echo $customer_name; ?></td>
+                                <td> <?php echo $qty; ?> </td>
                                 <td> <?php echo $amount; ?></td>
-                                <td> <?php echo $payment_mode; ?> </td>
-                                <td> <?php echo $ref_no; ?></td>
-                                <td> <?php echo $code; ?> </td>
-                                <td> <?php echo $payment_date; ?> </td>
-                                <td> 
-                                     
-                                     <a href="index.php?delete_payment=<?php echo $payment_id; ?>">
-                                     
-                                        <i class="fa fa-trash-o"></i> Delete
-                                    
-                                     </a> 
-                                     
-                                </td>
+                                <td> <?php echo $amount*(90/100); ?> </td>
+                                <td> <?php echo $amount*(10/100); ?> </td>
+                                
+                            
                             </tr><!-- tr finish -->
                             
                             <?php } ?>

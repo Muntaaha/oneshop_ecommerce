@@ -69,6 +69,9 @@ if(isset($_GET['pro_id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>one shop</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
@@ -200,7 +203,7 @@ if(isset($_GET['pro_id'])){
                            
                            if(!isset($_SESSION['customer_email'])){
                                
-                               echo"<a href='checkout.php'>My Account</a>";
+                               echo "<a href='checkout.php'>My Account</a>";
                                
                            }else{
                                
@@ -212,7 +215,7 @@ if(isset($_GET['pro_id'])){
                            
                        </li>
                        <li class="<?php if($active=='Cart') echo"active"; ?>">
-						<a href='cart.php'>Shopping Cart</a>";
+						<a href='cart.php'>Shopping Cart</a>
                        </li>
                        <li class="<?php if($active=='Contact') echo"active"; ?>">
                            <a href="contact.php">Contact Us</a>
@@ -244,15 +247,15 @@ if(isset($_GET['pro_id'])){
                
                <div class="collapse clearfix" id="search"><!-- collapse clearfix Begin -->
                    
-                   <form method="get" action="results.php" class="navbar-form"><!-- navbar-form Begin -->
+                   <form method="POST" action="search.php" class="navbar-form"><!-- navbar-form Begin -->
                        
                        <div class="input-group"><!-- input-group Begin -->
                            
-                           <input type="text" class="form-control" placeholder="Search" name="user_query" required>
+                           <input type="text" class="form-control" placeholder="Search" name="search" required>
                            
                            <span class="input-group-btn"><!-- input-group-btn Begin -->
                            
-                           <button type="submit" name="search" value="Search" class="btn btn-primary"><!-- btn btn-primary Begin -->
+                           <button type="submit" name="submit-search" class="btn btn-primary"><!-- btn btn-primary Begin -->
                                
                                <i class="fa fa-search"></i>
                                
@@ -452,6 +455,17 @@ if(isset($_GET['pro_id'])){
                                 $pro_price = $row_products['product_price'];
 
                                 $pro_img1 = $row_products['product_img1'];
+
+                                $seller = $row_products['seller'];
+
+                                  $get_seller = "select * from sellers where seller_id = '$seller'";
+                                  
+                                  $run_seller = mysqli_query($db,$get_seller);
+
+                                  $row_seller = mysqli_fetch_array($run_seller);
+
+                                  $company_name = $row_seller['company_name'];
+        
                                 
                                 echo "
                                 
@@ -471,6 +485,10 @@ if(isset($_GET['pro_id'])){
                                                 
                                                     <a href='details.php?pro_id=$pro_id'> $pro_title </a>
                                                 
+                                                </h4>
+                                                
+                                                <h4>
+                                                  <a href='details.php?pro_id'>$company_name</a>
                                                 </h4>
                                             
                                                 <p class='price'>
@@ -551,6 +569,17 @@ if(isset($_GET['pro_id'])){
                                 $pro_price = $row_products['product_price'];
 
                                 $pro_img1 = $row_products['product_img1'];
+
+                                $seller = $row_products['seller'];
+
+                                $get_seller = "select * from sellers where seller_id = '$seller'";
+                                
+                                $run_seller = mysqli_query($db,$get_seller);
+
+                                $row_seller = mysqli_fetch_array($run_seller);
+
+                                $company_name = $row_seller['company_name'];
+        
                                 
                                 echo "
                                 
@@ -571,7 +600,7 @@ if(isset($_GET['pro_id'])){
                                                     <a href='details.php?pro_id=$pro_id'> $pro_title </a>
                                                 
                                                 </h4>
-                                            
+                                                <h4><a href='details.php?pro_id'>$company_name</a></h4>
                                                 <p class='price'>
 
                                                     BDT $pro_price
